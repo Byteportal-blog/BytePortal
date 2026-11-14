@@ -17,7 +17,8 @@ assets/js/main.js           theme toggle + consent bar, feed filter, code copy b
 assets/Byte-Portal-Logo.svg header logo + tab icon (referenced from every page)
 assets/images/<year>/       post images, grouped by year
 posts/template.html         the daily entry template — never publish this one
-posts/YYYY-MM-DD-slug.html  one file per post
+<post-slug>/index.html       one folder per post; the folder name is the URL
+vercel.json                 permanent redirects for moved URLs
 .gitignore                  OS/editor noise, test artifacts, .env
 ```
 
@@ -35,10 +36,11 @@ Light is the default. One inline line in each page's `<head>` applies a saved da
 
 ## Publish a post
 
-1. `cp posts/template.html posts/2026-11-14-api-gateways.html` (date + slug, so IDs sort naturally).
-2. In the copy, replace: `<title>`, `meta[name=description]`, `link[rel=canonical]`, `og:title`, `og:description`, `og:url`, `og:image`, `article:published_time`, and the visible `<time datetime="YYYY-MM-DD">` plus its text.
-3. Put images in `assets/images/2026/` and reference them as `../assets/images/2026/file.jpg` from inside `posts/`.
-4. In `index.html`, copy the commented `<li>` block into `<ol id="post-feed">`, point `href` at the new file, update date/title/summary. Newest first.
+1. `mkdir api-gateways && cp posts/template.html api-gateways/index.html` — the folder name is the URL (`/api-gateways/`), so keep it short and readable. No date in the folder: the `<time>` tag carries it, and the feed sorts on that.
+2. In the copy, replace: `<title>`, `meta[name=description]`, `link[rel=canonical]`, `og:title`, `og:description`, `og:url`, `og:image`, `article:published_time`, and the visible `<time datetime="YYYY-MM-DD">` plus its text. Canonical and `og:url` end in the folder name and a slash: `https://byteportal.vercel.app/api-gateways/`.
+3. Put images in `assets/images/2026/` and reference them as `../assets/images/2026/file.jpg` from inside the post folder.
+4. In `index.html`, copy the commented `<li>` block into `<ol id="post-feed">`, point `href` at `api-gateways/`, update date/title/summary. Newest first.
+5. Moved or renamed a folder? Add a permanent redirect in `vercel.json` so the old link keeps working.
 
 Code blocks carry their language in the class, and `main.js` turns that into a header label plus a Copy button:
 
@@ -61,7 +63,7 @@ rg -l "byteportal.tech|Your Name" --glob '*.html'
 ## Scaling notes
 
 - **Duplication ceiling.** The header, footer and theme script are copied into every post; that is the price of no includes and no build. It holds to hundreds of posts. If it starts to hurt, the cheapest escapes are, in order: a ~20-line `layout.js` that injects the header/footer (cost: nav links vanish with JS off), then a one-off build step.
-- **Feed length.** One `<ol>` handles a few hundred entries fine. Past that, move older entries to `posts/archive.html` and link it from the homepage; the filter keeps the rest findable.
+- **Feed length.** One `<ol>` handles a few hundred entries fine. Past that, move older entries to `archive/index.html` and link it from the homepage; the filter keeps the rest findable.
 - **Search.** The homepage filter is substring matching over each entry's text, revealed only when JS runs. No index file to maintain — add the `<li>` and it is searchable.
 - **Images.** A new `assets/images/<year>/` folder each January; the only path to update is the template's `<img src>`. `width`/`height` prevent layout shift — update them to the real image size.
 - **Tailwind CDN.** Fine for a personal blog; it prints a production warning and means styles depend on the network. `style.css` keeps the page readable if it fails. If you ever drop the zero-build rule, compile Tailwind to `assets/css/tailwind.css` and delete the CDN tags.

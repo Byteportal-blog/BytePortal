@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/posts/2026-11-13-aws-emulator.html",
+      "destination": "/aws-emulator/",
+      "permanent": true
+    }
+  ]
+}

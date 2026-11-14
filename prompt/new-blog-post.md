@@ -47,7 +47,7 @@ Length: 700–1000 words. If it runs longer, cut sections, not detail inside the
 ### Images — use the ones in the site
 
 - Look before you write: `ls -R assets/images/`. Reuse an existing image when it fits the topic — do not duplicate or re-download it.
-- New images go in `assets/images/<year>/` (this year: `assets/images/2026/`), referenced from inside `posts/` as `../assets/images/2026/file.png`.
+- New images go in `assets/images/<year>/` (this year: `assets/images/2026/`), referenced from inside the post folder as `../assets/images/2026/file.png`.
 - Prefer a local image over a remote one. If you must hotlink, keep the original URL and credit the source in the caption.
 - Place an image where it does the explaining — right after the paragraph that introduces the concept, never as decoration at the top.
 - Each image needs: real `width`/`height` (prevents layout shift), meaningful `alt` text describing what it shows, `loading="lazy"`, `decoding="async"`, and a caption in the reader's own words — not a copy of the image's title.
@@ -55,11 +55,11 @@ Length: 700–1000 words. If it runs longer, cut sections, not detail inside the
 
 ### Files to touch
 
-1. `cp posts/template.html posts/YYYY-MM-DD-slug.html` — date plus short slug, e.g. `2026-11-14-api-gateways.html`. Never edit or publish `template.html` itself.
-2. In the new file, update **every** one of: `<title>`, `meta[name=description]`, `link[rel=canonical]`, `og:title`, `og:description`, `og:url`, `og:image` (absolute URL to the local image), `article:published_time`, and the visible `<time datetime="YYYY-MM-DD">` plus its text. Leave stale placeholder URLs behind and the post ships broken.
+1. `mkdir api-gateways && cp posts/template.html api-gateways/index.html` — the folder name **is** the URL (`/api-gateways/`), so keep it short and readable. No date in the folder; the `<time>` tag carries it. Never edit or copy `template.html` itself into a folder.
+2. In the new file, update **every** one of: `<title>`, `meta[name=description]`, `link[rel=canonical]`, `og:title`, `og:description`, `og:url`, `og:image` (absolute URL to the local image), `article:published_time`, and the visible `<time datetime="YYYY-MM-DD">` plus its text. Canonical and `og:url` are `https://byteportal.vercel.app/<folder>/`. Leave stale placeholder URLs behind and the post ships broken.
 3. Write the article body inside the existing `<div class="prose …">`. Keep the header, footer and theme script untouched.
-4. In `index.html`, add one `<li>` as the **first** child of `<ol id="post-feed">`, matching the existing entry exactly: `href`, `<time>`, `h2` title, and a one-sentence summary that reads like the post's hook.
-5. Read time: count words, assume ~200 words per minute, round up. Update the `· N min read` line.
+4. In `index.html`, add one `<li>` as the **first** child of `<ol id="post-feed">`, matching the existing entry exactly: `href="api-gateways/"`, `<time>`, `h2` title, and a one-sentence summary that reads like the post's hook.
+5. Read time: count words, assume ~200 words per minute, round up. Update the `· N min read` line. If you moved an existing post, add a permanent redirect in `vercel.json`.
 6. Commit and push: `git add -A && git commit -m "post: <slug>" && git push`. The repo is `Byteportal-blog/BytePortal`, branch `main`.
 
 ### Before you say done
