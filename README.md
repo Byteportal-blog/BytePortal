@@ -1,0 +1,57 @@
+# bytenetes.tech
+
+Zero-build static blog: HTML, CSS, a little vanilla JS, Tailwind from the CDN. No Node, no npm, no generator. Open `index.html` in a browser, or serve the folder:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000/`. You can also just double-click `index.html` — links are relative, so the site works from a file path, from a subfolder, or from a domain root. It will **not** work behind a dev server that has SPA fallback (the `localhost:3000` style used by Next/Vite/CRA): those never serve your `.html` files, so post links silently fall back to the homepage. Use a plain static file server.
+
+## Layout
+
+```
+index.html                  homepage + post feed (the only page you edit twice)
+assets/css/style.css        custom CSS; print styles; no-Tailwind fallback layout
+assets/js/main.js           dark mode toggle, feed filter, code copy buttons
+assets/Byte-Portal-Logo.svg header logo + tab icon (referenced from every page)
+assets/images/<year>/       post images, grouped by year
+posts/template.html         the daily entry template — never publish this one
+posts/YYYY-MM-DD-slug.html  one file per post
+.gitignore                  OS/editor noise, test artifacts, .env
+```
+
+## Publish a post
+
+1. `cp posts/template.html posts/2026-11-14-api-gateways.html` (date + slug, so IDs sort naturally).
+2. In the copy, replace: `<title>`, `meta[name=description]`, `link[rel=canonical]`, `og:title`, `og:description`, `og:url`, `og:image`, `article:published_time`, and the visible `<time datetime="YYYY-MM-DD">` plus its text.
+3. Put images in `assets/images/2026/` and reference them as `../assets/images/2026/file.jpg` from inside `posts/`.
+4. In `index.html`, copy the commented `<li>` block into `<ol id="post-feed">`, point `href` at the new file, update date/title/summary. Newest first.
+
+Code blocks carry their language in the class, and `main.js` turns that into a header label plus a Copy button:
+
+```html
+<pre><code class="language-python">import boto3</code></pre>
+```
+
+Supported labels: python, bash, js/javascript, ts, json, html, css, rust, go, sql, yaml, text. Anything else is upper-cased, and a block with no class just says "Code".
+
+Colours come from highlight.js (one CDN script + `github-dark` theme). The card background and spacing stay ours — only the token colours are borrowed. If the CDN is blocked the blocks render plain and Copy still works.
+
+## Change once, site-wide
+
+The site name (`bytenetes.tech`), the domain in the canonical and Open Graph tags, the author name (`Your Name`), and the footer appear in `index.html` and in `posts/template.html`. Change them in those two files and in any existing posts:
+
+```bash
+rg -l "bytenetes.tech|Your Name" --glob '*.html'
+```
+
+## Scaling notes
+
+- **Duplication ceiling.** The header, footer and theme script are copied into every post; that is the price of no includes and no build. It holds to hundreds of posts. If it starts to hurt, the cheapest escapes are, in order: a ~20-line `layout.js` that injects the header/footer (cost: nav links vanish with JS off), then a one-off build step.
+- **Feed length.** One `<ol>` handles a few hundred entries fine. Past that, move older entries to `posts/archive.html` and link it from the homepage; the filter keeps the rest findable.
+- **Search.** The homepage filter is substring matching over each entry's text, revealed only when JS runs. No index file to maintain — add the `<li>` and it is searchable.
+- **Images.** A new `assets/images/<year>/` folder each January; the only path to update is the template's `<img src>`. `width`/`height` prevent layout shift — update them to the real image size.
+- **Tailwind CDN.** Fine for a personal blog; it prints a production warning and means styles depend on the network. `style.css` keeps the page readable if it fails. If you ever drop the zero-build rule, compile Tailwind to `assets/css/tailwind.css` and delete the CDN tags.
+- **Syntax colours.** highlight.js is a second CDN dependency (~40 KB gzipped, includes the common languages). It fails soft: no network, plain code, copy button still there. Adding a language outside the common bundle means one more `<script>` tag in every page.
+- **No sitemap, RSS or JSON-LD by default.** Each is another file to update per post. Add them when a search engine or reader client actually asks.

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AWS now runs on your laptop — bytenetes.tech</title>
+
+  <!-- SEO: change all four values per post -->
+  <meta name="description" content="AWS Emulator lets you run S3, SQS, Lambda and DynamoDB on your own machine. No account, no deploys, and answers in milliseconds.">
+  <meta name="author" content="Your Name">
+  <link rel="canonical" href="https://bytenetes.tech/posts/2026-11-13-aws-emulator.html">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AWS now runs on your laptop">
+  <meta property="og:description" content="AWS Emulator lets you run S3, SQS, Lambda and DynamoDB on your own machine. No account, no deploys, and answers in milliseconds.">
+  <meta property="og:url" content="https://bytenetes.tech/posts/2026-11-13-aws-emulator.html">
+  <meta property="og:site_name" content="bytenetes.tech">
+  <meta property="og:image" content="https://bytenetes.tech/assets/images/2026/aws-emulator-diagram.png">
+  <meta property="article:published_time" content="2026-11-13">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../assets/Byte-Portal-Logo.svg" type="image/svg+xml">
+
+  <!-- Light is the default. A saved dark choice is applied before paint, no flash. -->
+  <script>
+    if (localStorage.theme === 'dark') document.documentElement.classList.add('dark');
+  </script>
+
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script>tailwind.config = { darkMode: 'class' };</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/styles/github-dark.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body class="flex min-h-screen flex-col bg-white text-stone-800 antialiased dark:bg-stone-950 dark:text-stone-200">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:m-4 focus:rounded focus:bg-stone-900 focus:px-3 focus:py-2 focus:font-sans focus:text-sm focus:text-white">Skip to content</a>
+
+  <header class="border-b border-stone-200 dark:border-stone-800">
+    <nav class="mx-auto flex max-w-2xl items-center justify-between px-4 py-4 font-sans text-sm" aria-label="Main">
+      <a href="../index.html" aria-label="bytenetes.tech — home" class="inline-flex rounded bg-white px-1.5 py-1">
+        <img src="../assets/Byte-Portal-Logo.svg" alt="" width="1337" height="317" class="h-8 w-auto">
+      </a>
+
+      <button id="theme-toggle" type="button" aria-label="Toggle dark mode"
+        class="grid h-11 w-11 place-items-center rounded-full border border-stone-200 text-stone-600 hover:text-stone-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900 dark:border-stone-700 dark:text-stone-400 dark:hover:text-white dark:focus-visible:outline-white">
+        <svg class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/>
+        </svg>
+        <svg class="hidden h-5 w-5 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main" class="mx-auto w-full max-w-2xl flex-1 px-4 py-12 sm:py-16">
+    <a href="../index.html" class="font-sans text-sm text-stone-500 hover:text-stone-900 dark:hover:text-white">&larr; All posts</a>
+
+    <article class="mt-6">
+      <header>
+        <h1 class="text-3xl font-bold leading-tight tracking-tight text-stone-900 sm:text-4xl dark:text-white">AWS now runs on your laptop</h1>
+        <p class="mt-3 font-sans text-sm text-stone-500">
+          <time datetime="2026-11-13">13 November 2026</time> · 4 min read
+        </p>
+      </header>
+
+      <div class="prose prose-stone mt-8 max-w-none dark:prose-invert">
+        <p>Here is how testing cloud code usually goes: you write a few lines, deploy them, wait, watch a log, find a typo, fix it, and deploy again. Ten minutes per mistake. Most of that time you are not thinking about your code. You are waiting.</p>
+
+        <p>On 11 November 2026, AWS released a tool that deletes the wait. It is called <strong>AWS Emulator</strong>, and it runs AWS on your own machine.</p>
+
+        <p><strong>The short version:</strong></p>
+        <ul>
+          <li>It pretends to be AWS, on your laptop or in CI, with no AWS account.</li>
+          <li>Your normal AWS SDK and CLI calls hit it instead of the internet, and answer in milliseconds.</li>
+          <li>It is free, it is open source, and it is not for production.</li>
+        </ul>
+
+        <h2>What an emulator actually is</h2>
+        <p>An emulator is a stand-in. It listens for the same requests real AWS listens for, then answers them itself.</p>
+
+        <p>So your code does not change. You keep using the same SDK, the same CLI, the same calls. Only the address changes: instead of sending requests to AWS in the cloud, you send them to a small program running on <code>127.0.0.1</code>.</p>
+
+        <figure>
+          <img src="https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/images/26-IDP-NON-AWSEmulator-Web-NA-Image-Diagram-en-US-1200x900-FINAL.e6689d99e66eaa1955a4d8d47b76f2e12d66f396.png" alt="Diagram: your code sends API calls to AWS Emulator running on your laptop or CI machine, and the same code deploys to AWS later"
+               width="1200" height="900" loading="lazy" decoding="async" class="rounded-lg">
+          <figcaption>The same code, two destinations: the emulator while you build, AWS when you deploy. Image: AWS.</figcaption>
+        </figure>
+
+        <p>That is the whole idea. One arrow points at a local program, the other points at the cloud. Your code sits on the left and never knows the difference.</p>
+
+        <h2>Why this is a big deal for coding agents</h2>
+        <p>Agents are fast at writing code and slow at waiting for deploys. They also make mistakes in batches, so a slow feedback loop makes them expensive.</p>
+
+        <p>Now picture an agent that needs a database table. It creates one in the emulator, runs a query, sees the error, fixes the code, and runs it again. All of that happens in seconds, offline, with no credentials and no bill. Only when the code works does anything reach AWS.</p>
+
+        <p>The isolation matters as much as the speed. Every copy of the emulator gets its own port, its own keys, and its own memory. So two agents, or two CI jobs, or your test suite and your agent, can all run at the same time without stepping on each other. When you stop it, the state is gone — a clean slate every time.</p>
+
+        <h2>How close is it to the real thing?</h2>
+        <p>Close for the operations it supports, and honest about the rest.</p>
+
+        <ul>
+          <li>Valid calls return the same result as AWS. Invalid calls return the same errors.</li>
+          <li>Anything it has not built yet returns <code>501 Not Implemented</code> instead of pretending to work.</li>
+          <li>Its services are generated from the same public API models that power the AWS SDKs, and behaviour is filled in release by release.</li>
+          <li>Each release publishes a <a href="https://docs.aws.amazon.com/emulator/latest/userguide/fidelity.html">fidelity report</a> — a scorecard of how closely each service behaves like the real one.</li>
+        </ul>
+
+        <p>That last point is the one to check before you rely on it. "Supported" is per operation, not per service. If your code depends on one specific DynamoDB behaviour, look it up in the report first.</p>
+
+        <h2>Getting started</h2>
+        <p>There is no graphical interface. It is a small server, so the setup is short:</p>
+
+        <ol>
+          <li><strong>Install it.</strong> On Linux, use the RPM or Debian package. On macOS or Windows, run the provided Dockerfile.</li>
+          <li><strong>Start it.</strong> The <code>aws-emulator</code> program serves HTTPS on <code>127.0.0.1:9297</code> with a self-signed certificate, and gives you the credentials to use.</li>
+          <li><strong>Point your code at it.</strong> Set the endpoint and keys as environment variables, then run your code exactly as before.</li>
+        </ol>
+
+        <p>With an SDK, that is usually one argument:</p>
+
+        <pre><code class="language-python">import boto3, os
+
+dynamodb = boto3.client(
+    "dynamodb",
+    endpoint_url=os.environ["AWS_ENDPOINT_URL"],  # the emulator, not AWS
+)</code></pre>
+
+        <p>If you work with an AI coding agent, AWS also publishes a skill that sets all of this up for you:</p>
+
+        <pre><code class="language-bash">aws agent-toolkit add-skill --skill-name aws-emulator --region us-east-1</code></pre>
+
+        <p>There is a third mode for Rust developers: the emulator can be compiled straight into your test binary. No port, no certificate, no environment variables. The catch is build cost — a cold build needs roughly 100 GB of disk and a fast multi-core machine.</p>
+
+        <h2>What it is not</h2>
+        <ul>
+          <li><strong>Not production.</strong> It holds state in memory, so everything disappears when you stop it.</li>
+          <li><strong>Not a security test.</strong> Do not use it to check IAM policies or permissions behaviour.</li>
+          <li><strong>Not complete.</strong> New services appear quickly, but behaviour lands over time. The 501 response is your signal.</li>
+          <li><strong>Not region-aware.</strong> It does not care which region you ask for.</li>
+        </ul>
+
+        <h2>How it compares to LocalStack</h2>
+        <p>If you have tested AWS locally before, you probably used LocalStack, the third-party emulator that has done this job for years. AWS Emulator is the first-party version of the same idea, with one clear advantage: AWS owns the API models, so new services show up in it as soon as they are published. Its source is released under CC0, which puts it in the public domain.</p>
+
+        <p>Whether that is enough to switch depends on what you need. For a quick local loop on S3, SQS, Lambda or DynamoDB, it is a very short setup. For broad service coverage today, check the fidelity report against your stack before you move anything.</p>
+
+        <h2>The takeaway</h2>
+        <p>The interesting part is not that you can fake S3 on a laptop. People have done that for years. The interesting part is that the fast feedback loop is now the default path, even for agents: write, test, fix, repeat — all locally — and only deploy when the code already works.</p>
+
+        <p>Try it on one small thing this week. Pick the AWS call you deploy most often, point it at the emulator, and see how much of your day was spent waiting.</p>
+
+        <p>Links: <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/aws-emulator-now-available/">the announcement</a>, <a href="https://docs.aws.amazon.com/emulator">the documentation</a>, <a href="https://github.com/aws/aws-emulator">the source on GitHub</a>.</p>
+      </div>
+    </article>
+
+    <nav class="mt-12 border-t border-stone-200 pt-6 font-sans text-sm dark:border-stone-800" aria-label="Post navigation">
+      <a href="../index.html" class="text-stone-500 hover:text-stone-900 dark:hover:text-white">&larr; Back to all posts</a>
+    </nav>
+  </main>
+
+  <footer class="border-t border-stone-200 py-6 text-center font-sans text-sm text-stone-500 dark:border-stone-800">
+    <p>© 2026 bytenetes.tech</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/highlight.min.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
