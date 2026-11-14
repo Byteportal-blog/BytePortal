@@ -36,7 +36,7 @@ Light is the default. One inline line in each page's `<head>` applies a saved da
 ## Publish a post
 
 1. `mkdir posts/api-gateways && cp posts/template.html posts/api-gateways/index.html` — the folder name is the URL (`/posts/api-gateways/`), so keep it short and readable. No date in the folder: the `<time>` tag carries it, and the feed sorts on that.
-2. In the copy, replace: `<title>`, `meta[name=description]`, `link[rel=canonical]`, `og:title`, `og:description`, `og:url`, `og:image`, `article:published_time`, and the visible `<time datetime="YYYY-MM-DD">` plus its text. Canonical and `og:url` end in `posts/<slug>/` plus a slash: `https://byteportal.vercel.app/posts/api-gateways/`.
+2. In the copy, replace: `<title>`, `meta[name=description]`, `link[rel=canonical]`, `og:title`, `og:description`, `og:url`, `og:image`, `article:published_time`, and the visible `<time datetime="YYYY-MM-DD">` plus its text. Canonical and `og:url` end in `posts/<slug>/` plus a slash: `https://www.byteportal.tech/posts/api-gateways/`.
 3. Put images in `assets/images/2026/` and reference them as `../../assets/images/2026/file.jpg` from inside the post folder.
 4. In `index.html`, copy the commented `<li>` block into `<ol id="post-feed">`, point `href` at `posts/api-gateways/`, update date/title/summary. Newest first.
 5. Renamed a folder? The old URL dies with it — there is no config or redirect layer. Put a `<meta http-equiv="refresh" content="0; url=/posts/new-name/">` stub at the old path if a link to it is already out in the world.
