@@ -13,6 +13,8 @@ Then open `http://localhost:8000/`. You can also just double-click `index.html` 
 ```
 index.html                  homepage + post feed (the only page you edit twice)
 about/index.html            about page (/about/)
+privacy/index.html          privacy policy required by Google AdSense & privacy laws
+ads.txt                     Google AdSense publisher ID verification
 sitemap.xml                 XML sitemap for Google Search Console & search engines
 robots.txt                  crawler directives (disallows /prompt/ and /404/)
 feed.xml                    RSS 2.0 feed for readers and aggregators
