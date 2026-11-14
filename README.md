@@ -12,6 +12,7 @@ Then open `http://localhost:8000/`. You can also just double-click `index.html` 
 
 ```
 index.html                  homepage + post feed (the only page you edit twice)
+404.html                    custom not-found page
 assets/css/style.css        custom CSS; print styles; no-Tailwind fallback layout
 assets/js/main.js           theme toggle + consent bar, feed filter, code copy buttons
 assets/Byte-Portal-Logo.svg header logo + tab icon (referenced from every page)
