@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>byteportal.tech</title>
+    <link>https://www.byteportal.tech/</link>
+    <description>Explore AI tools, honest reviews, detailed comparisons, and practical tutorials to boost productivity and simplify your workflow.</description>
+    <language>en</language>
+    <atom:link href="https://www.byteportal.tech/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Nov 2026 00:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Run AWS Locally on Your Laptop with AWS Emulator</title>
+      <link>https://www.byteportal.tech/aws-emulator/</link>
+      <guid isPermaLink="true">https://www.byteportal.tech/aws-emulator/</guid>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Run S3, DynamoDB, SQS, and Lambda locally using AWS Emulator. Test AWS SDK calls in milliseconds without an AWS account, cloud deploy, or AWS bill.</description>
+    </item>
+  </channel>
+</rss>

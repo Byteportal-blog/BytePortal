@@ -12,12 +12,15 @@ Then open `http://localhost:8000/`. You can also just double-click `index.html` 
 
 ```
 index.html                  homepage + post feed (the only page you edit twice)
-404.html                    custom not-found page
+about/index.html            about page (/about/)
+robots.txt                  crawler directives (disallows /prompt/ and /404/)
+feed.xml                    RSS 2.0 feed for readers and aggregators
+404.html                    custom not-found fallback
+404/index.html              not-found page folder (/404/)
 assets/css/style.css        custom CSS; print styles; no-Tailwind fallback layout
 assets/js/main.js           theme toggle + consent bar, feed filter, code copy buttons
 assets/Byte-Portal-Logo.svg header logo + tab icon (referenced from every page)
 assets/images/<year>/       post images, grouped by year
-posts/template.html         the daily entry template — copy it, don't publish it
 <post-slug>/index.html       one folder per post; the folder name is the URL
 vercel.json                 clean URLs and redirects for moved URLs
 .gitignore                  OS/editor noise, test artifacts, .env

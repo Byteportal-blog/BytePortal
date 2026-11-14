@@ -4,9 +4,30 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/prompt",
+      "destination": "/404/",
+      "permanent": false
+    },
+    {
+      "source": "/prompt/:path*",
+      "destination": "/404/",
+      "permanent": false
+    },
+    {
       "source": "/posts/:slug*",
       "destination": "/:slug*",
       "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/prompt/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ]
 }

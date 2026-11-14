@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /prompt/
+Disallow: /404/
+
+Sitemap: https://www.byteportal.tech/feed.xml

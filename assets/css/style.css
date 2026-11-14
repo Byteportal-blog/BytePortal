@@ -1,19 +1,21 @@
 /* Custom tweaks only. Everything else comes from Tailwind (CDN) + the typography plugin. */
 
 :root {
-  --font-serif: "Iowan Old Style", Charter, Georgia, Cambria, "Times New Roman", serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
 }
 
 body {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
 }
 
 html.dark {
   color-scheme: dark;
 }
 
-/* Short headings wrap to balanced lines instead of leaving one orphan word. */
-h1, h2, h3 {
+/* Headings wrap cleanly with modern balanced proportions. */
+h1, h2, h3, h4 {
+  font-family: var(--font-sans);
   text-wrap: balance;
 }
 
@@ -174,6 +176,69 @@ p {
   text-wrap: pretty;
 }
 
+/* Code blocks scroll smoothly with touch momentum on mobile devices */
+pre {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* On mobile (<640px), keep text left-aligned with natural word spacing to prevent gaping whitespace holes (rivers).
+   On desktop (>=640px), apply full justification for crisp, straight margins. */
+.prose p,
+.text-justify p {
+  text-align: left;
+  text-align-last: left;
+  text-wrap: pretty;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+@media (min-width: 640px) {
+  .prose p,
+  .text-justify p {
+    text-align: justify;
+    text-justify: inter-word;
+    text-align-last: left;
+  }
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose li,
+.prose pre {
+  text-align: left;
+  text-align-last: left;
+}
+
+.prose figcaption {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #78716c;
+}
+
+/* Mobile-tuned reading typography */
+@media (max-width: 639px) {
+  .prose {
+    font-size: 1rem;
+    line-height: 1.72;
+  }
+  .prose h2 {
+    font-size: 1.3rem;
+    line-height: 1.35;
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
+  }
+  .prose pre code {
+    font-size: 0.8125rem;
+  }
+  .code-bar {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.7rem;
+  }
+}
+
 /* Wide tables scroll like code blocks instead of breaking the page width. */
 .prose table {
   display: block;
@@ -181,9 +246,9 @@ p {
 }
 
 /* Fallback layout: keeps the page readable if the Tailwind CDN never arrives.
-   Same values as Tailwind's max-w-2xl / px-4, so nothing changes when it does. */
+   Same values as Tailwind's max-w-3xl / px-4, so nothing changes when it does. */
 main {
-  max-width: 42rem;
+  max-width: 48rem;
   margin-inline: auto;
   padding-inline: 1rem;
 }
