@@ -16,6 +16,8 @@ about/index.html            about page (/about/)
 privacy/index.html          privacy policy required by Google AdSense & privacy laws
 ads.txt                     Google AdSense publisher ID verification
 sitemap.xml                 XML sitemap for Google Search Console & search engines
+llms.txt                    plain markdown index for AI models (Gemini, ChatGPT, Claude)
+llms-full.txt               expanded full-text markdown index for deep LLM context
 robots.txt                  crawler directives (disallows /prompt/ and /404/)
 feed.xml                    RSS 2.0 feed for readers and aggregators
 404.html                    custom not-found fallback

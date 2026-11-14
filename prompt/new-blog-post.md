@@ -158,7 +158,8 @@ Include valid `BlogPosting` schema in `<head>` so Google generates rich search s
      <priority>0.8</priority>
    </url>
    ```
-7. Read time: count words, assume ~200 words per minute, round up. Update the `· N min read` line. If you moved an existing post, add a permanent redirect in `vercel.json`.
+7. In `llms.txt`, add a one-line bullet under `## Core Articles` with title, URL, and dense summary so AI engines (ChatGPT, Gemini, Claude) discover and cite the post.
+8. Read time: count words, assume ~200 words per minute, round up. Update the `· N min read` line. If you moved an existing post, add a permanent redirect in `vercel.json`.
 
 ---
 

@@ -1,0 +1,63 @@
+# BytePortal — Full Knowledge Base
+
+> BytePortal (https://www.byteportal.tech/) provides honest, fluff-free AI tool reviews, head-to-head comparisons, and developer tutorials to save time and automate workflows.
+
+---
+
+# Article: Run AWS Locally on Your Laptop with AWS Emulator
+
+- URL: https://www.byteportal.tech/aws-emulator/
+- Published: 2026-11-13
+- Author: Byte Portal
+- Tags: AWS, Local Dev, Developer Tools, Coding Agents
+
+## Summary
+AWS Emulator is a free, official local development tool released by AWS that lets developers run S3, DynamoDB, SQS, and Lambda directly on their local machine (127.0.0.1) without an AWS account, cloud deploy wait, or cloud bill. It provides millisecond response times, enabling AI coding agents to test, debug, and iterate on cloud infrastructure locally.
+
+## Key Takeaways
+1. **Local Cloud Emulation:** Test core AWS services (S3, DynamoDB, SQS, Lambda) on your laptop.
+2. **Zero Billing & Zero Account:** Free, open-source (CC0 public domain), works completely offline.
+3. **Optimized for Coding Agents:** Eliminates slow cloud deployment loops so AI agents test and fix cloud code in seconds.
+
+## How to Use with Python (Boto3)
+Point your AWS SDK client to the local emulator endpoint:
+
+```python
+import boto3
+
+# Point the SDK at your laptop instead of the cloud
+dynamodb = boto3.client(
+    'dynamodb',
+    endpoint_url='http://127.0.0.1:4566',
+    region_name='us-east-1',
+    aws_access_key_id='test',
+    aws_secret_access_key='test',
+)
+```
+
+## Three Ways to Run It
+1. **Desktop App:** Sits in your system tray on macOS and Windows with a one-click local certificate setup.
+2. **Headless CLI:** Run `aws-emulator start` in terminal or CI pipelines.
+3. **Rust Embedded Binary:** Compile directly into test binaries with zero ports or certificates.
+
+## Limitations
+- **Not for production:** Ephemeral state held in memory; resets upon shutdown.
+- **Not a security test:** Does not validate IAM policies or permission logic.
+- **Coverage expanding:** Returns `501 Not Implemented` for unsupported services until release parity is reached.
+
+## Frequently Asked Questions
+- **Q: What is AWS Emulator?**
+  A: AWS Emulator is a free, official local development tool that lets developers run and test AWS services like S3, DynamoDB, SQS, and Lambda locally on 127.0.0.1 without an AWS account or cloud deploy.
+- **Q: Does AWS Emulator require an AWS account or billing?**
+  A: No. AWS Emulator runs entirely on your local machine with dummy credentials, incurring zero cloud charges and requiring no AWS account.
+- **Q: Why is AWS Emulator important for AI coding agents?**
+  A: Coding agents write code fast but wait slowly for cloud deploys. Running AWS locally responds in milliseconds, allowing AI agents to create tables, test queries, and self-correct errors in seconds without cloud costs.
+- **Q: How does it compare to LocalStack?**
+  A: AWS Emulator is an official, first-party tool owned by AWS with models updated upon release under CC0. LocalStack is a third-party commercial platform with wider legacy service coverage.
+
+---
+
+# About BytePortal
+- URL: https://www.byteportal.tech/about/
+- Mission: Testing AI tools in real-world conditions, measuring actual time saved, and highlighting trade-offs without marketing hype.
+- Categories: AI Reviews, AI Comparisons, Free AI Tools, Productivity, AI Agents, Tutorials.

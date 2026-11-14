@@ -1,0 +1,17 @@
+# BytePortal
+
+> BytePortal (https://www.byteportal.tech/) is a technical publication delivering honest AI tool reviews, head-to-head comparisons, and practical developer tutorials to boost productivity and simplify workflows.
+
+## Key Information
+- Domain: https://www.byteportal.tech/
+- Focus: Practical AI tools, LLM benchmarks, cloud emulators, coding agents, productivity workflows.
+- Standards: Hands-on tested, factual, fluff-free, zero sponsored bias.
+
+## Core Articles
+- [Run AWS Locally on Your Laptop with AWS Emulator](https://www.byteportal.tech/aws-emulator/): Complete guide to running AWS services (S3, DynamoDB, SQS, Lambda) locally with AWS Emulator for zero cloud costs, rapid iteration, and fast coding agent feedback loops.
+
+## Site Structure & Verification
+- [About BytePortal](https://www.byteportal.tech/about/): Editorial mission, team, and testing methodology.
+- [Privacy Policy](https://www.byteportal.tech/privacy/): Data handling, cookies, and privacy compliance.
+- [RSS Feed](https://www.byteportal.tech/feed.xml): Machine-readable RSS 2.0 feed of all articles.
+- [XML Sitemap](https://www.byteportal.tech/sitemap.xml): Full URL directory for web indexers.
