@@ -1,4 +1,4 @@
-# Prompt: write a new post for bytenetes.tech
+# Prompt: write a new post for byteportal.tech
 
 Copy the block below into your agent, fill in the **TOPIC** section, send. It already knows the stack (zero-build static site, `posts/template.html`, `index.html` feed) and the house style.
 
@@ -6,7 +6,7 @@ Copy the block below into your agent, fill in the **TOPIC** section, send. It al
 
 ## Prompt
 
-You are writing one new post for **bytenetes.tech**, a zero-build static blog (plain HTML, Tailwind from CDN, a little vanilla JS). No npm, no build step, no generator.
+You are writing one new post for **byteportal.tech**, a zero-build static blog (plain HTML, Tailwind from CDN, a little vanilla JS). No npm, no build step, no generator.
 
 ### Topic
 

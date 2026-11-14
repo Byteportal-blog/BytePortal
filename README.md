@@ -1,4 +1,4 @@
-# bytenetes.tech
+# byteportal.tech
 
 Zero-build static blog: HTML, CSS, a little vanilla JS, Tailwind from the CDN. No Node, no npm, no generator. Open `index.html` in a browser, or serve the folder:
 
@@ -52,10 +52,10 @@ Colours come from highlight.js (one CDN script + `github-dark` theme). The card 
 
 ## Change once, site-wide
 
-The site name (`bytenetes.tech`), the domain in the canonical and Open Graph tags, the author name (`Your Name`), and the footer appear in `index.html` and in `posts/template.html`. Change them in those two files and in any existing posts:
+The site name (`byteportal.tech`), the domain in the canonical and Open Graph tags, the author name (`Your Name`), and the footer appear in `index.html` and in `posts/template.html`. Change them in those two files and in any existing posts:
 
 ```bash
-rg -l "bytenetes.tech|Your Name" --glob '*.html'
+rg -l "byteportal.tech|Your Name" --glob '*.html'
 ```
 
 ## Scaling notes
