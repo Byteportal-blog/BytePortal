@@ -62,12 +62,18 @@
 
   function close() {
     bar.remove();
-    document.body.classList.remove('has-theme-consent');
+    document.body.style.paddingBottom = '';
+  }
+
+  // Reserve the bar's real height (it wraps to two rows on narrow screens).
+  function fit() {
+    if (bar.isConnected) document.body.style.paddingBottom = bar.offsetHeight + 'px';
   }
 
   bar.append(text, actions);
   document.body.appendChild(bar);
-  document.body.classList.add('has-theme-consent');
+  fit();
+  addEventListener('resize', fit);
 })();
 
 // Homepage feed filter. The input is hidden in the markup and revealed here,
