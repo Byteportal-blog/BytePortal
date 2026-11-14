@@ -13,6 +13,7 @@ Then open `http://localhost:8000/`. You can also just double-click `index.html` 
 ```
 index.html                  homepage + post feed (the only page you edit twice)
 about/index.html            about page (/about/)
+sitemap.xml                 XML sitemap for Google Search Console & search engines
 robots.txt                  crawler directives (disallows /prompt/ and /404/)
 feed.xml                    RSS 2.0 feed for readers and aggregators
 404.html                    custom not-found fallback
@@ -72,4 +73,4 @@ rg -l "byteportal.tech|Your Name" --glob '*.html'
 - **Images.** A new `assets/images/<year>/` folder each January; the only path to update is the template's `<img src>`. `width`/`height` prevent layout shift — update them to the real image size.
 - **Tailwind CDN.** Fine for a personal blog; it prints a production warning and means styles depend on the network. `style.css` keeps the page readable if it fails. If you ever drop the zero-build rule, compile Tailwind to `assets/css/tailwind.css` and delete the CDN tags.
 - **Syntax colours.** highlight.js is a second CDN dependency (~40 KB gzipped, includes the common languages). It fails soft: no network, plain code, copy button still there. Adding a language outside the common bundle means one more `<script>` tag in every page.
-- **No sitemap, RSS or JSON-LD by default.** Each is another file to update per post. Add them when a search engine or reader client actually asks.
+- **SEO & discovery.** `sitemap.xml`, `feed.xml` (RSS 2.0), `robots.txt`, and Schema.org JSON-LD are active. Update `sitemap.xml` and `feed.xml` whenever publishing a new post.

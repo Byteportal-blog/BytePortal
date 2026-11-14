@@ -132,11 +132,13 @@ Include valid `BlogPosting` schema in `<head>` so Google generates rich search s
    - `meta[name=description]` (140-160 chars)
    - `link[rel=canonical]` (`https://www.byteportal.tech/<slug>/`)
    - `og:title`, `og:description`, `og:url`, `og:image`, `og:image:width`, `og:image:height`, `og:image:alt`, `article:published_time`
+   - `article:tag` (one per line, e.g. `<meta property="article:tag" content="Tag">`)
    - `twitter:title`, `twitter:description`, `twitter:image`
-   - Schema.org JSON-LD snippet
+   - Schema.org JSON-LD snippet (include `"keywords": ["Tag 1", "Tag 2"]`)
+   - The visible tags in `<header>` and article `<footer>`
    - The visible `<time datetime="YYYY-MM-DD">` plus its text.
 3. Write the article body inside the existing `<div class="prose …">`. Keep the header, footer and theme script untouched.
-4. In `index.html`, add one `<li>` as the **first** child of `<ol id="post-feed">`, matching the existing entry exactly: `href="<slug>/"`, `<time>`, `h2` title, and a one-sentence summary that reads like the post's hook.
+4. In `index.html`, add one `<li>` as the **first** child of `<ol id="post-feed">`, matching the existing entry exactly: `href="<slug>/"`, `<time>`, tag pills, `h2` title, and a one-sentence summary that reads like the post's hook. Tags in the feed automatically work with the search bar.
 5. In `feed.xml`, add the new `<item>` at the top of the RSS feed:
    ```xml
    <item>
@@ -147,7 +149,16 @@ Include valid `BlogPosting` schema in `<head>` so Google generates rich search s
      <description>[Search-intent description]</description>
    </item>
    ```
-6. Read time: count words, assume ~200 words per minute, round up. Update the `· N min read` line. If you moved an existing post, add a permanent redirect in `vercel.json`.
+6. In `sitemap.xml`, add the new `<url>` entry:
+   ```xml
+   <url>
+     <loc>https://www.byteportal.tech/<slug>/</loc>
+     <lastmod>YYYY-MM-DD</lastmod>
+     <changefreq>monthly</changefreq>
+     <priority>0.8</priority>
+   </url>
+   ```
+7. Read time: count words, assume ~200 words per minute, round up. Update the `· N min read` line. If you moved an existing post, add a permanent redirect in `vercel.json`.
 
 ---
 
