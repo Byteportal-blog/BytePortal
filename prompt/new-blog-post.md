@@ -36,6 +36,8 @@ Write like you are explaining this to a smart friend over coffee.
 2. **The short version** — 3 bullets: what it is, what it does for you, what it costs or where it stops.
 3. **Body** — 3–5 `h2` sections, each answering one question a reader would actually ask ("What is it really?", "How close is it to the real thing?", "What breaks?").
 4. **Show, don't tell** — one short code block or command, kept to what someone would paste to try it.
+   - Tag the language on the `<code>`: `<pre><code class="language-python">…</code></pre>`. The site reads that class to print the label, add the Copy button and colour the syntax. An untagged block just says "Code" and stays plain.
+   - Ids that get a proper label: `python`, `bash`, `js`/`javascript`, `ts`, `json`, `html`, `css`, `rust`, `go`, `sql`, `yaml`, `text`.
 5. **What it is not** — a bullet list of limits. This builds trust.
 6. **Takeaway** — one sentence plus one small action the reader can do this week.
 7. **Links** — the primary source(s), bare and named.
@@ -58,15 +60,18 @@ Length: 700–1000 words. If it runs longer, cut sections, not detail inside the
 3. Write the article body inside the existing `<div class="prose …">`. Keep the header, footer and theme script untouched.
 4. In `index.html`, add one `<li>` as the **first** child of `<ol id="post-feed">`, matching the existing entry exactly: `href`, `<time>`, `h2` title, and a one-sentence summary that reads like the post's hook.
 5. Read time: count words, assume ~200 words per minute, round up. Update the `· N min read` line.
+6. Commit and push: `git add -A && git commit -m "post: <slug>" && git push`. The repo is `Byteportal-blog/BytePortal`, branch `main`.
 
 ### Before you say done
 
 - [ ] Every head tag above points at the real file, date and title — no `first-post`, no `example.jpg`.
 - [ ] Images exist at the paths used; `width`/`height` match the real pixel size; captions and alt text are plain English.
+- [ ] Every code block carries a `language-*` class, and the language shown in its header bar is the real one.
 - [ ] Links open (open the top two).
 - [ ] The feed entry sorts above the previous newest post.
-- [ ] Rendered check: `python3 -m http.server 8000`, open the post and the homepage, click the post from the feed, toggle dark mode.
+- [ ] Rendered check: `python3 -m http.server 8000`, open the post and the homepage, click the post from the feed, toggle dark mode, click a Copy button.
 - [ ] Re-read the first paragraph. Would a busy developer keep reading? If not, rewrite it.
+- [ ] Committed and pushed to `main` — the working tree is clean.
 
 Report back in three lines: the file created, the images used, and anything you could not verify.
 

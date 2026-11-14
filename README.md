@@ -13,13 +13,25 @@ Then open `http://localhost:8000/`. You can also just double-click `index.html` 
 ```
 index.html                  homepage + post feed (the only page you edit twice)
 assets/css/style.css        custom CSS; print styles; no-Tailwind fallback layout
-assets/js/main.js           dark mode toggle, feed filter, code copy buttons
+assets/js/main.js           theme toggle + consent bar, feed filter, code copy buttons
 assets/Byte-Portal-Logo.svg header logo + tab icon (referenced from every page)
 assets/images/<year>/       post images, grouped by year
 posts/template.html         the daily entry template — never publish this one
 posts/YYYY-MM-DD-slug.html  one file per post
 .gitignore                  OS/editor noise, test artifacts, .env
 ```
+
+## Theme
+
+Light is the default. One inline line in each page's `<head>` applies a saved dark choice before paint, so there is no flash:
+
+```html
+<script>
+  if (localStorage.theme === 'dark') document.documentElement.classList.add('dark');
+</script>
+```
+
+`main.js` writes `localStorage.theme` only after the reader clicks **Allow** in the consent bar, and records that answer in `localStorage['theme-consent']`. **No thanks** keeps the theme for the current page only, stores the refusal in `sessionStorage`, and deletes any saved theme — so the ask returns next visit and nothing persists. The bar is built in JS and appended to `<body>`; restyle it under `.theme-consent` in `style.css`.
 
 ## Publish a post
 
