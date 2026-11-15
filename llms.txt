@@ -8,6 +8,7 @@
 - Standards: Hands-on tested, factual, fluff-free, zero sponsored bias.
 
 ## Core Articles
+- [ArtCraft: 13+ Free Open-Source Adobe Alternatives in Pure Rust](https://www.byteportal.tech/artcraft-apps/): Overview of the 13+ native desktop applications in the ArtCraft suite replacing Photoshop, Illustrator, Premiere, and Office with lightweight, GPU-accelerated Rust binaries and zero subscriptions.
 - [Run AWS Locally on Your Laptop with AWS Emulator](https://www.byteportal.tech/aws-emulator/): Complete guide to running AWS services (S3, DynamoDB, SQS, Lambda) locally with AWS Emulator for zero cloud costs, rapid iteration, and fast coding agent feedback loops.
 
 ## Site Structure & Verification

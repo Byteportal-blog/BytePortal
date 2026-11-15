@@ -18,7 +18,7 @@
 
   <!-- SEO -->
   <meta name="description" content="Run S3, DynamoDB, SQS, and Lambda locally using AWS Emulator. Test AWS SDK calls in milliseconds without an AWS account, cloud deploy, or AWS bill.">
-  <meta name="author" content="Your Name">
+  <meta name="author" content="Byte Portal">
   <link rel="canonical" href="https://www.byteportal.tech/aws-emulator/">
   <link rel="alternate" type="application/rss+xml" title="byteportal.tech" href="/feed.xml">
 
@@ -28,7 +28,7 @@
   <meta property="og:description" content="Run S3, DynamoDB, SQS, and Lambda locally with AWS Emulator. Test AWS SDK calls in milliseconds with zero cloud cost or deploy wait.">
   <meta property="og:url" content="https://www.byteportal.tech/aws-emulator/">
   <meta property="og:site_name" content="byteportal.tech">
-  <meta property="og:image" content="https://www.byteportal.tech/assets/images/2026/aws-emulator-diagram.png">
+  <meta property="og:image" content="https://www.byteportal.tech/assets/images/2026/aws-emulator/aws-emulator-diagram.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="900">
   <meta property="og:image:alt" content="Architecture diagram showing code sending API calls to local AWS Emulator on 127.0.0.1 instead of AWS cloud">
@@ -42,7 +42,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Run AWS Locally on Your Laptop with AWS Emulator">
   <meta name="twitter:description" content="Run S3, DynamoDB, SQS, and Lambda locally with AWS Emulator. Test AWS SDK calls in milliseconds with zero cloud cost or deploy wait.">
-  <meta name="twitter:image" content="https://www.byteportal.tech/assets/images/2026/aws-emulator-diagram.png">
+  <meta name="twitter:image" content="https://www.byteportal.tech/assets/images/2026/aws-emulator/aws-emulator-diagram.png">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -56,7 +56,7 @@
       "@type": "SpeakableSpecification",
       "cssSelector": ["#quick-answer", "h1"]
     },
-    "image": "https://www.byteportal.tech/assets/images/2026/aws-emulator-diagram.png",
+    "image": "https://www.byteportal.tech/assets/images/2026/aws-emulator/aws-emulator-diagram.png",
     "datePublished": "2026-11-13",
     "dateModified": "2026-11-13",
     "author": {
@@ -199,10 +199,10 @@
 
         <p>So your code does not change. You keep using the same SDK, the same CLI, the same calls. Only the address changes: instead of sending requests to AWS in the cloud, you send them to a small program running on <code>127.0.0.1</code>.</p>
 
-        <figure>
-          <img src="https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/images/26-IDP-NON-AWSEmulator-Web-NA-Image-Diagram-en-US-1200x900-FINAL.e6689d99e66eaa1955a4d8d47b76f2e12d66f396.png" alt="Diagram: your code sends API calls to AWS Emulator running on your laptop or CI machine, and the same code deploys to AWS later"
-               width="1200" height="900" loading="lazy" decoding="async" class="rounded-lg">
-          <figcaption>The same code, two destinations: the emulator while you build, AWS when you deploy. Image: AWS.</figcaption>
+        <figure class="my-8">
+          <img src="../assets/images/2026/aws-emulator/aws-emulator-diagram.png" alt="Diagram: your code sends API calls to AWS Emulator running on your laptop or CI machine, and the same code deploys to AWS later"
+               width="1200" height="900" loading="lazy" decoding="async" class="rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">The same code, two destinations: the emulator while you build, AWS when you deploy. Image: AWS.</figcaption>
         </figure>
 
         <p>That is the whole idea. One arrow points at a local program, the other points at the cloud. Your code sits on the left and never knows the difference.</p>

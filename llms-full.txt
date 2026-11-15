@@ -4,6 +4,47 @@
 
 ---
 
+# Article: ArtCraft: 13+ Free Open-Source Adobe Alternatives in Pure Rust
+
+- URL: https://www.byteportal.tech/artcraft-apps/
+- Published: 2026-11-15
+- Author: Byte Portal
+- Tags: Open Source, Rust, Creative Tools, Adobe Alternatives, Free Software
+
+## Summary
+ArtCraft is an open-source suite of 13+ native creative and productivity desktop applications written from scratch in pure Rust with direct GPU hardware acceleration (WGPU). It provides fast, subscription-free alternatives to mainstream creative software including Adobe Photoshop (PhotoCraft), Illustrator (VectorCraft), Premiere Pro (FilmCraft), InDesign (DesignCraft), Acrobat (PdfCraft), Audition (SoundCraft), and Microsoft Office (WordCraft, GridCraft, DeckCraft). Because it compiles directly to native machine code without Electron or web wrappers, it provides sub-10ms startup times, minimal memory usage, and runs completely offline.
+
+## Origin & Creator
+Created by software engineer Brandon Thomas (founder of Storyteller.ai and FakeYou) under the GitHub organization `storytold` (https://github.com/storytold). Thomas leveraged advanced AI coding agents (Claude Sonnet / Opus) alongside the Rust systems language to clean-room reverse engineer and build a native, high-performance alternative to Adobe Creative Cloud and Microsoft Office without subscriptions or Electron bloat. Furthermore, each tool incorporates Model Context Protocol (MCP) server endpoints allowing AI agents to automate and control creative workflows directly.
+
+## Key Applications & 1-to-1 Equivalents (Ditto)
+1. **PhotoCraft:** Layered raster editor (Photoshop alternative), PSD support, adjustment layers, GPU brushes.
+2. **VectorCraft:** Precision vector design (Illustrator alternative), Bézier curves, boolean paths, SVG/PDF engine.
+3. **FilmCraft:** Non-linear video editor (Premiere Pro alternative), multi-track timeline, hardware video decode.
+4. **EffectCraft:** Motion graphics & visual effects (After Effects alternative), keyframes, VFX nodes.
+5. **DesignCraft & FigCraft:** Page layout & UI prototyping (InDesign & Figma alternatives).
+6. **LightCraft:** RAW photo development and library cataloging (Lightroom alternative).
+7. **AniCraft:** 2D frame-by-frame animation & character rigging (Animate alternative).
+8. **SoundCraft:** Digital audio workstation & recording (Audition alternative), low-latency audio via CPAL.
+9. **PdfCraft:** PDF document reordering, merging, form-filling, compression (Acrobat alternative).
+10. **WordCraft, GridCraft, DeckCraft:** Document editor, 1M+ row spreadsheet, and slide builder (Office alternatives).
+
+## How to Install and Run
+Pre-compiled binaries for Windows, macOS, and Linux are available at https://getartcraft.com.
+Can also be built from source via Cargo:
+```bash
+git clone https://github.com/storytold/artcraft.git
+cd artcraft
+cargo build --release
+```
+
+## Limitations
+- In active development; covers the primary 80% daily workflow rather than 30 years of niche enterprise print plugins.
+- Plugin ecosystem is growing.
+- Local-first architecture; file sync is managed by the user via Git, Nextcloud, or cloud drives.
+
+---
+
 # Article: Run AWS Locally on Your Laptop with AWS Emulator
 
 - URL: https://www.byteportal.tech/aws-emulator/

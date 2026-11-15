@@ -66,7 +66,7 @@ Every post must be engineered for Google search intent, high organic click-throu
 - ✅ **Good:** `Run S3, DynamoDB, SQS, and Lambda locally using AWS Emulator. Test AWS SDK calls in milliseconds without an AWS account, cloud deploy, or AWS bill.`
 
 #### 3. Featured Image & Social Cards
-- **Specs:** 1200×630 (or high-res diagram). Store in `assets/images/<year>/`.
+- **Specs:** 1200×630 (or high-res diagram). Store in `assets/images/<year>/<slug>/`.
 - **Image Tags:** Provide explicit `og:image:width`, `og:image:height`, and a descriptive `og:image:alt` that explains the diagram.
 - **Open Graph:**
   - `<meta property="og:type" content="article">`
@@ -74,7 +74,7 @@ Every post must be engineered for Google search intent, high organic click-throu
   - `<meta property="og:description" content="[Search-intent description]">`
   - `<meta property="og:url" content="https://www.byteportal.tech/<slug>/">`
   - `<meta property="og:site_name" content="byteportal.tech">`
-  - `<meta property="og:image" content="https://www.byteportal.tech/assets/images/<year>/<file>">`
+  - `<meta property="og:image" content="https://www.byteportal.tech/assets/images/<year>/<slug>/<file>">`
   - `<meta property="og:image:width" content="1200">`
   - `<meta property="og:image:height" content="630">`
   - `<meta property="og:image:alt" content="[Descriptive caption]">`

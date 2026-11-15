@@ -25,7 +25,7 @@ feed.xml                    RSS 2.0 feed for readers and aggregators
 assets/css/style.css        custom CSS; print styles; no-Tailwind fallback layout
 assets/js/main.js           theme toggle + consent bar, feed filter, code copy buttons
 assets/Byte-Portal-Logo.svg header logo + tab icon (referenced from every page)
-assets/images/<year>/       post images, grouped by year
+assets/images/<year>/<slug>/ post images, grouped by year and post slug (plus common/)
 <post-slug>/index.html       one folder per post; the folder name is the URL
 vercel.json                 clean URLs and redirects for moved URLs
 .gitignore                  OS/editor noise, test artifacts, .env
@@ -47,7 +47,7 @@ Light is the default. One inline line in each page's `<head>` applies a saved da
 
 1. `mkdir api-gateways && cp posts/template.html api-gateways/index.html` — the folder name is the URL (`/api-gateways/`), so keep it short and readable. No date in the folder: the `<time>` tag carries it, and the feed sorts on that.
 2. In the copy, replace: `<title>`, `meta[name=description]`, `link[rel=canonical]`, `og:title`, `og:description`, `og:url`, `og:image`, `article:published_time`, and the visible `<time datetime="YYYY-MM-DD">` plus its text. Canonical and `og:url` end in the folder name and a slash: `https://www.byteportal.tech/api-gateways/`.
-3. Put images in `assets/images/2026/` and reference them as `../assets/images/2026/file.jpg` from inside the post folder.
+3. Put images in `assets/images/2026/<slug>/` and reference them as `../assets/images/2026/<slug>/file.jpg` from inside the post folder. Shared images live in `assets/images/2026/common/`.
 4. In `index.html`, copy the commented `<li>` block into `<ol id="post-feed">`, point `href` at `api-gateways/`, update date/title/summary. Newest first.
 5. Moved or renamed a folder? Add a permanent redirect in `vercel.json` so the old link keeps working.
 
