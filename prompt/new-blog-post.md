@@ -85,6 +85,12 @@ Every post must be engineered for Google search intent, high organic click-throu
   - `<meta name="twitter:description" content="[Search-intent description]">`
   - `<meta name="twitter:image" content="https://www.byteportal.tech/assets/images/<year>/<file>">`
 
+#### 3a. Third-party Images & Credits
+- **Do not hotlink.** Download the image into `assets/images/<year>/<slug>/` and optimize it (WebP/PNG/JPG).
+- Prefer your own screenshots or diagrams, official press assets, or images you have permission to reuse. A caption credit is attribution, not permission.
+- Add a short credit in the caption (`Image: Source`) **and** a visible `Image credits` line in the article footer naming each source and linking to it.
+- If the license or reuse right is unclear, cut the image or replace it with your own diagram.
+
 #### 4. Canonical & RSS Auto-Discovery
 - `<link rel="canonical" href="https://www.byteportal.tech/<slug>/">`
 - `<link rel="alternate" type="application/rss+xml" title="byteportal.tech" href="/feed.xml">`
@@ -171,6 +177,7 @@ Include valid `BlogPosting` schema in `<head>` so Google generates rich search s
 - [ ] Open Graph & Twitter Card tags have real titles, descriptions, and 1200x630 image dimensions.
 - [ ] Schema.org JSON-LD `BlogPosting` block has valid syntax and URLs.
 - [ ] Images exist at the paths used; `width`/`height` match real pixel size; captions and alt text are plain English.
+- [ ] Every third-party image has clear reuse permission and a visible `Image credits` line in the footer with source links.
 - [ ] Every code block carries a `language-*` class, and the language shown in its header bar is the real one.
 - [ ] Added entry to `index.html` feed and new `<item>` to `feed.xml`.
 - [ ] Rendered check: `python -m http.server 8000`, open post and homepage, verify SEO tags in page source (`Ctrl+U`).

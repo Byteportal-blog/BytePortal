@@ -4,6 +4,38 @@
 
 ---
 
+# Article: Dokploy: Self-Hosted PaaS for Docker Apps (No Kubernetes)
+
+- URL: https://www.byteportal.tech/dokploy/
+- Published: 2026-11-16
+- Author: Byte Portal
+- Tags: Dokploy, Self-Hosted, Docker, PaaS, DevOps
+
+## Summary
+Dokploy is a free, open-source platform-as-a-service you install on your own Linux VPS. One install command sets up Docker Swarm, Traefik, a Next.js control panel, PostgreSQL, and Redis. You then deploy applications from Git, a Dockerfile, Nixpacks, Heroku Buildpacks, or Docker Compose, and manage databases, domains, SSL certificates, backups, scheduled jobs, preview environments, and multiple servers from one web UI.
+
+## Key Takeaways
+1. **Self-hosted PaaS:** Replaces a hand-rolled nginx + Certbot + deploy-script setup with one control panel on your own server.
+2. **Docker-native:** Supports Dockerfiles, Compose stacks, Nixpacks, and Buildpacks, plus one-click PostgreSQL, MySQL, MariaDB, MongoDB, and Redis.
+3. **Free software, real ops cost:** The panel is free, but you own the server, updates, backups, and restore testing. SSO, audit logs, and fine-grained RBAC are Enterprise features.
+
+## How to Install
+Requires a Linux server with at least 2 GB RAM, 30 GB disk, and free ports 80, 443, and 3000:
+```bash
+curl -sSL https://dokploy.com/install.sh | sudo sh
+```
+Open `http://your-server:3000` to create the admin account. Put the panel behind HTTPS on a domain, then close port 3000 to the public internet.
+
+## Limitations
+- **Not managed:** No SLA on the free install; one VPS is one failure domain.
+- **Not Kubernetes:** Multi-node runs on Docker Swarm, not the Kubernetes ecosystem.
+- **No edge network:** Static assets still benefit from a CDN in front.
+- **Database containers are not managed databases:** No automatic failover unless you build it.
+- **Maintenance is yours:** Updates, monitoring, and tested offsite restores.
+- **Enterprise gap:** SSO, audit logs, and fine-grained roles require Dokploy Enterprise.
+
+---
+
 # Article: ArtCraft: 13+ Free Open-Source Adobe Alternatives in Pure Rust
 
 - URL: https://www.byteportal.tech/artcraft-apps/
