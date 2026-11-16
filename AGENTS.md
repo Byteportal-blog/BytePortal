@@ -2,7 +2,7 @@
 
 ## Project
 
-Zero-build static blog: plain HTML, Tailwind from CDN, vanilla JS. No npm, bundler, framework, or generator.
+Zero-build static blog: plain HTML, pre-compiled Tailwind CSS (`assets/css/tailwind.min.css`), vanilla JS. No npm runtime, bundler, framework, or generator needed for deployment or editing.
 
 ## New Post Workflow
 

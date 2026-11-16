@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About BytePortal - Honest AI Reviews, Comparisons &amp; Workflows</title>
 
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
   <!-- Google Tag Manager -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5Q72V9MT"></script>
   <script>
@@ -50,10 +53,10 @@
     if (localStorage.theme === 'dark') document.documentElement.classList.add('dark');
   </script>
 
-  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
-  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-  <script>tailwind.config = { darkMode: 'class' };</script>
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preload" href="/assets/css/tailwind.min.css" as="style">
+  <link rel="preload" href="/assets/css/style.css" as="style">
+  <link rel="stylesheet" href="/assets/css/tailwind.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body class="flex min-h-screen flex-col bg-white text-stone-800 antialiased dark:bg-stone-950 dark:text-stone-200">

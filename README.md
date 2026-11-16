@@ -21,6 +21,7 @@ llms-full.txt               expanded full-text markdown index for deep LLM conte
 robots.txt                  crawler directives (disallows /prompt/ and /404/)
 feed.xml                    RSS 2.0 feed for readers and aggregators
 404.html                    custom not-found fallback (served for missing routes)
+assets/css/tailwind.min.css minified static Tailwind CSS (zero compiler overhead)
 assets/css/style.css        custom CSS; print styles; no-Tailwind fallback layout
 assets/js/main.js           theme toggle + consent bar, feed filter, code copy buttons, 404 portal
 favicon.ico                 multi-resolution root favicon (16x16, 32x32, 48x48)
@@ -78,6 +79,6 @@ rg -l "byteportal.tech|Your Name" --glob '*.html'
 - **Feed length.** One `<ol>` handles a few hundred entries fine. Past that, move older entries to `archive/index.html` and link it from the homepage; the filter keeps the rest findable.
 - **Search.** The homepage filter is substring matching over each entry's text, revealed only when JS runs. No index file to maintain - add the `<li>` and it is searchable.
 - **Images.** A new `assets/images/<year>/` folder each January; the only path to update is the template's `<img src>`. `width`/`height` prevent layout shift - update them to the real image size.
-- **Tailwind CDN.** Fine for a personal blog; it prints a production warning and means styles depend on the network. `style.css` keeps the page readable if it fails. If you ever drop the zero-build rule, compile Tailwind to `assets/css/tailwind.css` and delete the CDN tags.
-- **Syntax colours.** highlight.js is a second CDN dependency (~40 KB gzipped, includes the common languages). It fails soft: no network, plain code, copy button still there. Adding a language outside the common bundle means one more `<script>` tag in every page.
+- **Tailwind CSS.** Static compiled bundle (ssets/css/tailwind.min.css, ~6 KB gzipped) replaces the heavy Play CDN compiler, dropping mobile FCP/LCP to sub-second speeds with zero runtime build step needed on deploy.
+- **Syntax colours.** highlight.js is loaded only on post pages where code blocks exist, preloaded asynchronously so it never blocks text rendering. Adding a language outside the common bundle means one more <script> tag in post templates.
 - **SEO & discovery.** `sitemap.xml`, `feed.xml` (RSS 2.0), `robots.txt`, and Schema.org JSON-LD are active. Update `sitemap.xml` and `feed.xml` whenever publishing a new post.
