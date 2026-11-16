@@ -8,12 +8,28 @@
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
-  <!-- Google Tag Manager -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5Q72V9MT"></script>
+  <!-- Google Tag Manager (Non-blocking) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
+    function initGTM() {
+      if (window._gtmLoaded) return;
+      window._gtmLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-5Q72V9MT';
+      document.head.appendChild(s);
+    }
+    if (document.readyState === 'complete') {
+      setTimeout(initGTM, 1500);
+    } else {
+      window.addEventListener('load', function() { setTimeout(initGTM, 1500); });
+      ['scroll', 'keydown', 'pointerdown', 'touchstart'].forEach(function(e) {
+        window.addEventListener(e, initGTM, { once: true, passive: true });
+      });
+    }
   </script>
 
   <!-- Google AdSense -->
@@ -126,10 +142,8 @@
     if (localStorage.theme === 'dark') document.documentElement.classList.add('dark');
   </script>
 
-  <link rel="preload" href="/assets/css/tailwind.min.css" as="style">
-  <link rel="preload" href="/assets/css/style.css" as="style">
-  <link rel="stylesheet" href="/assets/css/tailwind.min.css">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="preload" href="/assets/css/site.min.css" as="style">
+  <link rel="stylesheet" href="/assets/css/site.min.css">
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/styles/github-dark.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/styles/github-dark.min.css"></noscript>
 </head>
@@ -140,7 +154,7 @@
   <header class="border-b border-stone-200 dark:border-stone-800">
     <nav class="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 font-sans text-sm" aria-label="Main">
       <a href="/" aria-label="byteportal.tech - home" class="inline-flex rounded bg-white px-1.5 py-1">
-        <img src="../assets/Byte-Portal-Logo.svg" alt="byteportal.tech" width="1337" height="317" class="h-10 sm:h-11 w-auto">
+        <img src="/assets/Byte-Portal-Logo.svg" alt="byteportal.tech" width="1337" height="317" class="h-10 sm:h-11 w-auto" fetchpriority="high">
       </a>
 
       <button id="theme-toggle" type="button" aria-label="Toggle dark mode"
