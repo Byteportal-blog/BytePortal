@@ -20,10 +20,9 @@ llms.txt                    plain markdown index for AI models (Gemini, ChatGPT,
 llms-full.txt               expanded full-text markdown index for deep LLM context
 robots.txt                  crawler directives (disallows /prompt/ and /404/)
 feed.xml                    RSS 2.0 feed for readers and aggregators
-404.html                    custom not-found fallback
-404/index.html              not-found page folder (/404/)
+404.html                    custom not-found fallback (served for missing routes)
 assets/css/style.css        custom CSS; print styles; no-Tailwind fallback layout
-assets/js/main.js           theme toggle + consent bar, feed filter, code copy buttons
+assets/js/main.js           theme toggle + consent bar, feed filter, code copy buttons, 404 portal
 assets/Byte-Portal-Logo.svg header logo + tab icon (referenced from every page)
 assets/images/<year>/<slug>/ post images, grouped by year and post slug (plus common/)
 <post-slug>/index.html       one folder per post; the folder name is the URL

@@ -76,6 +76,67 @@
   addEventListener('resize', fit);
 })();
 
+// 404 portal: a lightweight Three.js scene that stays decorative and non-blocking.
+(function () {
+  const canvas = document.getElementById('portal-canvas');
+  const fallback = document.getElementById('portal-fallback');
+  if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const webgl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!webgl) {
+    canvas.hidden = true;
+    return;
+  }
+
+  import('https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js')
+    .then(function (THREE) {
+      const stage = canvas.parentElement;
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+      camera.position.z = 5.2;
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setClearColor(0x000000, 0);
+
+      const portal = new THREE.Group();
+      const ringMaterial = new THREE.MeshBasicMaterial({ color: 0xb9482b, wireframe: true, transparent: true, opacity: 0.8 });
+      const ring = new THREE.Mesh(new THREE.TorusGeometry(1.35, 0.018, 12, 72), ringMaterial);
+      portal.add(ring);
+
+      const particles = new THREE.BufferGeometry();
+      const points = [];
+      for (let i = 0; i < 360; i += 1) {
+        const radius = 1.7 + Math.random() * 1.2;
+        const angle = Math.random() * Math.PI * 2;
+        points.push(Math.cos(angle) * radius, (Math.random() - 0.5) * 0.45, Math.sin(angle) * radius);
+      }
+      particles.setAttribute('position', new THREE.Float32BufferAttribute(points, 3));
+      portal.add(new THREE.Points(particles, new THREE.PointsMaterial({ color: 0x6f6259, size: 0.025, transparent: true, opacity: 0.8 })));
+      scene.add(portal);
+
+      function resize() {
+        const rect = stage.getBoundingClientRect();
+        camera.aspect = rect.width / rect.height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(rect.width, rect.height, false);
+      }
+      function render(time) {
+        portal.rotation.y = time * 0.00018;
+        portal.rotation.x = Math.sin(time * 0.00025) * 0.12;
+        ring.rotation.z = time * 0.00035;
+        renderer.render(scene, camera);
+        requestAnimationFrame(render);
+      }
+      addEventListener('resize', resize);
+      resize();
+      if (fallback) fallback.hidden = true;
+      requestAnimationFrame(render);
+    })
+    .catch(function () {
+      canvas.hidden = true;
+      if (fallback) fallback.hidden = false;
+    });
+})();
+
 // Homepage feed filter. The input is hidden in the markup and revealed here,
 // so it never shows up as a dead control when JavaScript is off.
 (function () {

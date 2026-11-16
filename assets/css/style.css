@@ -176,6 +176,197 @@ p {
   text-wrap: pretty;
 }
 
+/* Three.js 404 experience. The canvas is decorative; the text remains the source of truth. */
+.creative-404 {
+  --portal-ink: #171412;
+  --portal-muted: #716963;
+  --portal-line: rgb(23 20 18 / 0.12);
+  overflow-x: hidden;
+}
+.creative-404-header {
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid var(--portal-line);
+}
+.creative-404-main {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(22rem, 1.15fr);
+  align-items: center;
+  width: min(100% - 2rem, 72rem);
+  min-height: min(42rem, calc(100vh - 9.5rem));
+  margin: 0 auto;
+  padding: 3rem 0 4rem;
+}
+.creative-404-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 34rem;
+}
+.creative-404-kicker,
+.creative-404-hint,
+.creative-404-coordinate,
+.creative-404-orbit-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.creative-404-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.5rem;
+  color: #b9482b;
+  font-weight: 700;
+}
+.creative-404-kicker span {
+  font-size: 0.6rem;
+  animation: portal-alert 1.1s steps(1, end) infinite;
+}
+.creative-404 h1 {
+  max-width: 10ch;
+  margin: 0;
+  color: var(--portal-ink);
+  font-size: clamp(3.2rem, 7vw, 6.5rem);
+  font-weight: 650;
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+}
+.creative-404 h1 em {
+  color: #b9482b;
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+.creative-404-description {
+  max-width: 28rem;
+  margin: 2rem 0 0;
+  color: var(--portal-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.creative-404-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.35rem;
+  color: var(--portal-ink);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: gap 180ms ease, color 180ms ease;
+}
+.creative-404-cta:hover,
+.creative-404-cta:focus-visible {
+  gap: 1rem;
+  color: #b9482b;
+}
+.creative-404-cta:focus-visible {
+  outline: 2px solid #b9482b;
+  outline-offset: 0.35rem;
+}
+.creative-404-hint {
+  margin: 4rem 0 0;
+  color: var(--portal-muted);
+  letter-spacing: 0.08em;
+}
+.creative-404-stage {
+  position: relative;
+  height: min(40rem, 72vw);
+  min-height: 24rem;
+  overflow: hidden;
+}
+.creative-404-stage::before {
+  position: absolute;
+  inset: 12% 8%;
+  border: 1px solid var(--portal-line);
+  border-radius: 50%;
+  content: "";
+}
+.creative-404-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.65;
+  background-image: linear-gradient(var(--portal-line) 1px, transparent 1px), linear-gradient(90deg, var(--portal-line) 1px, transparent 1px);
+  background-position: center;
+  background-size: 3rem 3rem;
+  mask-image: radial-gradient(ellipse at center, black 0%, transparent 68%);
+}
+#portal-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.creative-404-orbit-label,
+.creative-404-coordinate {
+  position: absolute;
+  z-index: 1;
+  color: var(--portal-muted);
+}
+.creative-404-orbit-label {
+  top: 11%;
+  right: 6%;
+}
+.creative-404-coordinate {
+  bottom: 12%;
+  left: 7%;
+  line-height: 1.6;
+}
+.creative-404-fallback {
+  position: absolute;
+  inset: 20% 10%;
+  display: grid;
+  place-items: center;
+  color: #b9482b;
+  font-family: var(--font-sans);
+  font-size: clamp(7rem, 20vw, 13rem);
+  font-weight: 800;
+  letter-spacing: -0.12em;
+}
+html.dark .creative-404 {
+  --portal-ink: #f5f2ee;
+  --portal-muted: #a9a09a;
+  --portal-line: rgb(245 242 238 / 0.14);
+}
+html.dark .creative-404-cta {
+  color: var(--portal-ink);
+}
+@keyframes portal-alert {
+  0%, 48% { opacity: 1; }
+  49%, 100% { opacity: 0.15; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .creative-404-kicker span,
+  .creative-404-cta { animation: none; transition: none; }
+}
+@media (max-width: 700px) {
+  .creative-404-main {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding-top: 3.5rem;
+  }
+  .creative-404-stage {
+    order: -1;
+    height: 72vw;
+    min-height: 18rem;
+    max-height: 27rem;
+    margin: -1rem -1rem 1rem;
+  }
+  .creative-404 h1 {
+    font-size: clamp(3.1rem, 15vw, 5rem);
+  }
+  .creative-404-hint {
+    margin-top: 2.5rem;
+  }
+}
+
 /* Code blocks scroll smoothly with touch momentum on mobile devices */
 pre {
   overflow-x: auto;
