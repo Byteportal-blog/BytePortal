@@ -1,4 +1,4 @@
-# BytePortal — Full Knowledge Base
+# BytePortal - Full Knowledge Base
 
 > BytePortal (https://www.byteportal.tech/) provides honest, fluff-free AI tool reviews, head-to-head comparisons, and developer tutorials to save time and automate workflows.
 

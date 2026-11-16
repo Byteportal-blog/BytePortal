@@ -11,5 +11,5 @@ desktop.ini
 # Browser test artifacts (Playwright screenshots and console logs)
 .playwright-mcp/
 
-# Secrets — a static site needs none, this is here so a stray one never lands in a commit
+# Secrets - a static site needs none, this is here so a stray one never lands in a commit
 .env

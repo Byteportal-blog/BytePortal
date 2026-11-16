@@ -17,14 +17,14 @@ You are writing one new post for **byteportal.tech**, a zero-build static blog (
 
 If the subject is a link or a release note, fetch it and read it first. Do not guess facts, versions, dates, or command flags. Anything you cannot verify goes in the post as an open question, or is cut.
 
-### Voice — the part that matters most
+### Voice - the part that matters most
 
 Write like you are explaining this to a smart friend over coffee.
 
 - Short sentences. One idea each. If a sentence needs a comma to breathe, split it.
 - Simple words. Say "use" not "utilise", "make" not "facilitate", "so" not "consequently".
 - Second person. "You write a few lines… you wait." Put the reader in the scene.
-- Concrete before abstract. A real example, a real command, a real number — then the idea behind it.
+- Concrete before abstract. A real example, a real command, a real number - then the idea behind it.
 - Define a term the first time you use it, in the same sentence. Never let jargon stand alone.
 - Analogies are welcome if they are one line and accurate (a stand-in, a spare key, a test kitchen).
 - No filler openers ("In today's fast-paced world…"), no hype adjectives, no exclamation marks.
@@ -33,15 +33,15 @@ Write like you are explaining this to a smart friend over coffee.
 
 ### Shape
 
-1. **Hook** — the friction the reader already feels. Two or three sentences, no throat-clearing.
-2. **The short version** — 3 bullets: what it is, what it does for you, what it costs or where it stops.
-3. **Body** — 3–5 `h2` sections, each answering one question a reader would actually ask ("What is it really?", "How close is it to the real thing?", "What breaks?").
-4. **Show, don't tell** — one short code block or command, kept to what someone would paste to try it.
+1. **Hook** - the friction the reader already feels. Two or three sentences, no throat-clearing.
+2. **The short version** - 3 bullets: what it is, what it does for you, what it costs or where it stops.
+3. **Body** - 3–5 `h2` sections, each answering one question a reader would actually ask ("What is it really?", "How close is it to the real thing?", "What breaks?").
+4. **Show, don't tell** - one short code block or command, kept to what someone would paste to try it.
    - Tag the language on the `<code>`: `<pre><code class="language-python">…</code></pre>`. The site reads that class to print the label, add the Copy button and colour the syntax. An untagged block just says "Code" and stays plain.
    - Ids that get a proper label: `python`, `bash`, `js`/`javascript`, `ts`, `json`, `html`, `css`, `rust`, `go`, `sql`, `yaml`, `text`.
-5. **What it is not** — a bullet list of limits. This builds trust.
-6. **Takeaway** — one sentence plus one small action the reader can do this week.
-7. **Links** — the primary source(s), bare and named.
+5. **What it is not** - a bullet list of limits. This builds trust.
+6. **Takeaway** - one sentence plus one small action the reader can do this week.
+7. **Links** - the primary source(s), bare and named.
 
 Length: 700–1000 words. If it runs longer, cut sections, not detail inside them.
 
@@ -49,13 +49,13 @@ Length: 700–1000 words. If it runs longer, cut sections, not detail inside the
 
 ### Complete SEO Process (Search Intent Focused, Not Brand Focused)
 
-Every post must be engineered for Google search intent, high organic click-through rates (CTR), and rich social snippets. Do **not** waste title space on brand prefixes or generic naming like `Post Title — byteportal.tech`.
+Every post must be engineered for Google search intent, high organic click-through rates (CTR), and rich social snippets. Do **not** waste title space on brand prefixes or generic naming like `Post Title - byteportal.tech`.
 
 #### 1. Search-Intent Focused Title (`<title>`)
 - **Formula:** `[Primary Search Query / Problem Solved] + [Specific Value or Constraint] + [Action Hook]`
 - **Length:** 50–60 characters max (prevents truncation in Google SERPs).
 - **Rule:** Target what developers actually type in Google ("run aws locally", "api gateway vs reverse proxy", "postgres connection pool exhaustion").
-- ❌ **Bad:** `AWS Emulator — byteportal.tech` (Brand-focused, zero search intent)
+- ❌ **Bad:** `AWS Emulator - byteportal.tech` (Brand-focused, zero search intent)
 - ❌ **Bad:** `AWS now runs on your laptop` (Passive, misses key search query terms)
 - ✅ **Good:** `Run AWS Locally on Your Laptop with AWS Emulator (No Account Needed)`
 
@@ -131,7 +131,7 @@ Include valid `BlogPosting` schema in `<head>` so Google generates rich search s
 
 ### Files to touch
 
-1. `mkdir -p <slug> && cp prompt/template.html <slug>/index.html` — the folder name **is** the URL (`/<slug>/`), so keep it short and readable. No date in the folder; the `<time>` tag carries it.
+1. `mkdir -p <slug> && cp prompt/template.html <slug>/index.html` - the folder name **is** the URL (`/<slug>/`), so keep it short and readable. No date in the folder; the `<time>` tag carries it.
 2. In `<slug>/index.html`, update **every** SEO field:
    - `<meta name="robots" content="index, follow">` (template defaults to `noindex, nofollow` to prevent indexing draft files)
    - `<title>` (search-intent focused, 50-60 chars)

@@ -133,7 +133,7 @@
 
   <header class="border-b border-stone-200 dark:border-stone-800">
     <nav class="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 font-sans text-sm" aria-label="Main">
-      <a href="/" aria-label="byteportal.tech — home" class="inline-flex rounded bg-white px-1.5 py-1">
+      <a href="/" aria-label="byteportal.tech - home" class="inline-flex rounded bg-white px-1.5 py-1">
         <img src="../assets/Byte-Portal-Logo.svg" alt="byteportal.tech" width="1337" height="317" class="h-10 sm:h-11 w-auto">
       </a>
 
@@ -212,7 +212,7 @@
 
         <p>Now picture an agent that needs a database table. It creates one in the emulator, runs a query, sees the error, fixes the code, and runs it again. All of that happens in seconds, offline, with no credentials and no bill. Only when the code works does anything reach AWS.</p>
 
-        <p>The isolation matters as much as the speed. Every copy of the emulator gets its own port, its own keys, and its own memory. So two agents, or two CI jobs, or your test suite and your agent, can all run at the same time without stepping on each other. When you stop it, the state is gone — a clean slate every time.</p>
+        <p>The isolation matters as much as the speed. Every copy of the emulator gets its own port, its own keys, and its own memory. So two agents, or two CI jobs, or your test suite and your agent, can all run at the same time without stepping on each other. When you stop it, the state is gone - a clean slate every time.</p>
 
         <h2>How close is it to the real thing?</h2>
         <p>Close for the operations it supports, and honest about the rest.</p>
@@ -221,7 +221,7 @@
           <li>Valid calls return the same result as AWS. Invalid calls return the same errors.</li>
           <li>Anything it has not built yet returns <code>501 Not Implemented</code> instead of pretending to work.</li>
           <li>Its services are generated from the same public API models that power the AWS SDKs, and behaviour is filled in release by release.</li>
-          <li>Each release publishes a <a href="https://docs.aws.amazon.com/emulator/latest/userguide/fidelity.html">fidelity report</a> — a scorecard of how closely each service behaves like the real one.</li>
+          <li>Each release publishes a <a href="https://docs.aws.amazon.com/emulator/latest/userguide/fidelity.html">fidelity report</a> - a scorecard of how closely each service behaves like the real one.</li>
         </ul>
 
         <p>That last point is the one to check before you rely on it. "Supported" is per operation, not per service. If your code depends on one specific DynamoDB behaviour, look it up in the report first.</p>
@@ -248,7 +248,7 @@ dynamodb = boto3.client(
 
         <pre><code class="language-bash">aws agent-toolkit add-skill --skill-name aws-emulator --region us-east-1</code></pre>
 
-        <p>There is a third mode for Rust developers: the emulator can be compiled straight into your test binary. No port, no certificate, no environment variables. The catch is build cost — a cold build needs roughly 100 GB of disk and a fast multi-core machine.</p>
+        <p>There is a third mode for Rust developers: the emulator can be compiled straight into your test binary. No port, no certificate, no environment variables. The catch is build cost - a cold build needs roughly 100 GB of disk and a fast multi-core machine.</p>
 
         <h2>What it is not</h2>
         <ul>
@@ -280,7 +280,7 @@ dynamodb = boto3.client(
         </div>
 
         <h2>The takeaway</h2>
-        <p>The interesting part is not that you can fake S3 on a laptop. People have done that for years. The interesting part is that the fast feedback loop is now the default path, even for agents: write, test, fix, repeat — all locally — and only deploy when the code already works.</p>
+        <p>The interesting part is not that you can fake S3 on a laptop. People have done that for years. The interesting part is that the fast feedback loop is now the default path, even for agents: write, test, fix, repeat - all locally - and only deploy when the code already works.</p>
 
         <p>Try it on one small thing this week. Pick the AWS call you deploy most often, point it at the emulator, and see how much of your day was spent waiting.</p>
 

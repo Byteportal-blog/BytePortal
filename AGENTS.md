@@ -1,4 +1,4 @@
-# AGENTS.md — byteportal.tech
+# AGENTS.md - byteportal.tech
 
 ## Project
 
