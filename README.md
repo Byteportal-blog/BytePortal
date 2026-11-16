@@ -23,7 +23,11 @@ feed.xml                    RSS 2.0 feed for readers and aggregators
 404.html                    custom not-found fallback (served for missing routes)
 assets/css/style.css        custom CSS; print styles; no-Tailwind fallback layout
 assets/js/main.js           theme toggle + consent bar, feed filter, code copy buttons, 404 portal
-assets/Byte-Portal-Logo.svg header logo + tab icon (referenced from every page)
+favicon.ico                 multi-resolution root favicon (16x16, 32x32, 48x48)
+assets/favicon.svg          square vector favicon (BP monogram on dark badge)
+assets/favicon-48x48.png    square PNG favicon for Google Search & browsers
+assets/apple-touch-icon.png touch icon for iOS / Safari bookmarks (180x180)
+assets/Byte-Portal-Logo.svg header logo banner (referenced from every page)
 assets/images/<year>/<slug>/ post images, grouped by year and post slug (plus common/)
 <post-slug>/index.html       one folder per post; the folder name is the URL
 vercel.json                 clean URLs and redirects for moved URLs
