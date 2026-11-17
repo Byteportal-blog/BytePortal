@@ -8,6 +8,7 @@
 - Standards: Hands-on tested, factual, fluff-free, zero sponsored bias.
 
 ## Core Articles
+- [n8n Self-Hosted: AI Workflows Without the Zapier Bill](https://www.byteportal.tech/n8n-self-hosted/): Hands-off guide to self-hosting n8n with Docker for AI agent and automation workflows, covering execution-based pricing, the Sustainable Use License limits, the real ops cost, and where the free Community edition stops.
 - [Dokploy: Self-Hosted PaaS for Docker Apps](https://www.byteportal.tech/dokploy/): Guide to Dokploy, a free open-source PaaS that installs on a VPS with Docker Swarm, Traefik, PostgreSQL, and Redis to deploy Git apps, Compose stacks, and databases with SSL and backups - plus the real cost of running your own control plane.
 - [ArtCraft: 13+ Free Open-Source Adobe Alternatives in Pure Rust](https://www.byteportal.tech/artcraft-apps/): Overview of the 13+ native desktop applications in the ArtCraft suite replacing Photoshop, Illustrator, Premiere, and Office with lightweight, GPU-accelerated Rust binaries and zero subscriptions.
 - [Run AWS Locally on Your Laptop with AWS Emulator](https://www.byteportal.tech/aws-emulator/): Complete guide to running AWS services (S3, DynamoDB, SQS, Lambda) locally with AWS Emulator for zero cloud costs, rapid iteration, and fast coding agent feedback loops.

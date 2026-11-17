@@ -4,6 +4,37 @@
 
 ---
 
+# Article: n8n Self-Hosted: AI Workflows Without the Zapier Bill
+
+- URL: https://www.byteportal.tech/n8n-self-hosted/
+- Published: 2026-11-17
+- Author: Byte Portal
+- Tags: n8n, Automation, Self-Hosted, AI Agents, Docker
+
+## Summary
+n8n is a source-available workflow automation platform you can self-host with Docker. It combines a visual node canvas with JavaScript and Python code nodes, hundreds of native integrations, a plain HTTP node for anything else, AI Agent and MCP nodes, human approval steps, and full execution logs. Self-hosting removes per-task billing but makes you responsible for the server, TLS, backups, the encryption key, and upgrades. n8n is not open source: the Sustainable Use License permits internal business and personal non-commercial use but forbids reselling n8n as a hosted service.
+
+## Key Takeaways
+1. **Two-command install:** `docker volume create n8n_data` then run the `docker.n8n.io/n8nio/n8n` image on port 5678 for a local editor with no account.
+2. **Execution-based pricing, not per step:** One workflow run counts as one execution regardless of how many nodes it contains. A 12-step workflow every 5 minutes is 8,640 executions a month, not 103,680 tasks. Self-hosted Community has no execution meter.
+3. **The free edition has limits:** SSO/LDAP, Git version control, environments, external secret stores, and queue mode require a paid Business or Enterprise license.
+4. **Production needs three changes:** PostgreSQL instead of SQLite, a backed-up `N8N_ENCRYPTION_KEY`, and `WEBHOOK_URL` set to the public address behind HTTPS.
+5. **Security blast radius:** One instance stores API tokens for every connected service, so never expose port 5678 directly.
+
+## Pricing Snapshot (November 2026)
+- Cloud Starter: €20/month billed annually, 2,500 executions.
+- Cloud Pro: €50/month billed annually, 10,000 executions.
+- Self-hosted Business: 40,000 executions, SSO, Git, queue mode; meters executions and pings a license server daily.
+- Self-hosted Community: free software, unmetered executions, paid in server cost and maintenance.
+
+## Limitations
+- **Not OSI open source:** Fair-code license with commercial restrictions.
+- **Not managed:** You own upgrades, backups, monitoring, and incident response.
+- **Single-container ceiling:** Scaling beyond one instance needs queue mode, a paid feature.
+- **Not a coding agent:** It orchestrates models and tools inside workflows you design.
+
+---
+
 # Article: Dokploy: Self-Hosted PaaS for Docker Apps (No Kubernetes)
 
 - URL: https://www.byteportal.tech/dokploy/

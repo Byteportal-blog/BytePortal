@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5Q72V9MT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-8940675546180095">
+
+  <!-- SEO -->
+  <meta name="robots" content="index, follow">
+  <title>n8n Self-Hosted: AI Workflows Without the Zapier Bill</title>
+  <meta name="description" content="Self-host n8n with Docker and run AI agent and automation workflows for free. See what the fair-code license allows, what it costs in ops, and where it stops.">
+  <meta name="author" content="Byte Portal">
+  <link rel="canonical" href="https://www.byteportal.tech/n8n-self-hosted/">
+  <link rel="alternate" type="application/rss+xml" title="byteportal.tech" href="/feed.xml">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="n8n Self-Hosted: AI Workflows Without the Zapier Bill">
+  <meta property="og:description" content="Self-host n8n with Docker and run AI agent and automation workflows for free. See what the fair-code license allows, what it costs in ops, and where it stops.">
+  <meta property="og:url" content="https://www.byteportal.tech/n8n-self-hosted/">
+  <meta property="og:site_name" content="byteportal.tech">
+  <meta property="og:image" content="https://www.byteportal.tech/assets/images/2026/n8n-self-hosted/n8n-self-hosted-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Illustration of an n8n workflow running on your own server: Webhook to AI Agent to Human check to Slack and a database">
+  <meta property="article:published_time" content="2026-11-17">
+  <meta property="article:tag" content="n8n">
+  <meta property="article:tag" content="Automation">
+  <meta property="article:tag" content="Self-Hosted">
+  <meta property="article:tag" content="AI Agents">
+  <meta property="article:tag" content="Docker">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="n8n Self-Hosted: AI Workflows Without the Zapier Bill">
+  <meta name="twitter:description" content="Self-host n8n with Docker and run AI agent and automation workflows for free. See what the fair-code license allows, what it costs in ops, and where it stops.">
+  <meta name="twitter:image" content="https://www.byteportal.tech/assets/images/2026/n8n-self-hosted/n8n-self-hosted-og.png">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "n8n Self-Hosted: AI Workflows Without the Zapier Bill",
+    "description": "Self-host n8n with Docker and run AI agent and automation workflows for free. See what the fair-code license allows, what it costs in ops, and where it stops.",
+    "keywords": ["n8n", "Automation", "Self-Hosted", "AI Agents", "Docker"],
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["#quick-answer", "h1"]
+    },
+    "image": "https://www.byteportal.tech/assets/images/2026/n8n-self-hosted/n8n-self-hosted-og.png",
+    "datePublished": "2026-11-17",
+    "dateModified": "2026-11-17",
+    "author": {
+      "@type": "Person",
+      "name": "Byte Portal",
+      "url": "https://www.byteportal.tech/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "byteportal.tech",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.byteportal.tech/assets/Byte-Portal-Logo.svg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.byteportal.tech/n8n-self-hosted/"
+    }
+  }
+  </script>
+
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../assets/Byte-Portal-Logo.svg" type="image/svg+xml">
+
+  <!-- Light is the default. A saved dark choice is applied before paint, no flash. -->
+  <script>
+    if (localStorage.theme === 'dark') document.documentElement.classList.add('dark');
+  </script>
+
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script>tailwind.config = { darkMode: 'class' };</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/styles/github-dark.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body class="flex min-h-screen flex-col bg-white text-stone-800 antialiased dark:bg-stone-950 dark:text-stone-200">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:m-4 focus:rounded focus:bg-stone-900 focus:px-3 focus:py-2 focus:font-sans focus:text-sm focus:text-white">Skip to content</a>
+
+  <header class="border-b border-stone-200 dark:border-stone-800">
+    <nav class="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 font-sans text-sm" aria-label="Main">
+      <a href="/" aria-label="byteportal.tech - home" class="inline-flex rounded bg-white px-1.5 py-1">
+        <img src="../assets/Byte-Portal-Logo.svg" alt="byteportal.tech" width="1337" height="317" class="h-10 sm:h-11 w-auto">
+      </a>
+
+      <button id="theme-toggle" type="button" aria-label="Toggle dark mode"
+        class="grid h-11 w-11 place-items-center rounded-full border border-stone-200 text-stone-600 hover:text-stone-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900 dark:border-stone-700 dark:text-stone-400 dark:hover:text-white dark:focus-visible:outline-white">
+        <svg class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/>
+        </svg>
+        <svg class="hidden h-5 w-5 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main" class="mx-auto w-full max-w-3xl flex-1 px-4 pt-5 pb-12 sm:pt-8 sm:pb-16">
+    <a href="/" class="font-sans text-sm text-stone-500 hover:text-stone-900 dark:hover:text-white">&larr; All posts</a>
+
+    <article class="mt-4 sm:mt-6">
+      <header>
+        <div class="flex flex-wrap items-center gap-1.5">
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">n8n</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">Automation</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">Self-Hosted</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">AI Agents</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">Docker</span>
+        </div>
+        <h1 class="mt-2.5 text-2xl font-bold leading-snug tracking-tight text-stone-900 sm:text-3xl dark:text-white">n8n self-hosted: AI workflows without the per-task bill</h1>
+        <p class="mt-2 font-sans text-sm text-stone-500">
+          <time datetime="2026-11-17">17 November 2026</time> · 5 min read
+        </p>
+      </header>
+
+      <div class="prose prose-stone mt-6 sm:mt-8 max-w-none text-left sm:text-justify dark:prose-invert">
+        <p>Your invoice sync breaks on a Tuesday. Nobody notices until Friday, when a customer asks where their receipt went. The script lives on a laptop that went to sleep.</p>
+
+        <p>Zapier or Make would replace that script, but both charge per task. Check a hundred invoices, pay for a hundred tasks. n8n trades that for a server you already rent and a meter that is your own hardware.</p>
+
+        <!-- Quick Summary Box: Scannable answer block for readers and AI search extractors -->
+        <div id="quick-answer" class="not-prose my-6 rounded-xl border border-stone-200 bg-stone-50 p-4 sm:p-5 dark:border-stone-800 dark:bg-stone-900/60">
+          <p class="flex items-center gap-1.5 font-sans text-xs font-semibold uppercase tracking-wider text-stone-600 dark:text-stone-300">
+            <svg class="h-4 w-4 text-emerald-600 dark:text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+            </svg>
+            Quick Summary (The Short Version)
+          </p>
+          <ul class="mt-3 space-y-2 font-sans text-sm text-stone-700 dark:text-stone-300">
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>A workflow builder with code inside:</strong> Hundreds of integrations, HTTP for the rest, JavaScript and Python nodes, plus AI Agent and MCP nodes.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>One run counts once:</strong> A 12-step workflow is one execution, not twelve tasks. Self-hosted Community has no execution meter at all.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>You pay in ops:</strong> The server, backups, encryption key, and upgrades are yours. The fair-code license forbids reselling n8n as a hosted service.</span>
+            </li>
+          </ul>
+        </div>
+
+        <figure class="my-8">
+          <img src="../assets/images/2026/n8n-self-hosted/n8n-self-hosted-og.png" alt="Illustration of an n8n workflow on your own server: a webhook triggers an AI agent, a human approval step checks it, then Slack and a database receive the result"
+               width="1200" height="630" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Trigger, model, human check, side effect. The whole workflow runs on your box. Image: byteportal.tech.</figcaption>
+        </figure>
+
+        <h2>What n8n actually is</h2>
+        <p>n8n is a workflow builder. A workflow is a graph of nodes, and each node does one job: catch a webhook, query Postgres, call an API, ask a model, send a Slack message.</p>
+
+        <p>Stripe fires a webhook when an invoice is paid. A model node pulls the line items out of the PDF. A filter checks the total. Under €500, the workflow writes the row and emails the receipt. Over €500, it asks you in Slack first, then writes. Six nodes, one workflow, one execution.</p>
+
+        <p>The run log is not a console dump. Click any node and see the exact JSON that entered and left.</p>
+
+        <p>The escape hatch matters too. A Code node runs JavaScript or Python, so the ugly transform takes ten lines. AI Agent, chat trigger, and MCP nodes sit on the same canvas. The homepage says 500+ native integrations; the README says 1,500+ integrations. The plain HTTP node covers the rest.</p>
+
+        <figure class="my-8">
+          <img src="../assets/images/2026/n8n-self-hosted/n8n-invoice-workflow.png" alt="n8n invoice workflow: a Stripe webhook feeds an AI extraction node, then a filter checks whether the total is over €500, with one branch for auto-approval and one for Slack approval, both ending in a Postgres write and receipt email"
+               width="1200" height="640" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Two paths, one execution, and a log you can replay. Image: byteportal.tech.</figcaption>
+        </figure>
+
+        <h2>The billing trick: one run, not one step</h2>
+        <p>Run a 12-step workflow every five minutes for 30 days. That is 8,640 runs. Per-task billing sees 103,680 tasks. n8n sees 8,640 executions. The step count is free.</p>
+
+        <p>That is the pitch, and the trap. A workflow that fires every five seconds will eat any server. Cheap per run is not cheap at any volume.</p>
+
+        <p>Self-hosted Community has no execution meter. Cloud plans do: €20 per month billed annually for 2,500 executions, €50 for 10,000. A self-hosted Business license meters executions too, and pings a license server daily. Prices checked in November 2026.</p>
+
+        <figure class="my-8">
+          <img src="../assets/images/2026/n8n-self-hosted/n8n-execution-billing.png" alt="Diagram comparing per-task billing, where four workflow steps count as four billed tasks, with n8n execution billing, where the same four steps count as one execution"
+               width="1200" height="640" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Same workflow, two meters. Steps stop multiplying the bill. Image: byteportal.tech.</figcaption>
+        </figure>
+
+        <h2>The install is two commands</h2>
+        <p>You need Docker. That is the whole prerequisite for a local test.</p>
+
+        <pre><code class="language-bash">docker volume create n8n_data
+docker run -it --rm --name n8n -p 5678:5678 \
+  -v n8n_data:/home/node/.n8n \
+  docker.n8n.io/n8nio/n8n</code></pre>
+
+        <p>Open <code>http://localhost:5678</code> and create the owner account. No cloud signup, no license key, no card. Build the invoice flow, run it once, open the execution log. You will know in ten minutes whether the editor fits your brain.</p>
+
+        <p>For a real server, change three things: PostgreSQL instead of the default SQLite, <code>N8N_ENCRYPTION_KEY</code> stored somewhere else, and <code>WEBHOOK_URL</code> set to the public address behind HTTPS.</p>
+
+        <figure class="my-8">
+          <img src="../assets/images/2026/n8n-self-hosted/n8n-deployment-options.png" alt="Three n8n deployment options: Docker on a laptop at localhost:5678, n8n behind Caddy or nginx with PostgreSQL on a VPS, and n8n Cloud with a managed editor and database"
+               width="1200" height="620" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Same workflow, three homes. Only one of them pages you at night. Image: byteportal.tech.</figcaption>
+        </figure>
+
+        <h2>What breaks at 2 a.m.</h2>
+        <p>Self-hosting does not remove operations. It moves them to your name.</p>
+
+        <p>First, the half-finished run: node four writes to Postgres, node five calls Slack, Slack times out. A naive retry writes the row twice. Key the write on the invoice ID, or catch the error in a separate workflow.</p>
+
+        <p>Second, the key. Credentials are encrypted with a key in the data directory. Lose it and every stored token is noise. Back up the key separately, then restore one workflow to prove it works.</p>
+
+        <p>Third, the blast radius. One instance holds tokens for Slack, GitHub, Stripe, and your database. Port 5678 open to the internet is a bad week waiting to happen. Put a reverse proxy with HTTPS in front, and pull a new image most months; n8n ships a minor version most weeks.</p>
+
+                <h2>Where free stops, and who should pay</h2>
+        <p>n8n is source-available, not open source. The Sustainable Use License allows internal business use, and personal or non-commercial use. You cannot host it and sell workflow access to customers. Consulting on it is fine.</p>
+
+        <p>The Community edition lacks SSO and LDAP, Git-based version control, separate environments, external secret stores, and queue mode for scaling. Those need a paid license, and the self-hosted Business license meters executions too.</p>
+
+        <p>Fit check: you already run Docker, your automations touch internal systems, and your bill punishes step-heavy workflows. It also fits when a non-developer needs to read the flow; the canvas is documentation people actually open.</p>
+
+        <p>Skip it for a single two-step Zap. The honest alternative there is a cron job and a small script. n8n wins when the branches multiply, or when a human approval has to sit in the middle.</p>
+
+        <h2>What it is not</h2>
+        <ul>
+          <li><strong>Not open source.</strong> Source-available under a fair-code license with commercial limits.</li>
+          <li><strong>Not managed.</strong> You patch it, back it up, and answer the 2 a.m. page.</li>
+          <li><strong>Not a coding agent.</strong> It orchestrates models and tools inside a workflow you designed.</li>
+          <li><strong>Not a queue at scale on one container.</strong> Real throughput needs queue mode, a paid feature.</li>
+          <li><strong>Not free for a team</strong> that needs SSO, Git sync, or separate environments.</li>
+        </ul>
+
+        <h2>The takeaway</h2>
+        <p>n8n is worth an afternoon if you already pay per step and already have a server. It is not worth a migration weekend if one cron job does the job.</p>
+
+        <p>This week, run the two commands and rebuild one workflow by hand. Watch the execution log. Decide with evidence, not a demo video.</p>
+
+        <p>Links: <a href="https://n8n.io/">n8n</a>, <a href="https://docs.n8n.io/">the documentation</a>, <a href="https://github.com/n8n-io/n8n">the source on GitHub</a>, <a href="https://n8n.io/pricing/">pricing</a>.</p>
+
+        <p><em>Docs-first look: I read the install docs, license, and pricing but did not run a production migration.</em></p>
+      </div>
+
+      <footer class="mt-10 border-t border-stone-200 pt-6 dark:border-stone-800">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="font-sans text-xs font-medium text-stone-500 dark:text-stone-400">Tagged:</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2.5 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">n8n</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2.5 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">Automation</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2.5 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">Self-Hosted</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2.5 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">AI Agents</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2.5 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">Docker</span>
+        </div>
+      </footer>
+    </article>
+
+    <nav class="mt-12 border-t border-stone-200 pt-6 font-sans text-sm dark:border-stone-800" aria-label="Post navigation">
+      <a href="/" class="text-stone-500 hover:text-stone-900 dark:hover:text-white">&larr; Back to all posts</a>
+    </nav>
+  </main>
+
+  <footer class="border-t border-stone-200 py-6 text-center font-sans text-sm text-stone-500 dark:border-stone-800">
+    <p>© 2026 byteportal.tech · <a href="/about/" class="hover:text-stone-900 dark:hover:text-white">About</a> · <a href="/privacy/" class="hover:text-stone-900 dark:hover:text-white">Privacy</a> · <a href="/feed.xml" class="hover:text-stone-900 dark:hover:text-white">RSS Feed</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/highlight.min.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

@@ -11,7 +11,15 @@
       <link>https://www.byteportal.tech/</link>
     </image>
     <atom:link href="https://www.byteportal.tech/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 16 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Nov 2026 00:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>n8n Self-Hosted: AI Workflows Without the Zapier Bill</title>
+      <link>https://www.byteportal.tech/n8n-self-hosted/</link>
+      <guid isPermaLink="true">https://www.byteportal.tech/n8n-self-hosted/</guid>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Self-host n8n with Docker and run AI agent and automation workflows for free. See what the fair-code license allows, what it costs in ops, and where it stops.</description>
+    </item>
 
     <item>
       <title>Dokploy: Self-Hosted PaaS for Docker Apps (No Kubernetes)</title>
