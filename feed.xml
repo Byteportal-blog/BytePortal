@@ -11,7 +11,15 @@
       <link>https://www.byteportal.tech/</link>
     </image>
     <atom:link href="https://www.byteportal.tech/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Tue, 17 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 00:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Coolify vs Dokploy: Which Self-Hosted PaaS Wins in 2026?</title>
+      <link>https://www.byteportal.tech/coolify-vs-dokploy/</link>
+      <guid isPermaLink="true">https://www.byteportal.tech/coolify-vs-dokploy/</guid>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Compare Coolify and Dokploy on a $5 VPS: RAM footprint, Traefik vs Caddy, Docker Compose support, multi-server clustering, and which self-hosted PaaS fits you.</description>
+    </item>
 
     <item>
       <title>n8n Self-Hosted: AI Workflows Without the Zapier Bill</title>

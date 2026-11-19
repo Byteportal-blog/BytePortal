@@ -4,6 +4,30 @@
 
 ---
 
+# Article: Coolify vs Dokploy: Which Self-Hosted PaaS Wins in 2026?
+
+- URL: https://www.byteportal.tech/coolify-vs-dokploy/
+- Published: 2026-11-19
+- Author: Byte Portal
+- Tags: Coolify, Dokploy, Self-Hosted, Docker, DevOps, PaaS
+
+## Summary
+Coolify and Dokploy are the two leading open-source self-hosted Platform as a Service (PaaS) tools. Both turn a clean Linux VPS into an automated deployment hub, automating git-push deployments, Let's Encrypt SSL certificates, Docker container isolation, and managed database provisioning. Coolify v4 is built on PHP/Laravel with a mature feature set, 300+ application templates, and SSH-based multi-server clustering, but consumes 800MB to 1.4GB of RAM at idle. Dokploy is built on Node.js/Next.js/tRPC, idling at just 150MB to 350MB of RAM, making it significantly better suited for budget $4-$5 VPS nodes with 1GB RAM.
+
+## Key Takeaways
+1. **Memory efficiency separates them:** Dokploy leaves 70% of a 1GB VPS free for applications; Coolify requires at least 2GB of RAM or 2GB-4GB of configured disk swap to avoid out-of-memory crashes during builds.
+2. **Multi-server architecture:** Coolify registers external nodes over direct SSH keys without clustering overhead. Dokploy uses Docker Swarm mode for multi-node deployments.
+3. **Template ecosystem:** Coolify provides 300+ one-click templates for self-hosted apps (WordPress, Plausible, n8n, etc.). Dokploy focuses on core databases and essential services.
+4. **Reverse proxy options:** Coolify supports both Traefik and Caddy; Dokploy integrates directly with Traefik.
+5. **Vendor independence:** Both use standard Dockerfiles, Docker Compose, and Nixpacks, ensuring zero vendor lock-in.
+
+## Limitations
+- **Not managed hosting:** You maintain operating system patches, firewalls, and server uptime.
+- **Not Kubernetes:** Built for single servers and moderate multi-node deployments, not massive auto-scaling clusters.
+- **Build memory spikes:** Heavy compilation steps (e.g. Next.js, Rust) can exhaust server RAM without swap.
+
+---
+
 # Article: n8n Self-Hosted: AI Workflows Without the Zapier Bill
 
 - URL: https://www.byteportal.tech/n8n-self-hosted/
