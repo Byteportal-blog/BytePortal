@@ -24,7 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BLOGGER_BLOG_ID = "8931891139247852068"
 
 def parse_and_convert(slug):
-    post_dir = os.path.join(BASE_DIR, slug)
+    post_dir = os.path.join(BASE_DIR, 'blogs', slug)
+    if not os.path.exists(post_dir):
+        post_dir = os.path.join(BASE_DIR, slug)
     index_file = os.path.join(post_dir, 'index.html')
     if not os.path.exists(index_file):
         raise FileNotFoundError(f"Article not found at: {index_file}")
@@ -41,7 +43,7 @@ def parse_and_convert(slug):
     if not tags:
         tags = ["Technology", "Developer", "OpenSource"]
 
-    canonical_url = f"https://www.byteportal.tech/{slug}/"
+    canonical_url = f"https://www.byteportal.tech/blogs/{slug}/"
 
     # 3. Extract prose body
     prose_m = re.search(r'<div class="prose[^"]*">(.*?)</div>\s*<footer', html, re.S | re.I)
@@ -56,21 +58,21 @@ def parse_and_convert(slug):
         src = match.group(2)
         if src.startswith('http'):
             return f'{prefix}src="{src}"'
-        clean_src = src.lstrip('./').lstrip('/')
-        if clean_src.startswith('../'):
-            clean_src = clean_src[3:]
+        clean_src = re.sub(r'^(?:\.\./|\./|/)+', '', src)
         absolute_src = f"https://www.byteportal.tech/{clean_src}"
         return f'{prefix}src="{absolute_src}"'
 
     clean_body = re.sub(r'(<img\s+[^>]*?)src="([^"]+)"', replace_img_src, raw_body)
 
-    # 5. Convert relative anchor links (e.g. href="/dokploy/") to absolute
+    # 5. Convert relative anchor links (e.g. href="/blogs/dokploy/") to absolute
     def replace_a_href(match):
         prefix = match.group(1)
         href = match.group(2)
         if href.startswith('http') or href.startswith('#') or href.startswith('mailto:'):
             return f'{prefix}href="{href}"'
-        clean_href = href.lstrip('./').lstrip('/')
+        clean_href = re.sub(r'^(?:\.\./|\./|/)+', '', href)
+        if not clean_href.startswith('blogs/') and not clean_href.startswith('about') and not clean_href.startswith('privacy'):
+            clean_href = f"blogs/{clean_href}"
         return f'{prefix}href="https://www.byteportal.tech/{clean_href}"'
 
     clean_body = re.sub(r'(<a\s+[^>]*?)href="([^"]+)"', replace_a_href, clean_body)

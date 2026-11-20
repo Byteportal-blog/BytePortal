@@ -15,40 +15,40 @@
 
     <item>
       <title>Coolify vs Dokploy: Which Self-Hosted PaaS Wins in 2026?</title>
-      <link>https://www.byteportal.tech/coolify-vs-dokploy/</link>
-      <guid isPermaLink="true">https://www.byteportal.tech/coolify-vs-dokploy/</guid>
+      <link>https://www.byteportal.tech/blogs/coolify-vs-dokploy/</link>
+      <guid isPermaLink="true">https://www.byteportal.tech/blogs/coolify-vs-dokploy/</guid>
       <pubDate>Thu, 19 Nov 2026 00:00:00 +0000</pubDate>
       <description>Compare Coolify and Dokploy on a $5 VPS: RAM footprint, Traefik vs Caddy, Docker Compose support, multi-server clustering, and which self-hosted PaaS fits you.</description>
     </item>
 
     <item>
       <title>n8n Self-Hosted: AI Workflows Without the Zapier Bill</title>
-      <link>https://www.byteportal.tech/n8n-self-hosted/</link>
-      <guid isPermaLink="true">https://www.byteportal.tech/n8n-self-hosted/</guid>
+      <link>https://www.byteportal.tech/blogs/n8n-self-hosted/</link>
+      <guid isPermaLink="true">https://www.byteportal.tech/blogs/n8n-self-hosted/</guid>
       <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
       <description>Self-host n8n with Docker and run AI agent and automation workflows for free. See what the fair-code license allows, what it costs in ops, and where it stops.</description>
     </item>
 
     <item>
       <title>Dokploy: Self-Hosted PaaS for Docker Apps (No Kubernetes)</title>
-      <link>https://www.byteportal.tech/dokploy/</link>
-      <guid isPermaLink="true">https://www.byteportal.tech/dokploy/</guid>
+      <link>https://www.byteportal.tech/blogs/dokploy/</link>
+      <guid isPermaLink="true">https://www.byteportal.tech/blogs/dokploy/</guid>
       <pubDate>Mon, 16 Nov 2026 00:00:00 +0000</pubDate>
       <description>Dokploy is a free, self-hosted PaaS that deploys Docker apps and databases on your own VPS with Traefik, SSL, and backups. Here is when it fits.</description>
     </item>
 
     <item>
       <title>ArtCraft: 13+ Free Open-Source Adobe Alternatives in Pure Rust</title>
-      <link>https://www.byteportal.tech/artcraft-apps/</link>
-      <guid isPermaLink="true">https://www.byteportal.tech/artcraft-apps/</guid>
+      <link>https://www.byteportal.tech/blogs/artcraft-apps/</link>
+      <guid isPermaLink="true">https://www.byteportal.tech/blogs/artcraft-apps/</guid>
       <pubDate>Sun, 15 Nov 2026 00:00:00 +0000</pubDate>
       <description>Explore ArtCraft: 13+ free, open-source native Rust apps replacing Photoshop, Illustrator, Premiere, and Office with zero subscriptions or Electron bloat.</description>
     </item>
 
     <item>
       <title>Run AWS Locally on Your Laptop with AWS Emulator</title>
-      <link>https://www.byteportal.tech/aws-emulator/</link>
-      <guid isPermaLink="true">https://www.byteportal.tech/aws-emulator/</guid>
+      <link>https://www.byteportal.tech/blogs/aws-emulator/</link>
+      <guid isPermaLink="true">https://www.byteportal.tech/blogs/aws-emulator/</guid>
       <pubDate>Fri, 13 Nov 2026 00:00:00 +0000</pubDate>
       <description>Run S3, DynamoDB, SQS, and Lambda locally using AWS Emulator. Test AWS SDK calls in milliseconds without an AWS account, cloud deploy, or AWS bill.</description>
     </item>

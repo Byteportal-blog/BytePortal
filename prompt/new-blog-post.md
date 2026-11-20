@@ -72,7 +72,7 @@ Every post must be engineered for Google search intent, high organic click-throu
   - `<meta property="og:type" content="article">`
   - `<meta property="og:title" content="[Search-intent title]">`
   - `<meta property="og:description" content="[Search-intent description]">`
-  - `<meta property="og:url" content="https://www.byteportal.tech/<slug>/">`
+  - `<meta property="og:url" content="https://www.byteportal.tech/blogs/<slug>/">`
   - `<meta property="og:site_name" content="byteportal.tech">`
   - `<meta property="og:image" content="https://www.byteportal.tech/assets/images/<year>/<slug>/<file>">`
   - `<meta property="og:image:width" content="1200">`
@@ -83,7 +83,7 @@ Every post must be engineered for Google search intent, high organic click-throu
   - `<meta name="twitter:card" content="summary_large_image">`
   - `<meta name="twitter:title" content="[Search-intent title]">`
   - `<meta name="twitter:description" content="[Search-intent description]">`
-  - `<meta name="twitter:image" content="https://www.byteportal.tech/assets/images/<year>/<file>">`
+  - `<meta name="twitter:image" content="https://www.byteportal.tech/assets/images/<year>/<slug>/<file>">`
 
 #### 3a. Third-party Images & Credits
 - **Do not hotlink.** Download the image into `assets/images/<year>/<slug>/` and optimize it (WebP/PNG/JPG).
@@ -92,7 +92,7 @@ Every post must be engineered for Google search intent, high organic click-throu
 - If the license or reuse right is unclear, cut the image or replace it with your own diagram.
 
 #### 4. Canonical & RSS Auto-Discovery
-- `<link rel="canonical" href="https://www.byteportal.tech/<slug>/">`
+- `<link rel="canonical" href="https://www.byteportal.tech/blogs/<slug>/">`
 - `<link rel="alternate" type="application/rss+xml" title="byteportal.tech" href="/feed.xml">`
 
 #### 5. Schema.org JSON-LD Structured Data
@@ -104,7 +104,7 @@ Include valid `BlogPosting` schema in `<head>` so Google generates rich search s
   "@type": "BlogPosting",
   "headline": "[Search-intent title]",
   "description": "[Search-intent description]",
-  "image": "https://www.byteportal.tech/assets/images/<year>/<file>",
+  "image": "https://www.byteportal.tech/assets/images/<year>/<slug>/<file>",
   "datePublished": "YYYY-MM-DD",
   "dateModified": "YYYY-MM-DD",
   "author": {
@@ -121,7 +121,7 @@ Include valid `BlogPosting` schema in `<head>` so Google generates rich search s
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://www.byteportal.tech/<slug>/"
+    "@id": "https://www.byteportal.tech/blogs/<slug>/"
   }
 }
 </script>
@@ -131,12 +131,12 @@ Include valid `BlogPosting` schema in `<head>` so Google generates rich search s
 
 ### Files to touch
 
-1. `mkdir -p <slug> && cp prompt/template.html <slug>/index.html` - the folder name **is** the URL (`/<slug>/`), so keep it short and readable. No date in the folder; the `<time>` tag carries it.
-2. In `<slug>/index.html`, update **every** SEO field:
+1. `mkdir -p blogs/<slug> && cp prompt/template.html blogs/<slug>/index.html` - the folder name **is** the URL (`/blogs/<slug>/`), so keep it short and readable. No date in the folder; the `<time>` tag carries it.
+2. In `blogs/<slug>/index.html`, update **every** SEO field:
    - `<meta name="robots" content="index, follow">` (template defaults to `noindex, nofollow` to prevent indexing draft files)
    - `<title>` (search-intent focused, 50-60 chars)
    - `meta[name=description]` (140-160 chars)
-   - `link[rel=canonical]` (`https://www.byteportal.tech/<slug>/`)
+   - `link[rel=canonical]` (`https://www.byteportal.tech/blogs/<slug>/`)
    - `og:title`, `og:description`, `og:url`, `og:image`, `og:image:width`, `og:image:height`, `og:image:alt`, `article:published_time`
    - `article:tag` (one per line, e.g. `<meta property="article:tag" content="Tag">`)
    - `twitter:title`, `twitter:description`, `twitter:image`
@@ -144,13 +144,13 @@ Include valid `BlogPosting` schema in `<head>` so Google generates rich search s
    - The visible tags in `<header>` and article `<footer>`
    - The visible `<time datetime="YYYY-MM-DD">` plus its text.
 3. Write the article body inside the existing `<div class="prose …">`. Keep the header, footer and theme script untouched.
-4. In `index.html`, add one `<li>` as the **first** child of `<ol id="post-feed">`, matching the existing entry exactly: `href="<slug>/"`, `<time>`, tag pills, `h2` title, and a one-sentence summary that reads like the post's hook. Tags in the feed automatically work with the search bar.
+4. In `index.html`, add one `<li>` as the **first** child of `<ol id="post-feed">`, matching the existing entry exactly: `href="./blogs/<slug>/"`, `<time>`, tag pills, `h2` title, and a one-sentence summary that reads like the post's hook. Tags in the feed automatically work with the search bar.
 5. In `feed.xml`, add the new `<item>` at the top of the RSS feed:
    ```xml
    <item>
      <title>[Search-intent title]</title>
-     <link>https://www.byteportal.tech/<slug>/</link>
-     <guid isPermaLink="true">https://www.byteportal.tech/<slug>/</guid>
+     <link>https://www.byteportal.tech/blogs/<slug>/</link>
+     <guid isPermaLink="true">https://www.byteportal.tech/blogs/<slug>/</guid>
      <pubDate>Day, DD Mon YYYY 00:00:00 +0000</pubDate>
      <description>[Search-intent description]</description>
    </item>
@@ -158,7 +158,7 @@ Include valid `BlogPosting` schema in `<head>` so Google generates rich search s
 6. In `sitemap.xml`, add the new `<url>` entry:
    ```xml
    <url>
-     <loc>https://www.byteportal.tech/<slug>/</loc>
+     <loc>https://www.byteportal.tech/blogs/<slug>/</loc>
      <lastmod>YYYY-MM-DD</lastmod>
      <changefreq>monthly</changefreq>
      <priority>0.8</priority>
@@ -173,7 +173,7 @@ Include valid `BlogPosting` schema in `<head>` so Google generates rich search s
 
 - [ ] Title is search-intent focused (50-60 chars), not brand-first.
 - [ ] Meta description is 140-160 chars and answers search query directly.
-- [ ] Canonical URL and OG URL end in `https://www.byteportal.tech/<slug>/`.
+- [ ] Canonical URL and OG URL end in `https://www.byteportal.tech/blogs/<slug>/`.
 - [ ] Open Graph & Twitter Card tags have real titles, descriptions, and 1200x630 image dimensions.
 - [ ] Schema.org JSON-LD `BlogPosting` block has valid syntax and URLs.
 - [ ] Images exist at the paths used; `width`/`height` match real pixel size; captions and alt text are plain English.

@@ -39,14 +39,14 @@
   <title>Coolify vs Dokploy: Which Self-Hosted PaaS Wins in 2026?</title>
   <meta name="description" content="Compare Coolify and Dokploy on a $5 VPS: RAM footprint, Traefik vs Caddy, Docker Compose support, multi-server clustering, and which self-hosted PaaS fits you.">
   <meta name="author" content="Byte Portal">
-  <link rel="canonical" href="https://www.byteportal.tech/coolify-vs-dokploy/">
+  <link rel="canonical" href="https://www.byteportal.tech/blogs/coolify-vs-dokploy/">
   <link rel="alternate" type="application/rss+xml" title="byteportal.tech" href="/feed.xml">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
   <meta property="og:title" content="Coolify vs Dokploy: Which Self-Hosted PaaS Wins in 2026?">
   <meta property="og:description" content="Compare Coolify and Dokploy on a $5 VPS: RAM footprint, Traefik vs Caddy, Docker Compose support, multi-server clustering, and which self-hosted PaaS fits you.">
-  <meta property="og:url" content="https://www.byteportal.tech/coolify-vs-dokploy/">
+  <meta property="og:url" content="https://www.byteportal.tech/blogs/coolify-vs-dokploy/">
   <meta property="og:site_name" content="Byte Portal">
   <meta property="og:image" content="https://www.byteportal.tech/assets/images/2026/coolify-vs-dokploy/coolify-vs-dokploy-og.jpg">
   <meta property="og:image:width" content="1200">
@@ -97,7 +97,7 @@
         },
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://www.byteportal.tech/coolify-vs-dokploy/"
+          "@id": "https://www.byteportal.tech/blogs/coolify-vs-dokploy/"
         }
       },
       {
@@ -135,17 +135,17 @@
 
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)">
-  <link rel="icon" href="../favicon.ico" sizes="48x48">
-  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="icon" href="../../favicon.ico" sizes="48x48">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
 
   <!-- Light is the default. A saved dark choice is applied before paint, no flash. -->
   <script>
     if (localStorage.theme === 'dark') document.documentElement.classList.add('dark');
   </script>
 
-  <link rel="preload" href="../assets/css/site.min.css" as="style">
-  <link rel="stylesheet" href="../assets/css/site.min.css">
+  <link rel="preload" href="../../assets/css/site.min.css" as="style">
+  <link rel="stylesheet" href="../../assets/css/site.min.css">
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/styles/github-dark.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/styles/github-dark.min.css"></noscript>
 </head>
@@ -156,7 +156,7 @@
   <header class="border-b border-stone-200 dark:border-stone-800">
     <nav class="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 font-sans text-sm" aria-label="Main">
       <a href="/" aria-label="byteportal.tech - home" class="inline-flex rounded bg-white px-1.5 py-1">
-        <img src="../assets/Byte-Portal-Logo.svg" alt="byteportal.tech" width="1337" height="317" class="h-10 sm:h-11 w-auto" fetchpriority="high">
+        <img src="../../assets/Byte-Portal-Logo.svg" alt="byteportal.tech" width="1337" height="317" class="h-10 sm:h-11 w-auto" fetchpriority="high">
       </a>
 
       <button id="theme-toggle" type="button" aria-label="Toggle dark mode"
@@ -219,7 +219,7 @@
         </div>
 
         <figure class="my-8">
-          <img src="../assets/images/2026/coolify-vs-dokploy/coolify-vs-dokploy-og.jpg" alt="Coolify vs Dokploy head-to-head comparison banner showing purple Coolify cloud server nodes and cyan Dokploy container nodes with a central VS emblem"
+          <img src="../../assets/images/2026/coolify-vs-dokploy/coolify-vs-dokploy-og.jpg" alt="Coolify vs Dokploy head-to-head comparison banner showing purple Coolify cloud server nodes and cyan Dokploy container nodes with a central VS emblem"
                width="1200" height="630" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
           <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Coolify v4 vs Dokploy: two paths to self-hosted PaaS. Image: byteportal.tech.</figcaption>
         </figure>
@@ -229,10 +229,10 @@
 
         <p>Both tools support Dockerfiles, Docker Compose files, and automated buildpacks like Nixpacks. Both provide web dashboards with live build logs, environment variable editors, and one-click database management for PostgreSQL, MySQL, and Redis.</p>
 
-        <p>If you read <a href="/dokploy/">our deep dive on Dokploy</a>, you know how liberating this workflow feels. The real difference is not what they promise. It is how much server hardware they consume to keep those promises.</p>
+        <p>If you read <a href="/blogs/dokploy/">our deep dive on Dokploy</a>, you know how liberating this workflow feels. The real difference is not what they promise. It is how much server hardware they consume to keep those promises.</p>
 
         <figure class="my-8">
-          <img src="../assets/images/2026/coolify-vs-dokploy/paas-architecture-comparison.png" alt="Architectural diagram comparing Coolify's Laravel control plane with Dokploy's Node.js control plane on a VPS"
+          <img src="../../assets/images/2026/coolify-vs-dokploy/paas-architecture-comparison.png" alt="Architectural diagram comparing Coolify's Laravel control plane with Dokploy's Node.js control plane on a VPS"
                width="1200" height="640" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
           <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Under the hood: how each control plane runs alongside your applications. Image: byteportal.tech.</figcaption>
         </figure>
@@ -350,7 +350,7 @@
 
         <p>This weekend, spin up an inexpensive test instance, run either install script, and deploy one Git repository. You will never look at a $20 per-seat SaaS hosting invoice the same way again.</p>
 
-        <p>Links: <a href="https://coolify.io/">Coolify</a>, <a href="https://github.com/coollabsio/coolify">Coolify GitHub</a>, <a href="https://dokploy.com/">Dokploy</a>, <a href="https://github.com/Dokploy/dokploy">Dokploy GitHub</a>, and <a href="/dokploy/">our Dokploy setup guide</a>.</p>
+        <p>Links: <a href="https://coolify.io/">Coolify</a>, <a href="https://github.com/coollabsio/coolify">Coolify GitHub</a>, <a href="https://dokploy.com/">Dokploy</a>, <a href="https://github.com/Dokploy/dokploy">Dokploy GitHub</a>, and <a href="/blogs/dokploy/">our Dokploy setup guide</a>.</p>
 
         <p><em>Hands-on comparison: both control planes tested on identical Hetzner Cloud VPS instances (CPX11, 2 vCPU, 2GB RAM and CX22, 2 vCPU, 4GB RAM) with Docker 27.</em></p>
       </div>
@@ -377,6 +377,6 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/highlight.min.js" defer></script>
-  <script src="../assets/js/main.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 
 # Article: Coolify vs Dokploy: Which Self-Hosted PaaS Wins in 2026?
 
-- URL: https://www.byteportal.tech/coolify-vs-dokploy/
+- URL: https://www.byteportal.tech/blogs/coolify-vs-dokploy/
 - Published: 2026-11-19
 - Author: Byte Portal
 - Tags: Coolify, Dokploy, Self-Hosted, Docker, DevOps, PaaS
@@ -30,7 +30,7 @@ Coolify and Dokploy are the two leading open-source self-hosted Platform as a Se
 
 # Article: n8n Self-Hosted: AI Workflows Without the Zapier Bill
 
-- URL: https://www.byteportal.tech/n8n-self-hosted/
+- URL: https://www.byteportal.tech/blogs/n8n-self-hosted/
 - Published: 2026-11-17
 - Author: Byte Portal
 - Tags: n8n, Automation, Self-Hosted, AI Agents, Docker
@@ -61,7 +61,7 @@ n8n is a source-available workflow automation platform you can self-host with Do
 
 # Article: Dokploy: Self-Hosted PaaS for Docker Apps (No Kubernetes)
 
-- URL: https://www.byteportal.tech/dokploy/
+- URL: https://www.byteportal.tech/blogs/dokploy/
 - Published: 2026-11-16
 - Author: Byte Portal
 - Tags: Dokploy, Self-Hosted, Docker, PaaS, DevOps
@@ -93,7 +93,7 @@ Open `http://your-server:3000` to create the admin account. Put the panel behind
 
 # Article: ArtCraft: 13+ Free Open-Source Adobe Alternatives in Pure Rust
 
-- URL: https://www.byteportal.tech/artcraft-apps/
+- URL: https://www.byteportal.tech/blogs/artcraft-apps/
 - Published: 2026-11-15
 - Author: Byte Portal
 - Tags: Open Source, Rust, Creative Tools, Adobe Alternatives, Free Software
@@ -134,7 +134,7 @@ cargo build --release
 
 # Article: Run AWS Locally on Your Laptop with AWS Emulator
 
-- URL: https://www.byteportal.tech/aws-emulator/
+- URL: https://www.byteportal.tech/blogs/aws-emulator/
 - Published: 2026-11-13
 - Author: Byte Portal
 - Tags: AWS, Local Dev, Developer Tools, Coding Agents

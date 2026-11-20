@@ -7,7 +7,7 @@ Zero-build static blog: plain HTML, pre-compiled Tailwind CSS (`assets/css/tailw
 ## New Post Workflow
 
 1. Follow `prompt/new-blog-post.md` for structure, voice, SEO, and checks.
-2. `mkdir -p <slug> && cp prompt/template.html <slug>/index.html`. The folder name is the URL; no date in it.
+2. `mkdir -p blogs/<slug> && cp prompt/template.html blogs/<slug>/index.html`. The folder name is the URL (`/blogs/<slug>/`); no date in it.
 3. Add the first `<li>` to `index.html`'s `#post-feed`, the new `<item>` to `feed.xml`, the `<url>` to `sitemap.xml`, and entries to `llms.txt` and `llms-full.txt`.
 4. Keep the header, footer, and theme script as they are unless the task explicitly changes them.
 

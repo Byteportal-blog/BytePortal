@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Run AWS Locally on Your Laptop with AWS Emulator (No Account Needed)</title>
+  <title>Run AWS Locally on Your Laptop with AWS Emulator</title>
 
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
@@ -36,16 +36,17 @@
   <meta name="google-adsense-account" content="ca-pub-8940675546180095">
 
   <!-- SEO -->
+  <meta name="robots" content="index, follow">
   <meta name="description" content="Run S3, DynamoDB, SQS, and Lambda locally using AWS Emulator. Test AWS SDK calls in milliseconds without an AWS account, cloud deploy, or AWS bill.">
   <meta name="author" content="Byte Portal">
-  <link rel="canonical" href="https://www.byteportal.tech/aws-emulator/">
+  <link rel="canonical" href="https://www.byteportal.tech/blogs/aws-emulator/">
   <link rel="alternate" type="application/rss+xml" title="byteportal.tech" href="/feed.xml">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
   <meta property="og:title" content="Run AWS Locally on Your Laptop with AWS Emulator">
   <meta property="og:description" content="Run S3, DynamoDB, SQS, and Lambda locally with AWS Emulator. Test AWS SDK calls in milliseconds with zero cloud cost or deploy wait.">
-  <meta property="og:url" content="https://www.byteportal.tech/aws-emulator/">
+  <meta property="og:url" content="https://www.byteportal.tech/blogs/aws-emulator/">
   <meta property="og:site_name" content="Byte Portal">
   <meta property="og:image" content="https://www.byteportal.tech/assets/images/2026/aws-emulator/aws-emulator-diagram.png">
   <meta property="og:image:width" content="1200">
@@ -93,7 +94,7 @@
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://www.byteportal.tech/aws-emulator/"
+      "@id": "https://www.byteportal.tech/blogs/aws-emulator/"
     }
   }
   </script>
@@ -133,17 +134,17 @@
   </script>
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)">
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="icon" href="../../favicon.ico" sizes="48x48">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
 
   <!-- Light is the default. A saved dark choice is applied before paint, no flash. -->
   <script>
     if (localStorage.theme === 'dark') document.documentElement.classList.add('dark');
   </script>
 
-  <link rel="preload" href="/assets/css/site.min.css" as="style">
-  <link rel="stylesheet" href="/assets/css/site.min.css">
+  <link rel="preload" href="../../assets/css/site.min.css" as="style">
+  <link rel="stylesheet" href="../../assets/css/site.min.css">
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/styles/github-dark.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/styles/github-dark.min.css"></noscript>
 </head>
@@ -154,7 +155,7 @@
   <header class="border-b border-stone-200 dark:border-stone-800">
     <nav class="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 font-sans text-sm" aria-label="Main">
       <a href="/" aria-label="byteportal.tech - home" class="inline-flex rounded bg-white px-1.5 py-1">
-        <img src="/assets/Byte-Portal-Logo.svg" alt="byteportal.tech" width="1337" height="317" class="h-10 sm:h-11 w-auto" fetchpriority="high">
+        <img src="../../assets/Byte-Portal-Logo.svg" alt="byteportal.tech" width="1337" height="317" class="h-10 sm:h-11 w-auto" fetchpriority="high">
       </a>
 
       <button id="theme-toggle" type="button" aria-label="Toggle dark mode"
@@ -220,7 +221,7 @@
         <p>So your code does not change. You keep using the same SDK, the same CLI, the same calls. Only the address changes: instead of sending requests to AWS in the cloud, you send them to a small program running on <code>127.0.0.1</code>.</p>
 
         <figure class="my-8">
-          <img src="../assets/images/2026/aws-emulator/aws-emulator-diagram.png" alt="Diagram: your code sends API calls to AWS Emulator running on your laptop or CI machine, and the same code deploys to AWS later"
+          <img src="../../assets/images/2026/aws-emulator/aws-emulator-diagram.png" alt="Diagram: your code sends API calls to AWS Emulator running on your laptop or CI machine, and the same code deploys to AWS later"
                width="1200" height="900" loading="lazy" decoding="async" class="rounded-xl border border-stone-200 dark:border-stone-800">
           <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">The same code, two destinations: the emulator while you build, AWS when you deploy. Image: AWS.</figcaption>
         </figure>
@@ -328,6 +329,6 @@ dynamodb = boto3.client(
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/highlight.min.js" defer></script>
-  <script src="../assets/js/main.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
 </body>
 </html>

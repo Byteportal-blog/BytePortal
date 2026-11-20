@@ -39,14 +39,14 @@
   <title>n8n Self-Hosted: AI Workflows Without the Zapier Bill</title>
   <meta name="description" content="Self-host n8n with Docker and run AI agent and automation workflows for free. See what the fair-code license allows, what it costs in ops, and where it stops.">
   <meta name="author" content="Byte Portal">
-  <link rel="canonical" href="https://www.byteportal.tech/n8n-self-hosted/">
+  <link rel="canonical" href="https://www.byteportal.tech/blogs/n8n-self-hosted/">
   <link rel="alternate" type="application/rss+xml" title="byteportal.tech" href="/feed.xml">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
   <meta property="og:title" content="n8n Self-Hosted: AI Workflows Without the Zapier Bill">
   <meta property="og:description" content="Self-host n8n with Docker and run AI agent and automation workflows for free. See what the fair-code license allows, what it costs in ops, and where it stops.">
-  <meta property="og:url" content="https://www.byteportal.tech/n8n-self-hosted/">
+  <meta property="og:url" content="https://www.byteportal.tech/blogs/n8n-self-hosted/">
   <meta property="og:site_name" content="Byte Portal">
   <meta property="og:image" content="https://www.byteportal.tech/assets/images/2026/n8n-self-hosted/n8n-self-hosted-og.png">
   <meta property="og:image:width" content="1200">
@@ -95,24 +95,24 @@
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://www.byteportal.tech/n8n-self-hosted/"
+      "@id": "https://www.byteportal.tech/blogs/n8n-self-hosted/"
     }
   }
   </script>
 
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)">
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="icon" href="../../favicon.ico" sizes="48x48">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
 
   <!-- Light is the default. A saved dark choice is applied before paint, no flash. -->
   <script>
     if (localStorage.theme === 'dark') document.documentElement.classList.add('dark');
   </script>
 
-  <link rel="preload" href="/assets/css/site.min.css" as="style">
-  <link rel="stylesheet" href="/assets/css/site.min.css">
+  <link rel="preload" href="../../assets/css/site.min.css" as="style">
+  <link rel="stylesheet" href="../../assets/css/site.min.css">
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/styles/github-dark.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/styles/github-dark.min.css"></noscript>
 </head>
@@ -123,7 +123,7 @@
   <header class="border-b border-stone-200 dark:border-stone-800">
     <nav class="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 font-sans text-sm" aria-label="Main">
       <a href="/" aria-label="byteportal.tech - home" class="inline-flex rounded bg-white px-1.5 py-1">
-        <img src="/assets/Byte-Portal-Logo.svg" alt="byteportal.tech" width="1337" height="317" class="h-10 sm:h-11 w-auto" fetchpriority="high">
+        <img src="../../assets/Byte-Portal-Logo.svg" alt="byteportal.tech" width="1337" height="317" class="h-10 sm:h-11 w-auto" fetchpriority="high">
       </a>
 
       <button id="theme-toggle" type="button" aria-label="Toggle dark mode"
@@ -186,7 +186,7 @@
         </div>
 
         <figure class="my-8">
-          <img src="../assets/images/2026/n8n-self-hosted/n8n-self-hosted-og.png" alt="Illustration of an n8n workflow on your own server: a webhook triggers an AI agent, a human approval step checks it, then Slack and a database receive the result"
+          <img src="../../assets/images/2026/n8n-self-hosted/n8n-self-hosted-og.png" alt="Illustration of an n8n workflow on your own server: a webhook triggers an AI agent, a human approval step checks it, then Slack and a database receive the result"
                width="1200" height="630" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
           <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Trigger, model, human check, side effect. The whole workflow runs on your box. Image: byteportal.tech.</figcaption>
         </figure>
@@ -201,7 +201,7 @@
         <p>The escape hatch matters too. A Code node runs JavaScript or Python, so the ugly transform takes ten lines. AI Agent, chat trigger, and MCP nodes sit on the same canvas. The homepage says 500+ native integrations; the README says 1,500+ integrations. The plain HTTP node covers the rest.</p>
 
         <figure class="my-8">
-          <img src="../assets/images/2026/n8n-self-hosted/n8n-invoice-workflow.png" alt="n8n invoice workflow: a Stripe webhook feeds an AI extraction node, then a filter checks whether the total is over €500, with one branch for auto-approval and one for Slack approval, both ending in a Postgres write and receipt email"
+          <img src="../../assets/images/2026/n8n-self-hosted/n8n-invoice-workflow.png" alt="n8n invoice workflow: a Stripe webhook feeds an AI extraction node, then a filter checks whether the total is over €500, with one branch for auto-approval and one for Slack approval, both ending in a Postgres write and receipt email"
                width="1200" height="640" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
           <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Two paths, one execution, and a log you can replay. Image: byteportal.tech.</figcaption>
         </figure>
@@ -214,7 +214,7 @@
         <p>Self-hosted Community has no execution meter. Cloud plans do: €20 per month billed annually for 2,500 executions, €50 for 10,000. A self-hosted Business license meters executions too, and pings a license server daily. Prices checked in November 2026.</p>
 
         <figure class="my-8">
-          <img src="../assets/images/2026/n8n-self-hosted/n8n-execution-billing.png" alt="Diagram comparing per-task billing, where four workflow steps count as four billed tasks, with n8n execution billing, where the same four steps count as one execution"
+          <img src="../../assets/images/2026/n8n-self-hosted/n8n-execution-billing.png" alt="Diagram comparing per-task billing, where four workflow steps count as four billed tasks, with n8n execution billing, where the same four steps count as one execution"
                width="1200" height="640" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
           <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Same workflow, two meters. Steps stop multiplying the bill. Image: byteportal.tech.</figcaption>
         </figure>
@@ -232,7 +232,7 @@ docker run -it --rm --name n8n -p 5678:5678 \
         <p>For a real server, change three things: PostgreSQL instead of the default SQLite, <code>N8N_ENCRYPTION_KEY</code> stored somewhere else, and <code>WEBHOOK_URL</code> set to the public address behind HTTPS.</p>
 
         <figure class="my-8">
-          <img src="../assets/images/2026/n8n-self-hosted/n8n-deployment-options.png" alt="Three n8n deployment options: Docker on a laptop at localhost:5678, n8n behind Caddy or nginx with PostgreSQL on a VPS, and n8n Cloud with a managed editor and database"
+          <img src="../../assets/images/2026/n8n-self-hosted/n8n-deployment-options.png" alt="Three n8n deployment options: Docker on a laptop at localhost:5678, n8n behind Caddy or nginx with PostgreSQL on a VPS, and n8n Cloud with a managed editor and database"
                width="1200" height="620" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
           <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Same workflow, three homes. Only one of them pages you at night. Image: byteportal.tech.</figcaption>
         </figure>
@@ -296,6 +296,6 @@ docker run -it --rm --name n8n -p 5678:5678 \
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/highlight.min.js" defer></script>
-  <script src="../assets/js/main.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
 </body>
 </html>

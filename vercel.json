@@ -14,12 +14,113 @@
       "permanent": false
     },
     {
-      "source": "/posts/:slug*",
-      "destination": "/:slug*",
-      "permanent": true
+      "source": "/coolify-vs-dokploy",
+      "destination": "/blogs/coolify-vs-dokploy/",
+      "statusCode": 301
+    },
+    {
+      "source": "/coolify-vs-dokploy/",
+      "destination": "/blogs/coolify-vs-dokploy/",
+      "statusCode": 301
+    },
+    {
+      "source": "/coolify-vs-dokploy/:path+",
+      "destination": "/blogs/coolify-vs-dokploy/:path+",
+      "statusCode": 301
+    },
+    {
+      "source": "/n8n-self-hosted",
+      "destination": "/blogs/n8n-self-hosted/",
+      "statusCode": 301
+    },
+    {
+      "source": "/n8n-self-hosted/",
+      "destination": "/blogs/n8n-self-hosted/",
+      "statusCode": 301
+    },
+    {
+      "source": "/n8n-self-hosted/:path+",
+      "destination": "/blogs/n8n-self-hosted/:path+",
+      "statusCode": 301
+    },
+    {
+      "source": "/dokploy",
+      "destination": "/blogs/dokploy/",
+      "statusCode": 301
+    },
+    {
+      "source": "/dokploy/",
+      "destination": "/blogs/dokploy/",
+      "statusCode": 301
+    },
+    {
+      "source": "/dokploy/:path+",
+      "destination": "/blogs/dokploy/:path+",
+      "statusCode": 301
+    },
+    {
+      "source": "/artcraft-apps",
+      "destination": "/blogs/artcraft-apps/",
+      "statusCode": 301
+    },
+    {
+      "source": "/artcraft-apps/",
+      "destination": "/blogs/artcraft-apps/",
+      "statusCode": 301
+    },
+    {
+      "source": "/artcraft-apps/:path+",
+      "destination": "/blogs/artcraft-apps/:path+",
+      "statusCode": 301
+    },
+    {
+      "source": "/aws-emulator",
+      "destination": "/blogs/aws-emulator/",
+      "statusCode": 301
+    },
+    {
+      "source": "/aws-emulator/",
+      "destination": "/blogs/aws-emulator/",
+      "statusCode": 301
+    },
+    {
+      "source": "/aws-emulator/:path+",
+      "destination": "/blogs/aws-emulator/:path+",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts/:slug+",
+      "destination": "/blogs/:slug*/",
+      "statusCode": 301
     }
   ],
   "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    },
     {
       "source": "/prompt/:path*",
       "headers": [
