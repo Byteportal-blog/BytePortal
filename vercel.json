@@ -14,6 +14,21 @@
       "permanent": false
     },
     {
+      "source": "/opencode",
+      "destination": "/blogs/opencode/",
+      "statusCode": 301
+    },
+    {
+      "source": "/opencode/",
+      "destination": "/blogs/opencode/",
+      "statusCode": 301
+    },
+    {
+      "source": "/opencode/:path+",
+      "destination": "/blogs/opencode/:path+",
+      "statusCode": 301
+    },
+    {
       "source": "/coolify-vs-dokploy",
       "destination": "/blogs/coolify-vs-dokploy/",
       "statusCode": 301

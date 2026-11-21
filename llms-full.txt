@@ -4,6 +4,30 @@
 
 ---
 
+# Article: OpenCode: Free Open-Source Coding Agent for Your Terminal
+
+- URL: https://www.byteportal.tech/blogs/opencode/
+- Published: 2026-11-21
+- Author: Byte Portal
+- Tags: OpenCode, AI Agents, Coding Agents, Open Source, Terminal
+
+## Summary
+OpenCode is an open-source coding agent created by Anomaly under the MIT License with over 220,000 GitHub stars. It runs directly on the developer's machine as a terminal UI (TUI), desktop app (macOS, Windows, Linux), mobile companion, or TypeScript SDK. OpenCode reads project files, conducts syntax-aware AST searches, executes bash commands, and displays modifications as visual diffs before applying changes to disk. It supports parallel multi-session agent tabs, snapshot rollbacks (`/undo`), and connects to 200+ model providers via Models.dev, free models without an account, or fully offline local models running on Ollama and vLLM.
+
+## Key Takeaways
+1. **Permissive MIT license & local runtime:** OpenCode runs on local hardware without mandatory telemetry, cloud lock-in, or proprietary IDE forks.
+2. **Terminal UI with visual diffs & /undo:** Inspect all file edits as colorized diffs in the terminal timeline before approving. Revert mistakes instantly with `/undo`.
+3. **Multi-session concurrency:** Run multiple agents in parallel on the same codebase across isolated tabs without context collision.
+4. **Any model provider:** Connect local Ollama/vLLM instances for 100% offline air-gapped development, use free built-in models, bring your own API keys (Claude, GPT, Gemini), or subscribe to OpenCode Go for $10/month.
+5. **Tool extensibility:** Native support for the Model Context Protocol (MCP), custom agent personas, and reusable skills via SKILL.md files.
+
+## Limitations
+- **Local model reasoning ceiling:** Small local models (8B-14B) handle single-file edits well, but struggle on deep multi-file architectural refactors compared to frontier models.
+- **Auto-approve risks:** Running `--auto` without committing working tree changes can result in accidental data loss or destructive file overwrites.
+- **Token overhead on unpruned repositories:** Reading large directories or entire files without precise scoping rapidly consumes model context windows.
+
+---
+
 # Article: Coolify vs Dokploy: Which Self-Hosted PaaS Wins in 2026?
 
 - URL: https://www.byteportal.tech/blogs/coolify-vs-dokploy/

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  <!-- Google Tag Manager (Non-blocking) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    function initGTM() {
+      if (window._gtmLoaded) return;
+      window._gtmLoaded = true;
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-5Q72V9MT';
+      document.head.appendChild(s);
+    }
+    if (document.readyState === 'complete') {
+      setTimeout(initGTM, 1500);
+    } else {
+      window.addEventListener('load', function() { setTimeout(initGTM, 1500); });
+      ['scroll', 'keydown', 'pointerdown', 'touchstart'].forEach(function(e) {
+        window.addEventListener(e, initGTM, { once: true, passive: true });
+      });
+    }
+  </script>
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-8940675546180095">
+
+  <!-- SEO -->
+  <meta name="robots" content="index, follow">
+  <title>OpenCode: Free Open-Source Coding Agent for Your Terminal</title>
+  <meta name="description" content="Run OpenCode, an open-source coding agent in your terminal or desktop. Connect 200+ models or local Ollama with multi-session tabs, diffs, and zero lock-in.">
+  <meta name="author" content="Byte Portal">
+  <link rel="canonical" href="https://www.byteportal.tech/blogs/opencode/">
+  <link rel="alternate" type="application/rss+xml" title="byteportal.tech" href="/feed.xml">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="OpenCode: Free Open-Source Coding Agent for Your Terminal">
+  <meta property="og:description" content="Run OpenCode, an open-source coding agent in your terminal or desktop. Connect 200+ models or local Ollama with multi-session tabs, diffs, and zero lock-in.">
+  <meta property="og:url" content="https://www.byteportal.tech/blogs/opencode/">
+  <meta property="og:site_name" content="Byte Portal">
+  <meta property="og:image" content="https://www.byteportal.tech/assets/images/2026/opencode/opencode-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="OpenCode interactive terminal interface showing code refactor diffs and model options on a developer workstation">
+  <meta property="article:published_time" content="2026-11-21">
+  <meta property="article:tag" content="OpenCode">
+  <meta property="article:tag" content="AI Agents">
+  <meta property="article:tag" content="Coding Agents">
+  <meta property="article:tag" content="Open Source">
+  <meta property="article:tag" content="Terminal">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OpenCode: Free Open-Source Coding Agent for Your Terminal">
+  <meta name="twitter:description" content="Run OpenCode, an open-source coding agent in your terminal or desktop. Connect 200+ models or local Ollama with multi-session tabs, diffs, and zero lock-in.">
+  <meta name="twitter:image" content="https://www.byteportal.tech/assets/images/2026/opencode/opencode-og.png">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "OpenCode: Free Open-Source Coding Agent for Your Terminal",
+    "description": "Run OpenCode, an open-source coding agent in your terminal or desktop. Connect 200+ models or local Ollama with multi-session tabs, diffs, and zero lock-in.",
+    "keywords": ["OpenCode", "AI Agents", "Coding Agents", "Open Source", "Terminal", "Ollama"],
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["#quick-answer", "h1"]
+    },
+    "image": "https://www.byteportal.tech/assets/images/2026/opencode/opencode-og.png",
+    "datePublished": "2026-11-21",
+    "dateModified": "2026-11-21",
+    "author": {
+      "@type": "Person",
+      "name": "Byte Portal",
+      "url": "https://www.byteportal.tech/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Byte Portal",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.byteportal.tech/assets/Byte-Portal-Logo.svg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.byteportal.tech/blogs/opencode/"
+    }
+  }
+  </script>
+
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../../favicon.ico" sizes="48x48">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+
+  <!-- Light is the default. A saved dark choice is applied before paint, no flash. -->
+  <script>
+    if (localStorage.theme === 'dark') document.documentElement.classList.add('dark');
+  </script>
+
+  <link rel="preload" href="../../assets/css/site.min.css" as="style">
+  <link rel="stylesheet" href="../../assets/css/site.min.css">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/styles/github-dark.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/styles/github-dark.min.css"></noscript>
+</head>
+
+<body class="flex min-h-screen flex-col bg-white text-stone-800 antialiased dark:bg-stone-950 dark:text-stone-200">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:m-4 focus:rounded focus:bg-stone-900 focus:px-3 focus:py-2 focus:font-sans focus:text-sm focus:text-white">Skip to content</a>
+
+  <header class="border-b border-stone-200 dark:border-stone-800">
+    <nav class="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 font-sans text-sm" aria-label="Main">
+      <a href="/" aria-label="byteportal.tech - home" class="inline-flex rounded bg-white px-1.5 py-1">
+        <img src="../../assets/Byte-Portal-Logo.svg" alt="byteportal.tech" width="1337" height="317" class="h-10 sm:h-11 w-auto" fetchpriority="high">
+      </a>
+
+      <button id="theme-toggle" type="button" aria-label="Toggle dark mode"
+        class="grid h-11 w-11 place-items-center rounded-full border border-stone-200 text-stone-600 hover:text-stone-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900 dark:border-stone-700 dark:text-stone-400 dark:hover:text-white dark:focus-visible:outline-white">
+        <svg class="h-5 w-5 dark:hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/>
+        </svg>
+        <svg class="hidden h-5 w-5 dark:block" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main" class="mx-auto w-full max-w-3xl flex-1 px-4 pt-5 pb-12 sm:pt-8 sm:pb-16">
+    <a href="/" class="font-sans text-sm text-stone-500 hover:text-stone-900 dark:hover:text-white">&larr; All posts</a>
+
+    <article class="mt-4 sm:mt-6">
+      <header>
+        <div class="flex flex-wrap items-center gap-1.5">
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">OpenCode</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">AI Agents</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">Coding Agents</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">Open Source</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">Terminal</span>
+        </div>
+        <h1 class="mt-2.5 text-2xl font-bold leading-snug tracking-tight text-stone-900 sm:text-3xl dark:text-white">OpenCode: Free Open-Source Coding Agent for Your Terminal</h1>
+        <p class="mt-2 font-sans text-sm text-stone-500">
+          <time datetime="2026-11-21">21 November 2026</time> · 5 min read
+        </p>
+      </header>
+
+      <div class="prose prose-stone mt-6 sm:mt-8 max-w-none text-left sm:text-justify dark:prose-invert">
+        <p>Most AI coding tools lock you into their cloud, their subscriptions, and their favorite models. You pay twenty dollars every month per seat, paste your code into a proprietary black box, and hope their remote sandbox keeps your secrets safe.</p>
+
+        <p>OpenCode takes the opposite path. It is an MIT-licensed, open-source coding agent that runs on your local machine, hooks into your shell, and connects to any model you choose.</p>
+
+        <!-- Quick Summary Box: Scannable answer block for readers and AI search extractors -->
+        <div id="quick-answer" class="not-prose my-6 rounded-xl border border-stone-200 bg-stone-50 p-4 sm:p-5 dark:border-stone-800 dark:bg-stone-900/60">
+          <p class="flex items-center gap-1.5 font-sans text-xs font-semibold uppercase tracking-wider text-stone-600 dark:text-stone-300">
+            <svg class="h-4 w-4 text-emerald-600 dark:text-emerald-400" width="16" height="16" style="display:inline-block;vertical-align:text-bottom;" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+            </svg>
+            Quick Summary (The Short Version)
+          </p>
+          <ul class="mt-3 space-y-2 font-sans text-sm text-stone-700 dark:text-stone-300">
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>What it is:</strong> An MIT-licensed open-source coding agent made by Anomaly with over 220,000 GitHub stars, shipping as a terminal UI, desktop app, and TypeScript SDK.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>What it does:</strong> Edits your code with visual diffs, runs parallel tasks across multi-session tabs, and connects to 200+ cloud models or local Ollama instances.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>Where it stops:</strong> It is free software, but models cost money unless you run local weights. Small local models struggle on deep refactors, and auto-approving edits without clean Git branches can break your code.</span>
+            </li>
+          </ul>
+        </div>
+
+        <figure class="my-8">
+          <img src="../../assets/images/2026/opencode/opencode-og.png" alt="OpenCode interactive terminal interface showing code refactor diffs and model options on a developer workstation"
+               width="1200" height="630" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">OpenCode running an interactive terminal refactor session with visual diffs. Image: byteportal.tech.</figcaption>
+        </figure>
+
+        <h2>What is OpenCode really?</h2>
+        <p>OpenCode is an agentic coding assistant built under the MIT License. An agentic tool does not just guess completions in your editor. It reads your codebase, searches symbols, runs shell commands, and drafts multi-file changes.</p>
+
+        <p>Instead of forcing you into a proprietary IDE fork, OpenCode works where you already sit. Its core interface is a terminal UI (TUI) that runs inside tmux, Alacritty, or your editor terminal. If you prefer windows, download its native desktop app for macOS, Windows, and Linux. If you want CI automation, use the <code>@opencode/sdk</code> package in TypeScript.</p>
+
+        <p>The entire engine runs locally on your machine. No proprietary source code routes through third-party telemetry servers unless you configure a remote model provider.</p>
+
+        <h2>The terminal workflow: diffs, permissions, and multi-session</h2>
+        <p>Start a session in your repository root, and OpenCode indexes your files. Type what you want in plain words: fix a broken test, update dependencies, or refactor a module.</p>
+
+        <p>The agent plans its steps and displays every edit as a colored diff in your terminal timeline. Red lines show deletions. Green lines show additions.</p>
+
+        <p>Nothing touches your disk until you approve it. Review the diff and press Enter. If an edit goes wrong, type <code>/undo</code>. OpenCode rolls back file changes and resets the conversation context to the previous turn.</p>
+
+        <p>Multi-session tabs let you run parallel agents on one project. Run one agent in tab one to write unit tests while an agent in tab two refactors database queries. Their token histories never collide.</p>
+
+        <figure class="my-8">
+          <img src="../../assets/images/2026/opencode/opencode-architecture.png" alt="OpenCode architecture diagram illustrating interfaces, core engine, tools and MCP protocol, and model runtimes"
+               width="1200" height="640" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Under the hood: how OpenCode connects client interfaces to local tools, MCP servers, and LLM providers. Image: byteportal.tech.</figcaption>
+        </figure>
+
+        <h2>Model freedom: 200+ providers or offline local LLMs</h2>
+        <p>Vendor lock-in is a constant headache. If an AI provider changes pricing or alters weights, your coding setup breaks.</p>
+
+        <p>OpenCode decouples the agent engine from the model provider. Through Models.dev and native integrations, you can plug in over 200 providers:</p>
+
+        <ul>
+          <li><strong>Free models:</strong> Test OpenCode without an account using free models like DeepSeek V4.1 Flash Free or Big Pickle.</li>
+          <li><strong>Local offline models:</strong> Point OpenCode to a local Ollama or vLLM instance. This keeps your code completely offline, with zero API bills.</li>
+          <li><strong>Direct API keys:</strong> Bring your own keys for Claude 3.5 Sonnet, GPT-4o, or Gemini 2.0 Flash.</li>
+          <li><strong>OpenCode Go:</strong> A $10 monthly subscription from Anomaly for developers who want flat-rate coding models without managing separate API accounts.</li>
+        </ul>
+
+        <h2>Show, don't tell: get running in two minutes</h2>
+        <p>You do not need a complex runtime setup to run OpenCode. On macOS, Linux, or WSL, install the standalone binary with one command:</p>
+
+        <pre><code class="language-bash"># Install the standalone OpenCode CLI
+curl -fsSL https://opencode.ai/v2/install | bash
+
+# Launch an interactive agent session in your current project
+opencode
+
+# Or run a one-off prompt directly from your shell
+opencode run "Audit package.json for unused dependencies"</code></pre>
+
+        <p>Homebrew users can run <code>brew install anomalyco/tap/opencode-v2</code>. Inside the terminal, press <code>Shift+Tab</code> to switch agents, <code>Ctrl+P</code> to open the command palette, and <code>/connect</code> to configure model providers.</p>
+
+        <h2>What breaks at 2 a.m.</h2>
+        <p>OpenCode is fast and flexible, but honest tools have real boundaries:</p>
+
+        <p><strong>1. Small local models lose context on big codebases.</strong> An 8B or 14B model on Ollama handles single-function fixes well. On complex multi-file refactors, small local models frequently lose track of tool parameters or repeat shell loops. Frontier models like Claude 3.5 Sonnet remain necessary for deep codebase changes.</p>
+
+        <p><strong>2. Auto-approve dangers without clean Git branches.</strong> OpenCode has an <code>--auto</code> flag that approves actions without prompting. If you run this on uncommitted files and the agent misinterprets your prompt, it can overwrite code. Never use auto-mode on a dirty working tree.</p>
+
+        <p><strong>3. Token costs on unpruned repositories.</strong> Pulling large file trees without targeted prompts burns through token windows quickly. Use a clean <code>.gitignore</code> and specific file paths to keep context lean.</p>
+
+        <h2>What it is not</h2>
+        <ul>
+          <li><strong>Not an autonomous engineer you can ignore.</strong> It drafts code. You must review diffs and run tests.</li>
+          <li><strong>Not a closed SaaS platform.</strong> No mandatory login, no telemetry wall, and no cloud lock-in.</li>
+          <li><strong>Not a shell autocomplete.</strong> It is an agent that reads, searches, writes files, and executes commands.</li>
+        </ul>
+
+        <h2>The takeaway</h2>
+        <p>If you want an AI coding agent that stays in your terminal, respects your API keys, and never locks you into a single vendor, OpenCode is the tool to use in 2026.</p>
+
+        <p>This week, install OpenCode, point it at a failing test or a messy utility on a test branch, and test the diff workflow yourself.</p>
+
+        <p>Links: <a href="https://opencode.ai/">OpenCode</a>, <a href="https://github.com/anomalyco/opencode">OpenCode GitHub</a>, <a href="https://opencode.ai/docs/">Documentation</a>, and <a href="https://opencode.ai/terminal">Terminal Guide</a>.</p>
+
+        <p><em>Hands-on tested: OpenCode CLI v2.3 on Linux x86_64 with local Ollama Qwen 2.5 Coder and Claude 3.5 Sonnet.</em></p>
+      </div>
+
+      <footer class="mt-10 border-t border-stone-200 pt-6 dark:border-stone-800">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="font-sans text-xs font-medium text-stone-500 dark:text-stone-400">Tagged:</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2.5 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">OpenCode</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2.5 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">AI Agents</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2.5 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">Coding Agents</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2.5 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">Open Source</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2.5 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">Terminal</span>
+        </div>
+      </footer>
+    </article>
+
+    <nav class="mt-12 border-t border-stone-200 pt-6 font-sans text-sm dark:border-stone-800" aria-label="Post navigation">
+      <a href="/" class="text-stone-500 hover:text-stone-900 dark:hover:text-white">&larr; Back to all posts</a>
+    </nav>
+  </main>
+
+  <footer class="border-t border-stone-200 py-6 text-center font-sans text-sm text-stone-500 dark:border-stone-800">
+    <p>© 2026 byteportal.tech · <a href="/about/" class="hover:text-stone-900 dark:hover:text-white">About</a> · <a href="/privacy/" class="hover:text-stone-900 dark:hover:text-white">Privacy</a> · <a href="/feed.xml" class="hover:text-stone-900 dark:hover:text-white">RSS Feed</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/highlight.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+</body>
+</html>
