@@ -11,7 +11,15 @@
       <link>https://www.byteportal.tech/</link>
     </image>
     <atom:link href="https://www.byteportal.tech/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 23 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 00:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Spline AI: Build Interactive 3D Web Scenes from Text Prompts</title>
+      <link>https://www.byteportal.tech/blogs/spline-ai/</link>
+      <guid isPermaLink="true">https://www.byteportal.tech/blogs/spline-ai/</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Generate interactive 3D web scenes from text prompts using Spline AI. Export to React or vanilla HTML without Blender, UV unwrapping, or Three.js boilerplate.</description>
+    </item>
 
     <item>
       <title>Cursor vs Windsurf: Which AI Code Editor Wins in 2026?</title>
@@ -19,6 +27,7 @@
       <guid isPermaLink="true">https://www.byteportal.tech/blogs/cursor-vs-windsurf/</guid>
       <pubDate>Mon, 23 Nov 2026 00:00:00 +0000</pubDate>
       <description>Compare Cursor and Windsurf on real codebases: Composer vs Cascade, multi-file context, terminal execution, model limits, and which $20/mo editor fits you.</description>
+    </item>
     </item>
 
     <item>

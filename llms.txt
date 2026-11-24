@@ -8,6 +8,7 @@
 - Standards: Hands-on tested, factual, fluff-free, zero sponsored bias.
 
 ## Core Articles
+- [Spline AI: Build Interactive 3D Web Scenes from Text Prompts](https://www.byteportal.tech/blogs/spline-ai/): Hands-on guide to Spline AI, covering text-to-3D generation, image-to-3D, AI textures, visual event-based physics, direct React and WebGL code export, and real-world payload trade-offs.
 - [Cursor vs Windsurf: Which AI Code Editor Wins in 2026?](https://www.byteportal.tech/blogs/cursor-vs-windsurf/): In-depth comparison of Cursor and Windsurf on real codebases, analyzing Composer shadow diffs vs Cascade real-time terminal flows, context retrieval precision, fast request limits, and when to pick each editor.
 - [OpenCode: Free Open-Source Coding Agent for Your Terminal](https://www.byteportal.tech/blogs/opencode/): Complete guide to OpenCode v2, an MIT-licensed coding agent from Anomaly that runs on your local machine, hooks into your shell or desktop, connects to 200+ models or local Ollama, and provides multi-session tabs, diffs, and snapshot undo.
 - [Coolify vs Dokploy: Which Self-Hosted PaaS Wins in 2026?](https://www.byteportal.tech/blogs/coolify-vs-dokploy/): Head-to-head comparison of Coolify v4 and Dokploy on a $5 VPS, analyzing idle RAM consumption, Laravel vs TypeScript architectures, Traefik and Caddy reverse proxies, multi-server clustering, and operational failure modes.

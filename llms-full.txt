@@ -4,6 +4,30 @@
 
 ---
 
+# Article: Spline AI: Build Interactive 3D Web Scenes from Text Prompts
+
+- URL: https://www.byteportal.tech/blogs/spline-ai/
+- Published: 2026-11-24
+- Author: Byte Portal
+- Tags: Spline AI, 3D Design, Web Development, WebGL, React, Generative AI
+
+## Summary
+Spline AI is a generative 3D modeling and design suite integrated directly into the browser-based Spline platform. It enables developers and designers to generate 3D objects, meshes, seamless PBR textures, and style transfers using natural language prompts or 2D front-facing image references. Instead of hand-coding Three.js animation loops, users configure physics, mouse tracking, and collision states visually on the canvas. The platform exports scenes as compressed `.splinecode` bundles embedded via standard HTML `<spline-viewer>` components or `@splinetool/react-spline`.
+
+## Key Takeaways
+1. **Natural language 3D creation:** Synthesize interactive 3D assets, multi-object scenes, and PBR textures in the browser without Blender or UV mapping.
+2. **Visual physics & interactivity:** Add gravity, collision, scroll animations, and cursor hover states without writing matrix transforms or Three.js raycasters.
+3. **Turn-key code export:** Drop 3D scenes into React, Next.js, vanilla HTML, Three.js, iOS Swift, or visionOS with 3 lines of code.
+4. **Agentic MCP support:** Connect AI coding assistants (Cursor, Claude Code) via Model Context Protocol to manage and manipulate 3D design files.
+5. **Freemium trade-offs:** Free tier includes a Spline watermark and 0 monthly AI generation credits. Removing watermarks requires the Hobby tier ($15/mo), while full code and GLTF/USDZ geometry downloads require Pro ($30/mo).
+
+## Limitations
+- **Heavy asset payloads:** An interactive WebGL scene adds 3MB to 15MB of data, delaying Largest Contentful Paint (LCP) unless lazy-loaded below the fold.
+- **Messy mesh topology:** AI models generate dense triangular wireframes without clean quad edge loops, making downstream rigging in Blender cumbersome.
+- **Client GPU load:** WebGL execution draws noticeable battery and GPU resources on mobile devices and older laptops.
+
+---
+
 # Article: Cursor vs Windsurf: Which AI Code Editor Wins in 2026?
 
 - URL: https://www.byteportal.tech/blogs/cursor-vs-windsurf/
