@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom' xmlns:gd='http://schemas.google.com/g/2005'>
+  <title type='html'>Byte Portal</title>
+  <generator>Blogger</generator>
+  <updated>2026-11-26T11:23:37.000Z</updated>
+  <entry>
+    <category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/blogger/2008/kind#post'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='Lovable'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='AI App Builder'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='Full-Stack'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='No-Code'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='Review'/>
+    <id>tag:blogger.com,1999:blog-8931891139247852068.post-lovable-review</id>
+    <published>2026-11-26T11:23:37.000Z</published>
+    <updated>2026-11-26T11:23:37.000Z</updated>
+    <title type='html'>Lovable Review 2026: What $25/Month Actually Buys You</title>
+    <content type='html'><![CDATA[
+    <div style="padding: 12px 16px; background: #f4f4f5; border-left: 4px solid #18181b; margin-bottom: 24px; font-family: sans-serif;">
+      <strong>Note:</strong> This article was originally published on <a href="https://www.byteportal.tech/blogs/lovable-review/" target="_blank" rel="noopener">BytePortal</a>.
+    </div>
+    
+
+        <p>You have an app idea, but not a free week to wire up login, a database, and a deploy pipeline. Lovable says one prompt covers that. The demo looks great; the bill is where the story gets interesting.</p>
+
+        <!-- Quick Summary Box: Scannable answer block for readers and AI search extractors -->
+        <div id="quick-answer" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px; margin:24px 0; font-family:sans-serif;">
+          <p class="flex items-center gap-1.5 font-sans text-xs font-semibold uppercase tracking-wider text-stone-600 dark:text-stone-300">
+            <span style="display:inline-block; font-size:18px; color:#059669; margin-right:6px; vertical-align:middle;">✔</span>
+            Quick Summary (The Short Version)
+          </p>
+          <ul class="mt-3 space-y-2 font-sans text-sm text-stone-700 dark:text-stone-300">
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>What it is:</strong> A browser-based AI app builder that generates a real TanStack Start app with a built-in Postgres backend, login, storage, and edge functions.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>What it does:</strong> Turns a plain-English prompt into a working app you can preview, publish to a live URL, and sync to GitHub, GitLab, or Bitbucket as TypeScript.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>Where it stops:</strong> Credits are the meter. Pro is $25/month for 100 credits, the free plan caps you at 5 credits a day and 30 a month, and a big prompt can cost 2 credits before you blink.</span>
+            </li>
+          </ul>
+        </div>
+
+        <figure class="my-8">
+          <img src="https://www.byteportal.tech/assets/images/2026/lovable-review/lovable-review-og.png" alt="Lovable review cover showing a prompt flowing into a live app and a GitHub repository, with the $25 monthly price and 100-credit budget"
+               width="1200" height="630" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">The Lovable loop: prompt, preview, publish, sync. Image: byteportal.tech.</figcaption>
+        </figure>
+
+        <h2>What Lovable actually is</h2>
+        <p>Lovable is not a website builder with a chat box bolted on. It builds a full-stack web app: a TanStack Start project with React pages rendered on the server, plus a built-in backend for Postgres, login, file storage, realtime, and edge functions. The backend uses Supabase's open-source foundation, but Lovable runs it for you.</p>
+
+        <p>New projects have used TanStack Start by default since 13 May 2026. That matters because server rendering gives search engines and link previews real HTML instead of an empty page that fills in later.</p>
+
+        <p>You get a live preview, version history, and a Publish button. The code is TypeScript. You can open it, download it on a paid plan, or sync it both ways with GitHub, GitLab, or Bitbucket. This is closer to a junior developer with a good scaffold than to Wix.</p>
+
+        <h2>The credit meter is the real product</h2>
+        <p>Lovable does not charge per seat. It charges credits. Building, chatting, running the backend, and AI calls draw from one balance.</p>
+
+        <p>Pro costs $25/month for 100 credits. Annual billing is $250, or about $21/month. Build mode is priced by the work, not the message. Lovable's illustrative examples: 0.5 credits to make a button gray, 0.9 to remove a footer, 1.2 to add authentication, 2.0 for a landing page with generated images. Plan mode is 1 credit plus any research. A long run pauses for a check-in every 20 credits by default, and a message can run for up to 10 hours.</p>
+
+        <p>So 100 credits is not 100 prompts. A weekend of "one more change" can eat a month of credits.</p>
+
+        <p>Free gives you 5 build credits a day, capped at 30 a month. Pro keeps the daily 5 and adds the monthly 100, rollover, and top-ups. Business is $50/month for the same 100 credits plus SSO, team roles, and a security center.</p>
+
+        <p>Free is enough to build and publish, and Git sync works on every plan. Pro adds code editing and downloads, custom domains, no badge, design systems, and rollover.</p>
+
+        <p>One more bill: hosting is free, but the built-in backend and AI features in your published app use run credits as visitors use it. The meter follows the app after launch, not just the build.</p>
+
+        <h2>A prompt that does not waste credits</h2>
+        <p>Start smaller than you want. Lovable's own quick start suggests leaving login and the database out of the first version. Every service you add is another thing that can break and another round of paid fixes.</p>
+
+        <p>A first prompt that works:</p>
+
+        <pre><code class="language-text">Build an internal tool for tracking team equipment:
+a searchable table with name, owner, status, and return date,
+plus a form to add items. Use realistic sample data.
+No login or database yet. Mobile-friendly, minimal design.</code></pre>
+
+        <p>Publish that. Click every button. Then ask for auth in a separate message. Batching five unrelated changes into one prompt makes it harder to see what broke, and you pay for the cleanup.</p>
+
+        <h2>Where it breaks</h2>
+        <p><strong>Security is still your job.</strong> Lovable runs checks on row-level security (which rows each user can read) and dependencies before publishing, but it does not know your data model. A generated app with row-level security off can leak rows. Read the findings, test with two accounts, and treat Publish as a review gate.</p>
+
+        <p><strong>The backend is sticky.</strong> Code syncs out, but data does not. Lovable's docs say there is no one-step migration from the built-in backend to your own Supabase. You export the database, move storage, and reconnect auth and secrets. Fine for a prototype, painful for a product with real users.</p>
+
+        <p><strong>It is web only.</strong> No React Native, no App Store submission. A PWA or a Capacitor wrapper is on you.</p>
+
+        <p><strong>The code is a starting point, not an architecture.</strong> Lovable's docs warn it can rewrite code you wrote by hand later. Instructions and tests are how you protect behavior you care about.</p>
+
+        <h2>What it is not</h2>
+        <ul>
+          <li><strong>Not a replacement for a developer on a payments or compliance app.</strong> The app still needs a security review and a sensible data model.</li>
+          <li><strong>Not unlimited.</strong> 100 credits is a budget, not infinite changes.</li>
+          <li><strong>Not a native mobile builder.</strong> It publishes web apps only.</li>
+          <li><strong>Not a free code editor.</strong> On the Free plan, the editor is read-only.</li>
+        </ul>
+
+        <h2>The takeaway</h2>
+        <p>Lovable is worth $25 if a working prototype this week is worth more to you than a perfect codebase. It is a bad deal if you will spend the credits fighting the generator instead of learning what users want.</p>
+
+        <p>This week, write a one-paragraph spec. Build the version with no login and no database. Publish it. Show it to one person who would use it. Then decide whether $25 buys speed or a nicer toy.</p>
+
+        <p>Links: <a href="https://lovable.dev/">Lovable</a>, <a href="https://lovable.dev/pricing">Lovable pricing</a>, <a href="https://docs.lovable.dev/introduction/credits-and-usage">Credits and usage</a>, <a href="https://docs.lovable.dev/features/cloud">Built-in backend</a>, and <a href="https://docs.lovable.dev/integrations/git-sync-overview">Git sync</a>.</p>
+
+        <p><em>Docs-first: this review is based on Lovable's documentation and pricing page, checked 26 November 2026. I did not build a paid project for it.</em></p>
+      ]]></content>
+    <author>
+      <name>Byte Portal</name>
+    </author>
+  </entry>
+</feed>
