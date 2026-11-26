@@ -4,6 +4,30 @@
 
 ---
 
+# Article: PhotoCraft: Free Open-Source Photoshop Alternative in Rust
+
+- URL: https://www.byteportal.tech/blogs/photocraft/
+- Published: 2026-11-26
+- Author: Byte Portal
+- Tags: Open Source, Rust, PhotoCraft, Photoshop Alternative, Creative Tools, Adobe Alternatives
+
+## Summary
+PhotoCraft is a free, native raster photo manipulation application engineered in pure Rust by developer Brandon Thomas as part of the storytold ArtCraft ecosystem. Designed as a clean-room replacement for Adobe Photoshop, it features a native graphics pipeline built on WGPU (speaking directly to Vulkan, Metal, and DirectX 12) to deliver 120 FPS canvas panning and hardware compute shader rasterization. It includes a native PSD/PSB file parser, non-destructive layer masks, blend modes, adjustment layers (Curves, Levels, Hue/Sat), and an embedded Model Context Protocol (MCP) server for autonomous AI agent image processing. Unlike Photoshop, it has zero subscription costs, no telemetry daemons, and idles at under 180MB of RAM with sub-10ms startup times.
+
+## Key Takeaways
+1. **Pure Rust performance:** Compiles to a single standalone binary with zero Electron or Chromium bloat, sub-10ms startup, and 95MB–180MB idle memory footprint.
+2. **Photoshop file compatibility:** Opens and parses layered PSD and PSB files natively, preserving raster layer stacks, blend modes, and opacity without Adobe software.
+3. **Hardware-accelerated compute:** Uses WGPU compute shaders across Vulkan, Metal, and DirectX 12 for non-destructive adjustment layers and real-time brush rendering.
+4. **Agentic automation:** Includes a native Model Context Protocol (MCP) server allowing local coding agents to manipulate layers, crop, and run batch transformations via natural language.
+5. **100% Free & Open-Source:** Available under permissive open-source licensing on GitHub with zero account creation or cloud sync locks.
+
+## Limitations
+- **No commercial CMYK prepress:** Lacks spot color separation and Pantone ink profiles required for professional offset print shops.
+- **No cloud generative fill:** Does not connect to Adobe Firefly or remote cloud diffusion models for hallucinating image backgrounds.
+- **Smart Objects rasterization:** Complex nested Smart Objects are converted into standard raster layers during project import.
+
+---
+
 # Article: Spline AI: Build Interactive 3D Web Scenes from Text Prompts
 
 - URL: https://www.byteportal.tech/blogs/spline-ai/

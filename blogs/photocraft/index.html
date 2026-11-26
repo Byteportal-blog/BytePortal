@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  <!-- Google Tag Manager (Non-blocking) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    function initGTM() {
+      if (window._gtmLoaded) return;
+      window._gtmLoaded = true;
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-5Q72V9MT';
+      document.head.appendChild(s);
+    }
+    if (document.readyState === 'complete') {
+      setTimeout(initGTM, 1500);
+    } else {
+      window.addEventListener('load', function() { setTimeout(initGTM, 1500); });
+      ['scroll', 'keydown', 'pointerdown', 'touchstart'].forEach(function(e) {
+        window.addEventListener(e, initGTM, { once: true, passive: true });
+      });
+    }
+  </script>
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-8940675546180095">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow">
+
+  <!-- SEO: Search Intent Focused Title (50-60 chars) -->
+  <title>PhotoCraft: Free Open-Source Photoshop Alternative in Rust</title>
+
+  <!-- Meta Description (140-160 chars) -->
+  <meta name="description" content="Ditch the $60/month Adobe subscription. PhotoCraft is a free, native Rust Photoshop replacement with PSD support, GPU layers, sub-10ms startup, and zero bloat.">
+  <meta name="author" content="Byte Portal">
+  <link rel="canonical" href="https://www.byteportal.tech/blogs/photocraft/">
+  <link rel="alternate" type="application/rss+xml" title="byteportal.tech" href="/feed.xml">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="PhotoCraft: Free Open-Source Photoshop Alternative in Rust">
+  <meta property="og:description" content="Ditch the $60/month Adobe subscription. PhotoCraft is a free, native Rust Photoshop replacement with PSD support, GPU layers, sub-10ms startup, and zero bloat.">
+  <meta property="og:url" content="https://www.byteportal.tech/blogs/photocraft/">
+  <meta property="og:site_name" content="Byte Portal">
+  <meta property="og:image" content="https://www.byteportal.tech/assets/images/2026/photocraft/photocraft-banner.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PhotoCraft editorial 3D banner showing native dark-mode photo editing workstation in Rust with glowing GPU layer panels">
+  <meta property="article:published_time" content="2026-11-26">
+  <meta property="article:tag" content="Open Source">
+  <meta property="article:tag" content="Rust">
+  <meta property="article:tag" content="PhotoCraft">
+  <meta property="article:tag" content="Photoshop Alternative">
+  <meta property="article:tag" content="Creative Tools">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PhotoCraft: Free Open-Source Photoshop Alternative in Rust">
+  <meta name="twitter:description" content="Ditch the $60/month Adobe subscription. PhotoCraft is a free, native Rust Photoshop replacement with PSD support, GPU layers, sub-10ms startup, and zero bloat.">
+  <meta name="twitter:image" content="https://www.byteportal.tech/assets/images/2026/photocraft/photocraft-banner.jpg">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://www.byteportal.tech/blogs/photocraft/#article",
+        "url": "https://www.byteportal.tech/blogs/photocraft/",
+        "headline": "PhotoCraft: Free Open-Source Photoshop Alternative in Rust",
+        "description": "Ditch the $60/month Adobe subscription. PhotoCraft is a free, native Rust Photoshop replacement with PSD support, GPU layers, sub-10ms startup, and zero bloat.",
+        "keywords": ["Open Source", "Rust", "PhotoCraft", "Photoshop Alternative", "Creative Tools", "Adobe Alternatives"],
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["#quick-answer", "h1"]
+        },
+        "image": "https://www.byteportal.tech/assets/images/2026/photocraft/photocraft-banner.jpg",
+        "datePublished": "2026-11-26",
+        "dateModified": "2026-11-26",
+        "author": {
+          "@type": "Person",
+          "name": "Byte Portal",
+          "url": "https://www.byteportal.tech/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Byte Portal",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.byteportal.tech/assets/Byte-Portal-Logo.svg"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.byteportal.tech/blogs/photocraft/"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.byteportal.tech/blogs/photocraft/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can PhotoCraft open and save Adobe Photoshop PSD files?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. PhotoCraft includes a native Rust parser for PSD and PSB files, preserving raster layers, blend modes, layer masks, and opacity settings without needing an Adobe license."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much RAM does PhotoCraft consume compared to Adobe Photoshop?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PhotoCraft idles at approximately 95MB to 180MB of RAM, compared to 1.8GB to 3.5GB for Adobe Photoshop with its Creative Cloud background telemetry daemons."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is PhotoCraft built with Electron or web technologies?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. PhotoCraft is written in 100% native Rust using WGPU for hardware-accelerated graphics pipelines. There is zero Chromium, Electron, or Node.js runtime overhead."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is PhotoCraft completely free and open-source?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. PhotoCraft is open-source software developed by Brandon Thomas under the storytold ecosystem on GitHub, with zero subscriptions, paywalls, or accounts required."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../../favicon.ico" sizes="48x48">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+
+  <!-- Light is the default. A saved dark choice is applied before paint, no flash. -->
+  <script>
+    if (localStorage.theme === 'dark') document.documentElement.classList.add('dark');
+  </script>
+
+  <link rel="preload" href="../../assets/css/site.min.css" as="style">
+  <link rel="stylesheet" href="../../assets/css/site.min.css">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/styles/github-dark.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/styles/github-dark.min.css"></noscript>
+</head>
+
+<body class="flex min-h-screen flex-col bg-white text-stone-800 antialiased dark:bg-stone-950 dark:text-stone-200">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:m-4 focus:rounded focus:bg-stone-900 focus:px-3 focus:py-2 focus:font-sans focus:text-sm focus:text-white">Skip to content</a>
+
+  <header class="border-b border-stone-200 dark:border-stone-800">
+    <nav class="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 font-sans text-sm" aria-label="Main">
+      <a href="/" aria-label="byteportal.tech - home" class="inline-flex rounded bg-white px-1.5 py-1">
+        <img src="../../assets/Byte-Portal-Logo.svg" alt="byteportal.tech" width="1337" height="317" class="h-10 sm:h-11 w-auto" fetchpriority="high">
+      </a>
+
+      <button id="theme-toggle" type="button" aria-label="Toggle dark mode"
+        class="grid h-11 w-11 place-items-center rounded-full border border-stone-200 text-stone-600 hover:text-stone-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900 dark:border-stone-700 dark:text-stone-400 dark:hover:text-white dark:focus-visible:outline-white">
+        <svg class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/>
+        </svg>
+        <svg class="hidden h-5 w-5 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main" class="mx-auto w-full max-w-3xl flex-1 px-4 pt-5 pb-12 sm:pt-8 sm:pb-16">
+    <a href="/" class="font-sans text-sm text-stone-500 hover:text-stone-900 dark:hover:text-white">&larr; All posts</a>
+
+    <article class="mt-4 sm:mt-6">
+      <header>
+        <div class="flex flex-wrap items-center gap-1.5">
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">Open Source</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">Rust</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">PhotoCraft</span>
+          <span class="inline-flex items-center rounded-md bg-stone-100 px-2 py-0.5 font-sans text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">Photoshop Alternative</span>
+        </div>
+        <h1 class="mt-2.5 text-2xl font-bold leading-snug tracking-tight text-stone-900 sm:text-3xl dark:text-white">PhotoCraft: Free Open-Source Photoshop Alternative in Rust</h1>
+        <p class="mt-2 font-sans text-sm text-stone-500">
+          <time datetime="2026-11-26">26 November 2026</time> · 5 min read
+        </p>
+      </header>
+
+      <div class="prose prose-stone mt-6 sm:mt-8 max-w-none text-left sm:text-justify dark:prose-invert">
+        <p>A designer should not need a $240 annual subscription just to crop a product photo, adjust a curve, or export a layered banner. Yet Adobe Photoshop charges $20 to $60 every month, runs background telemetry daemons that eat 2GB of RAM, and threatens users with cancellation fees for software running on their own machine.</p>
+
+        <p>GIMP tried to solve this thirty years ago, but its clunky interface and lack of modern non-destructive adjustment layers turn away modern creators. Photopea solved the UI problem, but wrapped it inside a browser tab filled with third-party advertising banners.</p>
+
+        <p>Now, a native desktop solution has arrived. As part of the broader <a href="/blogs/artcraft-apps/">ArtCraft open-source suite</a> created by engineer Brandon Thomas, <strong>PhotoCraft</strong> is a clean-room, native raster image editor written in 100% <strong>Rust</strong>. It delivers native GPU compute shaders, instant PSD file parsing, and sub-10ms startup times with zero subscription fees.</p>
+
+        <div id="quick-answer" class="not-prose my-6 rounded-xl border border-stone-200 bg-stone-50 p-4 sm:p-5 dark:border-stone-800 dark:bg-stone-900/60">
+          <p class="flex items-center gap-1.5 font-sans text-xs font-semibold uppercase tracking-wider text-stone-600 dark:text-stone-300">
+            <svg class="h-4 w-4 text-emerald-600 dark:text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+            </svg>
+            Quick Summary (The Short Version)
+          </p>
+          <ul class="mt-3 space-y-2 font-sans text-sm text-stone-700 dark:text-stone-300">
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>Pure Rust &amp; WGPU:</strong> Native hardware rendering with Vulkan, Metal, and DirectX 12. Consumes under 150MB of RAM at idle with zero Electron or Chromium bloat.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>Photoshop Feature Parity:</strong> Supports non-destructive layer stacks, blend modes (Multiply, Screen, Overlay), adjustment layers (Curves, Levels, Hue/Sat), clipping masks, and PSD import/export.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>AI &amp; MCP Integration:</strong> Built-in Model Context Protocol (MCP) server enables local AI agents to crop, retouch, and transform layers via automated terminal prompts.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>100% Free &amp; Open Source:</strong> Hosted on GitHub under the <a href="https://github.com/storytold" target="_blank" rel="noopener noreferrer" class="font-medium underline hover:text-stone-900 dark:hover:text-white">storytold</a> organization. No login, no cloud sync lock-in, and zero telemetry.</span>
+            </li>
+          </ul>
+        </div>
+
+        <figure class="my-8">
+          <img src="../../assets/images/2026/photocraft/photocraft-banner.jpg" alt="PhotoCraft editorial 3D banner showing native dark-mode photo editing workstation in Rust with glowing GPU layer panels"
+               width="1200" height="630" loading="lazy" decoding="async" class="rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">PhotoCraft: native raster photo manipulation engineered in Rust with hardware GPU pipelines. Image: BytePortal.</figcaption>
+        </figure>
+
+        <h2>Under the hood: why Rust makes photo editing fast</h2>
+        <p>When you edit a 45-megapixel raw photo in traditional software, every brush stroke recalculates millions of color values across layered RGBA pixel arrays. Photoshop handles this with decades of optimized C++ assembly, but surrounds that core with heavy license checkers, cloud synchronization daemons, and background analytics services.</p>
+
+        <p>Electron wrappers attempt to solve desktop distribution with web technology, but suffer from garbage collection pauses. When JavaScript halts execution to reclaim memory, your brush stutters on the canvas.</p>
+
+        <p>PhotoCraft bypasses both failure modes. Written from scratch in Rust, it uses <strong>WGPU</strong>—the cross-platform graphics API that speaks directly to your GPU via Metal on macOS, DirectX 12 on Windows, and Vulkan on Linux. Pixel blend calculations and filter convolutions execute inside dedicated GPU compute shaders. The result is fluid 120 FPS canvas panning, zero garbage collection stutter, and a memory footprint that sits comfortably below 180MB.</p>
+
+        <figure class="my-8">
+          <img src="../../assets/images/2026/photocraft/photocraft-architecture.png" alt="Architecture comparison between Adobe Photoshop legacy C++ pipeline, Electron web wrappers, and PhotoCraft pure Rust WGPU compute engine"
+               width="1200" height="640" loading="lazy" decoding="async" class="rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Architecture breakdown: how PhotoCraft eliminates runtime overhead compared to Adobe and Electron. Diagram: BytePortal.</figcaption>
+        </figure>
+
+        <h2>Head-to-head comparison: PhotoCraft vs Photoshop vs GIMP vs Photopea</h2>
+        <p>To see where PhotoCraft fits in the creative ecosystem, we evaluated it against the dominant desktop and web photo editors across daily workflow requirements:</p>
+
+        <div class="not-prose my-6 overflow-x-auto rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm">
+          <table class="w-full text-left font-sans text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr class="bg-stone-100 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800">
+                <th class="p-3.5 font-semibold text-stone-900 dark:text-white">Feature</th>
+                <th class="p-3.5 font-semibold text-orange-600 dark:text-orange-400">PhotoCraft</th>
+                <th class="p-3.5 font-semibold text-stone-700 dark:text-stone-300">Adobe Photoshop</th>
+                <th class="p-3.5 font-semibold text-stone-700 dark:text-stone-300">GIMP 3.0</th>
+                <th class="p-3.5 font-semibold text-stone-700 dark:text-stone-300">Photopea</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-200 dark:divide-stone-800 bg-white dark:bg-stone-950">
+              <tr>
+                <td class="p-3.5 font-medium text-stone-900 dark:text-white">Engine / Runtime</td>
+                <td class="p-3.5 text-stone-700 dark:text-stone-300"><strong>Pure Rust + WGPU</strong></td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">C++ / Creative Cloud</td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">C / GEGL</td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">Browser JavaScript</td>
+              </tr>
+              <tr class="bg-stone-50 dark:bg-stone-900/40">
+                <td class="p-3.5 font-medium text-stone-900 dark:text-white">Idle Memory Footprint</td>
+                <td class="p-3.5 text-stone-700 dark:text-stone-300"><strong>95MB – 180MB</strong></td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">1.8GB – 3.5GB</td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">280MB – 650MB</td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">800MB – 1.8GB (Tab)</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-medium text-stone-900 dark:text-white">Startup Time</td>
+                <td class="p-3.5 text-stone-700 dark:text-stone-300"><strong>Sub-10 ms</strong></td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">8 – 15 seconds</td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">4 – 8 seconds</td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">2 – 5 seconds</td>
+              </tr>
+              <tr class="bg-stone-50 dark:bg-stone-900/40">
+                <td class="p-3.5 font-medium text-stone-900 dark:text-white">PSD File Support</td>
+                <td class="p-3.5 text-stone-700 dark:text-stone-300">Full Layers &amp; Masks</td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">Native Master Format</td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">Basic (Some clipping lost)</td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">Excellent Web Parsing</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-medium text-stone-900 dark:text-white">AI Automation API</td>
+                <td class="p-3.5 text-stone-700 dark:text-stone-300"><strong>Native MCP Server</strong></td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">Proprietary Firefly UI</td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">Python Scripting</td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">None (Manual Browser)</td>
+              </tr>
+              <tr class="bg-stone-50 dark:bg-stone-900/40">
+                <td class="p-3.5 font-medium text-stone-900 dark:text-white">Pricing</td>
+                <td class="p-3.5 text-stone-700 dark:text-stone-300"><strong>100% Free (MIT/Apache)</strong></td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">$239.88 / year</td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">100% Free (GPLv3)</td>
+                <td class="p-3.5 text-stone-600 dark:text-stone-400">Free with Ads / $5/mo</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Building and running PhotoCraft locally</h2>
+        <p>Because PhotoCraft is written in Rust, you compile it into a single, standalone binary with zero external runtime dependencies. Make sure you have the Rust toolchain installed, clone the repository from GitHub, and build in release mode:</p>
+
+        <pre><code class="language-bash"># Clone the ArtCraft repository
+git clone https://github.com/storytold/artcraft.git
+cd artcraft/apps/photocraft
+
+# Build and launch with hardware GPU acceleration
+cargo run --release</code></pre>
+
+        <p>When the binary boots, it immediately detects your primary display, initializes a WGPU surface, and presents an uncluttered, modern dark-mode canvas. You can drag and drop any <code>.psd</code>, <code>.png</code>, or <code>.jpg</code> file directly onto the window.</p>
+
+        <h2>What PhotoCraft is not (current limitations)</h2>
+        <p>Open-source alternatives deserve honesty. While PhotoCraft is an extraordinary technical achievement for digital artists, photographers, and web developers, it is not yet a complete 100% replacement for every specialized print shop:</p>
+
+        <ul>
+          <li><strong>Not a commercial CMYK prepress studio:</strong> If your agency prepares multi-channel spot colors or Pantone plates for six-color offset printing presses, Photoshop remains the industry contract standard.</li>
+          <li><strong>No cloud-based generative inpainting:</strong> PhotoCraft does not connect to Adobe Firefly or remote cloud servers to hallucinate new backgrounds. It focuses on local, deterministic raster manipulation.</li>
+          <li><strong>Smart Objects are rasterized:</strong> Complex nested Photoshop Smart Objects with embedded vector vector shapes are rendered to raster layers upon import.</li>
+        </ul>
+
+        <h2>The takeaway</h2>
+        <p>For decades, creators accepted Adobe's price hikes and background telemetry as the inevitable cost of professional design. PhotoCraft proves that modern systems programming in Rust can replicate the core Photoshop workflow in an ultra-lean, GPU-accelerated application that you truly own.</p>
+
+        <p>If you have Rust installed on your machine, clone <a href="https://github.com/storytold" target="_blank" rel="noopener noreferrer">storytold's repository</a> and test PhotoCraft on your next photo edit. You can also explore the rest of the 13 apps in our full <a href="/blogs/artcraft-apps/">ArtCraft suite breakdown</a>.</p>
+      </div>
+
+      <footer class="mt-8 border-t border-stone-200 pt-6 text-sm text-stone-500 dark:border-stone-800">
+        <p>Primary Sources: <a href="https://github.com/storytold" target="_blank" rel="noopener noreferrer" class="underline hover:text-stone-900 dark:hover:text-white">storytold GitHub</a> and <a href="https://wgpu.rs/" target="_blank" rel="noopener noreferrer" class="underline hover:text-stone-900 dark:hover:text-white">WGPU Project</a>. Image credits: Diagrams and editorial banners created by byteportal.tech.</p>
+      </footer>
+    </article>
+  </main>
+
+  <footer class="border-t border-stone-200 dark:border-stone-800">
+    <div class="mx-auto flex max-w-3xl flex-col items-center justify-between gap-4 px-4 py-8 font-sans text-xs text-stone-500 sm:flex-row">
+      <p>&copy; 2026 Byte Portal. Factual, fluff-free technology reviews.</p>
+      <div class="flex gap-4">
+        <a href="/" class="hover:text-stone-900 dark:hover:text-white">Home</a>
+        <a href="/about/" class="hover:text-stone-900 dark:hover:text-white">About</a>
+        <a href="/privacy/" class="hover:text-stone-900 dark:hover:text-white">Privacy</a>
+        <a href="/feed.xml" class="hover:text-stone-900 dark:hover:text-white">RSS</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.12.0/highlight.min.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

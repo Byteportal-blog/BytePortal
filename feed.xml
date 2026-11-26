@@ -11,7 +11,15 @@
       <link>https://www.byteportal.tech/</link>
     </image>
     <atom:link href="https://www.byteportal.tech/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Tue, 24 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 00:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>PhotoCraft: Free Open-Source Photoshop Alternative in Rust</title>
+      <link>https://www.byteportal.tech/blogs/photocraft/</link>
+      <guid isPermaLink="true">https://www.byteportal.tech/blogs/photocraft/</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Ditch the $60/month Adobe subscription. PhotoCraft is a free, native Rust Photoshop replacement with PSD support, GPU layers, sub-10ms startup, and zero bloat.</description>
+    </item>
 
     <item>
       <title>Spline AI: Build Interactive 3D Web Scenes from Text Prompts</title>
@@ -27,7 +35,6 @@
       <guid isPermaLink="true">https://www.byteportal.tech/blogs/cursor-vs-windsurf/</guid>
       <pubDate>Mon, 23 Nov 2026 00:00:00 +0000</pubDate>
       <description>Compare Cursor and Windsurf on real codebases: Composer vs Cascade, multi-file context, terminal execution, model limits, and which $20/mo editor fits you.</description>
-    </item>
     </item>
 
     <item>

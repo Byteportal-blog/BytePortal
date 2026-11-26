@@ -14,6 +14,21 @@
       "permanent": false
     },
     {
+      "source": "/photocraft",
+      "destination": "/blogs/photocraft/",
+      "statusCode": 301
+    },
+    {
+      "source": "/photocraft/",
+      "destination": "/blogs/photocraft/",
+      "statusCode": 301
+    },
+    {
+      "source": "/photocraft/:path+",
+      "destination": "/blogs/photocraft/:path+",
+      "statusCode": 301
+    },
+    {
       "source": "/spline-ai",
       "destination": "/blogs/spline-ai/",
       "statusCode": 301
