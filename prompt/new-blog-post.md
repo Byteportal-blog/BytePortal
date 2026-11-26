@@ -166,6 +166,11 @@ Include valid `BlogPosting` schema in `<head>` so Google generates rich search s
    ```
 7. In `llms.txt`, add a one-line bullet under `## Core Articles` with title, URL, and dense summary so AI engines (ChatGPT, Gemini, Claude) discover and cite the post.
 8. Read time: count words, assume ~200 words per minute, round up. Update the `· N min read` line. If you moved an existing post, add a permanent redirect in `vercel.json`.
+9. Once the post HTML is final, generate the Blogger import file:
+   ```bash
+   python scripts/export_blogger.py <slug>
+   ```
+   This writes `blogger-exports/<slug>.xml` with absolute image URLs, the post title and tags as Blogger labels, and a canonical attribution link back to `https://www.byteportal.tech/blogs/<slug>/`. Commit it with the post.
 
 ---
 
@@ -180,6 +185,7 @@ Include valid `BlogPosting` schema in `<head>` so Google generates rich search s
 - [ ] Every third-party image has clear reuse permission and a visible `Image credits` line in the footer with source links.
 - [ ] Every code block carries a `language-*` class, and the language shown in its header bar is the real one.
 - [ ] Added entry to `index.html` feed and new `<item>` to `feed.xml`.
+- [ ] Blogger export exists at `blogger-exports/<slug>.xml` (run `python scripts/export_blogger.py <slug>` after the post HTML is final).
 - [ ] Rendered check: `python -m http.server 8000`, open post and homepage, verify SEO tags in page source (`Ctrl+U`).
 
 Report back in three lines: the file created, the images used, and anything you could not verify.
