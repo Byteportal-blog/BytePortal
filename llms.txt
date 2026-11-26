@@ -8,6 +8,7 @@
 - Standards: Hands-on tested, factual, fluff-free, zero sponsored bias.
 
 ## Core Articles
+- [Lovable Review 2026: What $25/Month Actually Buys You](https://www.byteportal.tech/blogs/lovable-review/): Docs-first review of Lovable's AI app builder, covering TanStack Start output, the Supabase-based built-in backend, credit costs per build action, free-plan limits, Git sync, and where the generated app stops being enough.
 - [PhotoCraft: Free Open-Source Photoshop Alternative in Rust](https://www.byteportal.tech/blogs/photocraft/): In-depth review of PhotoCraft from the ArtCraft suite, analyzing its native WGPU compute shader rendering, PSD file parsing, under 180MB memory footprint, Model Context Protocol (MCP) agent endpoints, and how it compares to Photoshop, GIMP, and Photopea.
 - [Spline AI: Build Interactive 3D Web Scenes from Text Prompts](https://www.byteportal.tech/blogs/spline-ai/): Hands-on guide to Spline AI, covering text-to-3D generation, image-to-3D, AI textures, visual event-based physics, direct React and WebGL code export, and real-world payload trade-offs.
 - [Cursor vs Windsurf: Which AI Code Editor Wins in 2026?](https://www.byteportal.tech/blogs/cursor-vs-windsurf/): In-depth comparison of Cursor and Windsurf on real codebases, analyzing Composer shadow diffs vs Cascade real-time terminal flows, context retrieval precision, fast request limits, and when to pick each editor.

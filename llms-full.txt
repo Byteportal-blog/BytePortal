@@ -28,6 +28,31 @@ PhotoCraft is a free, native raster photo manipulation application engineered in
 
 ---
 
+# Article: Lovable Review 2026: What $25/Month Actually Buys You
+
+- URL: https://www.byteportal.tech/blogs/lovable-review/
+- Published: 2026-11-26
+- Author: Byte Portal
+- Tags: Lovable, AI App Builder, Full-Stack, No-Code, Review
+
+## Summary
+Lovable is a browser-based AI development platform that generates full-stack web apps from natural-language prompts. New projects use TanStack Start with server-rendered React, and the built-in backend is based on Supabase's open-source foundation, providing Postgres, authentication, storage, realtime, and edge functions. Code can be edited in the browser, downloaded on paid plans, or synced two ways with GitHub, GitLab, and Bitbucket. Pricing is credit-based rather than per-seat: Pro is $25/month for 100 credits, with usage-based build costs ranging from 0.5 credits for a small style change to 2 or more credits for a generated landing page.
+
+## Key Takeaways
+1. **Real full-stack output:** Lovable generates an editable TanStack Start app with server rendering, plus a managed Postgres backend, login, storage, realtime, and edge functions.
+2. **Credits, not seats:** Pro costs $25/month for 100 credits; small edits cost about 0.5 credits, adding auth about 1.2, and a landing page with images about 2.0.
+3. **Free plan limits:** Free includes 5 build credits per day (30 per month), public or invite-only publishing, unlimited collaborators, and Git sync, but the code editor is read-only and custom domains are locked to paid plans.
+4. **Code portability:** Git sync to GitHub, GitLab, or Bitbucket works on every plan, and paid plans can download the full codebase as a ZIP.
+5. **Runtime costs continue:** Hosting is free, but the built-in backend and AI features consume run credits as visitors use the published app.
+
+## Limitations
+- **Credit burn:** A single Build mode message can run for hours and pause only at a 20-credit check-in, so 100 credits is not 100 prompts.
+- **Backend lock-in:** There is no one-step migration from the built-in backend to a self-managed Supabase project; data must be exported and restored.
+- **Web only:** Lovable publishes web apps, not React Native or App Store binaries.
+- **Security still needs review:** Generated row-level security policies and dependencies should be checked before publishing, especially for apps with real user data.
+
+---
+
 # Article: Spline AI: Build Interactive 3D Web Scenes from Text Prompts
 
 - URL: https://www.byteportal.tech/blogs/spline-ai/
