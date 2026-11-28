@@ -14,6 +14,21 @@
       "permanent": false
     },
     {
+      "source": "/craft-anything",
+      "destination": "/blogs/craft-anything/",
+      "statusCode": 301
+    },
+    {
+      "source": "/craft-anything/",
+      "destination": "/blogs/craft-anything/",
+      "statusCode": 301
+    },
+    {
+      "source": "/craft-anything/:path+",
+      "destination": "/blogs/craft-anything/:path+",
+      "statusCode": 301
+    },
+    {
       "source": "/photocraft",
       "destination": "/blogs/photocraft/",
       "statusCode": 301

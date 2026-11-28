@@ -11,7 +11,15 @@
       <link>https://www.byteportal.tech/</link>
     </image>
     <atom:link href="https://www.byteportal.tech/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Thu, 26 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Nov 2026 00:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Craft Anything: Reverse-Engineer &amp; Rebuild Apps with AI</title>
+      <link>https://www.byteportal.tech/blogs/craft-anything/</link>
+      <guid isPermaLink="true">https://www.byteportal.tech/blogs/craft-anything/</guid>
+      <pubDate>Sat, 28 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Reverse-engineer apps, sites, and binaries with Craft Anything. Use 320+ Rust tools, clean-room evidence, and AI agents via MCP to rebuild software safely.</description>
+    </item>
 
     <item>
       <title>Lovable Review 2026: What $25/Month Actually Buys You</title>

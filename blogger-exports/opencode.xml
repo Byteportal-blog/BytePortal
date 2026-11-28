@@ -2,7 +2,7 @@
 <feed xmlns='http://www.w3.org/2005/Atom' xmlns:gd='http://schemas.google.com/g/2005'>
   <title type='html'>Byte Portal</title>
   <generator>Blogger</generator>
-  <updated>2026-11-21T10:54:53.000Z</updated>
+  <updated>2026-11-26T07:13:02.000Z</updated>
   <entry>
     <category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/blogger/2008/kind#post'/>
     <category scheme='http://www.blogger.com/atom/ns#' term='OpenCode'/>
@@ -11,8 +11,8 @@
     <category scheme='http://www.blogger.com/atom/ns#' term='Open Source'/>
     <category scheme='http://www.blogger.com/atom/ns#' term='Terminal'/>
     <id>tag:blogger.com,1999:blog-8931891139247852068.post-opencode</id>
-    <published>2026-11-21T10:54:53.000Z</published>
-    <updated>2026-11-21T10:54:53.000Z</updated>
+    <published>2026-11-26T07:13:02.000Z</published>
+    <updated>2026-11-26T07:13:02.000Z</updated>
     <title type='html'>OpenCode: Free Open-Source Coding Agent for Your Terminal</title>
     <content type='html'><![CDATA[
     <div style="padding: 12px 16px; background: #f4f4f5; border-left: 4px solid #18181b; margin-bottom: 24px; font-family: sans-serif;">

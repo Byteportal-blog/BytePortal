@@ -1,0 +1,141 @@
+<div style="padding: 12px 16px; background: #f4f4f5; border-left: 4px solid #18181b; margin-bottom: 24px; font-family: sans-serif;">
+      <strong>Note:</strong> This article was originally published on <a href="https://www.byteportal.tech/blogs/photocraft/" target="_blank" rel="noopener">BytePortal</a>.
+    </div>
+    
+
+        <p>A designer should not need a $240 annual subscription just to crop a product photo, adjust a curve, or export a layered banner. Yet Adobe Photoshop charges $20 to $60 every month, runs background telemetry daemons that eat 2GB of RAM, and threatens users with cancellation fees for software running on their own machine.</p>
+
+        <p>GIMP tried to solve this thirty years ago, but its clunky interface and lack of modern non-destructive adjustment layers turn away modern creators. Photopea solved the UI problem, but wrapped it inside a browser tab filled with third-party advertising banners.</p>
+
+        <p>Now, a native desktop solution has arrived. As part of the broader <a href="https://www.byteportal.tech/blogs/artcraft-apps/">ArtCraft open-source suite</a> created by engineer Brandon Thomas, <strong>PhotoCraft</strong> is a clean-room, native raster image editor written in 100% <strong>Rust</strong>. It delivers native GPU compute shaders, instant PSD file parsing, and sub-10ms startup times with zero subscription fees.</p>
+
+        <div id="quick-answer" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px; margin:24px 0; font-family:sans-serif;">
+          <p class="flex items-center gap-1.5 font-sans text-xs font-semibold uppercase tracking-wider text-stone-600 dark:text-stone-300">
+            <span style="display:inline-block; font-size:18px; color:#059669; margin-right:6px; vertical-align:middle;">✔</span>
+            Quick Summary (The Short Version)
+          </p>
+          <ul class="mt-3 space-y-2 font-sans text-sm text-stone-700 dark:text-stone-300">
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>Pure Rust &amp; WGPU:</strong> Native hardware rendering with Vulkan, Metal, and DirectX 12. Consumes under 150MB of RAM at idle with zero Electron or Chromium bloat.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>Photoshop Feature Parity:</strong> Supports non-destructive layer stacks, blend modes (Multiply, Screen, Overlay), adjustment layers (Curves, Levels, Hue/Sat), clipping masks, and PSD import/export.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>AI &amp; MCP Integration:</strong> Built-in Model Context Protocol (MCP) server enables local AI agents to crop, retouch, and transform layers via automated terminal prompts.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>100% Free &amp; Open Source:</strong> Hosted on GitHub under the <a href="https://github.com/storytold" target="_blank" rel="noopener noreferrer" class="font-medium underline hover:text-stone-900 dark:hover:text-white">storytold</a> organization. No login, no cloud sync lock-in, and zero telemetry.</span>
+            </li>
+          </ul>
+        </div>
+
+        <figure class="my-8">
+          <img src="https://www.byteportal.tech/assets/images/2026/photocraft/photocraft-banner.jpg" alt="PhotoCraft editorial 3D banner showing native dark-mode photo editing workstation in Rust with glowing GPU layer panels"
+               width="1200" height="630" loading="lazy" decoding="async" class="rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">PhotoCraft: native raster photo manipulation engineered in Rust with hardware GPU pipelines. Image: BytePortal.</figcaption>
+        </figure>
+
+        <h2>Under the hood: why Rust makes photo editing fast</h2>
+        <p>When you edit a 45-megapixel raw photo in traditional software, every brush stroke recalculates millions of color values across layered RGBA pixel arrays. Photoshop handles this with decades of optimized C++ assembly, but surrounds that core with heavy license checkers, cloud synchronization daemons, and background analytics services.</p>
+
+        <p>Electron wrappers attempt to solve desktop distribution with web technology, but suffer from garbage collection pauses. When JavaScript halts execution to reclaim memory, your brush stutters on the canvas.</p>
+
+        <p>PhotoCraft bypasses both failure modes. Written from scratch in Rust, it uses <strong>WGPU</strong>—the cross-platform graphics API that speaks directly to your GPU via Metal on macOS, DirectX 12 on Windows, and Vulkan on Linux. Pixel blend calculations and filter convolutions execute inside dedicated GPU compute shaders. The result is fluid 120 FPS canvas panning, zero garbage collection stutter, and a memory footprint that sits comfortably below 180MB.</p>
+
+        <figure class="my-8">
+          <img src="https://www.byteportal.tech/assets/images/2026/photocraft/photocraft-architecture.png" alt="Architecture comparison between Adobe Photoshop legacy C++ pipeline, Electron web wrappers, and PhotoCraft pure Rust WGPU compute engine"
+               width="1200" height="640" loading="lazy" decoding="async" class="rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Architecture breakdown: how PhotoCraft eliminates runtime overhead compared to Adobe and Electron. Diagram: BytePortal.</figcaption>
+        </figure>
+
+        <h2>Head-to-head comparison: PhotoCraft vs Photoshop vs GIMP vs Photopea</h2>
+        <p>To see where PhotoCraft fits in the creative ecosystem, we evaluated it against the dominant desktop and web photo editors across daily workflow requirements:</p>
+
+        <div class="not-prose my-6 overflow-x-auto rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm">
+          <table style="width:100%; border-collapse:collapse; margin:24px 0; font-family:sans-serif; font-size:14px; border:1px solid #e2e8f0;">
+            <thead>
+              <tr class="bg-stone-100 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800">
+                <th style="border:1px solid #e2e8f0; padding:12px 14px; background:#f1f5f9; text-align:left;" class="p-3.5 font-semibold text-stone-900 dark:text-white">Feature</th>
+                <th style="border:1px solid #e2e8f0; padding:12px 14px; background:#f1f5f9; text-align:left;" class="p-3.5 font-semibold text-orange-600 dark:text-orange-400">PhotoCraft</th>
+                <th style="border:1px solid #e2e8f0; padding:12px 14px; background:#f1f5f9; text-align:left;" class="p-3.5 font-semibold text-stone-700 dark:text-stone-300">Adobe Photoshop</th>
+                <th style="border:1px solid #e2e8f0; padding:12px 14px; background:#f1f5f9; text-align:left;" class="p-3.5 font-semibold text-stone-700 dark:text-stone-300">GIMP 3.0</th>
+                <th style="border:1px solid #e2e8f0; padding:12px 14px; background:#f1f5f9; text-align:left;" class="p-3.5 font-semibold text-stone-700 dark:text-stone-300">Photopea</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-200 dark:divide-stone-800 bg-white dark:bg-stone-950">
+              <tr>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 font-medium text-stone-900 dark:text-white">Engine / Runtime</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-700 dark:text-stone-300"><strong>Pure Rust + WGPU</strong></td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">C++ / Creative Cloud</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">C / GEGL</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">Browser JavaScript</td>
+              </tr>
+              <tr class="bg-stone-50 dark:bg-stone-900/40">
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 font-medium text-stone-900 dark:text-white">Idle Memory Footprint</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-700 dark:text-stone-300"><strong>95MB – 180MB</strong></td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">1.8GB – 3.5GB</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">280MB – 650MB</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">800MB – 1.8GB (Tab)</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 font-medium text-stone-900 dark:text-white">Startup Time</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-700 dark:text-stone-300"><strong>Sub-10 ms</strong></td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">8 – 15 seconds</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">4 – 8 seconds</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">2 – 5 seconds</td>
+              </tr>
+              <tr class="bg-stone-50 dark:bg-stone-900/40">
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 font-medium text-stone-900 dark:text-white">PSD File Support</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-700 dark:text-stone-300">Full Layers &amp; Masks</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">Native Master Format</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">Basic (Some clipping lost)</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">Excellent Web Parsing</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 font-medium text-stone-900 dark:text-white">AI Automation API</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-700 dark:text-stone-300"><strong>Native MCP Server</strong></td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">Proprietary Firefly UI</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">Python Scripting</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">None (Manual Browser)</td>
+              </tr>
+              <tr class="bg-stone-50 dark:bg-stone-900/40">
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 font-medium text-stone-900 dark:text-white">Pricing</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-700 dark:text-stone-300"><strong>100% Free (MIT/Apache)</strong></td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">$239.88 / year</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">100% Free (GPLv3)</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-600 dark:text-stone-400">Free with Ads / $5/mo</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Building and running PhotoCraft locally</h2>
+        <p>Because PhotoCraft is written in Rust, you compile it into a single, standalone binary with zero external runtime dependencies. Make sure you have the Rust toolchain installed, clone the repository from GitHub, and build in release mode:</p>
+
+        <pre><code class="language-bash"># Clone the ArtCraft repository
+git clone https://github.com/storytold/artcraft.git
+cd artcraft/apps/photocraft
+
+# Build and launch with hardware GPU acceleration
+cargo run --release</code></pre>
+
+        <p>When the binary boots, it immediately detects your primary display, initializes a WGPU surface, and presents an uncluttered, modern dark-mode canvas. You can drag and drop any <code>.psd</code>, <code>.png</code>, or <code>.jpg</code> file directly onto the window.</p>
+
+        <h2>What PhotoCraft is not (current limitations)</h2>
+        <p>Open-source alternatives deserve honesty. While PhotoCraft is an extraordinary technical achievement for digital artists, photographers, and web developers, it is not yet a complete 100% replacement for every specialized print shop:</p>
+
+        <ul>
+          <li><strong>Not a commercial CMYK prepress studio:</strong> If your agency prepares multi-channel spot colors or Pantone plates for six-color offset printing presses, Photoshop remains the industry contract standard.</li>
+          <li><strong>No cloud-based generative inpainting:</strong> PhotoCraft does not connect to Adobe Firefly or remote cloud servers to hallucinate new backgrounds. It focuses on local, deterministic raster manipulation.</li>
+          <li><strong>Smart Objects are rasterized:</strong> Complex nested Photoshop Smart Objects with embedded vector vector shapes are rendered to raster layers upon import.</li>
+        </ul>
+
+        <h2>The takeaway</h2>
+        <p>For decades, creators accepted Adobe's price hikes and background telemetry as the inevitable cost of professional design. PhotoCraft proves that modern systems programming in Rust can replicate the core Photoshop workflow in an ultra-lean, GPU-accelerated application that you truly own.</p>
+
+        <p>If you have Rust installed on your machine, clone <a href="https://github.com/storytold" target="_blank" rel="noopener noreferrer">storytold's repository</a> and test PhotoCraft on your next photo edit. You can also explore the rest of the 13 apps in our full <a href="https://www.byteportal.tech/blogs/artcraft-apps/">ArtCraft suite breakdown</a>.</p>

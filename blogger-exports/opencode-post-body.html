@@ -1,0 +1,109 @@
+<div style="padding: 12px 16px; background: #f4f4f5; border-left: 4px solid #18181b; margin-bottom: 24px; font-family: sans-serif;">
+      <strong>Note:</strong> This article was originally published on <a href="https://www.byteportal.tech/blogs/opencode/" target="_blank" rel="noopener">BytePortal</a>.
+    </div>
+    
+
+        <p>Most AI coding tools lock you into their cloud, their subscriptions, and their favorite models. You pay twenty dollars every month per seat, paste your code into a proprietary black box, and hope their remote sandbox keeps your secrets safe.</p>
+
+        <p>OpenCode takes the opposite path. It is an MIT-licensed, open-source coding agent that runs on your local machine, hooks into your shell, and connects to any model you choose.</p>
+
+        <!-- Quick Summary Box: Scannable answer block for readers and AI search extractors -->
+        <div id="quick-answer" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px; margin:24px 0; font-family:sans-serif;">
+          <p class="flex items-center gap-1.5 font-sans text-xs font-semibold uppercase tracking-wider text-stone-600 dark:text-stone-300">
+            <span style="display:inline-block; font-size:18px; color:#059669; margin-right:6px; vertical-align:middle;">✔</span>
+            Quick Summary (The Short Version)
+          </p>
+          <ul class="mt-3 space-y-2 font-sans text-sm text-stone-700 dark:text-stone-300">
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>What it is:</strong> An MIT-licensed open-source coding agent made by Anomaly with over 220,000 GitHub stars, shipping as a terminal UI, desktop app, and TypeScript SDK.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>What it does:</strong> Edits your code with visual diffs, runs parallel tasks across multi-session tabs, and connects to 200+ cloud models or local Ollama instances.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>Where it stops:</strong> It is free software, but models cost money unless you run local weights. Small local models struggle on deep refactors, and auto-approving edits without clean Git branches can break your code.</span>
+            </li>
+          </ul>
+        </div>
+
+        <figure class="my-8">
+          <img src="https://www.byteportal.tech/assets/images/2026/opencode/opencode-og.png" alt="OpenCode interactive terminal interface showing code refactor diffs and model options on a developer workstation"
+               width="1200" height="630" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">OpenCode running an interactive terminal refactor session with visual diffs. Image: byteportal.tech.</figcaption>
+        </figure>
+
+        <h2>What is OpenCode really?</h2>
+        <p>OpenCode is an agentic coding assistant built under the MIT License. An agentic tool does not just guess completions in your editor. It reads your codebase, searches symbols, runs shell commands, and drafts multi-file changes.</p>
+
+        <p>Instead of forcing you into a proprietary IDE fork, OpenCode works where you already sit. Its core interface is a terminal UI (TUI) that runs inside tmux, Alacritty, or your editor terminal. If you prefer windows, download its native desktop app for macOS, Windows, and Linux. If you want CI automation, use the <code>@opencode/sdk</code> package in TypeScript.</p>
+
+        <p>The entire engine runs locally on your machine. No proprietary source code routes through third-party telemetry servers unless you configure a remote model provider.</p>
+
+        <h2>The terminal workflow: diffs, permissions, and multi-session</h2>
+        <p>Start a session in your repository root, and OpenCode indexes your files. Type what you want in plain words: fix a broken test, update dependencies, or refactor a module.</p>
+
+        <p>The agent plans its steps and displays every edit as a colored diff in your terminal timeline. Red lines show deletions. Green lines show additions.</p>
+
+        <p>Nothing touches your disk until you approve it. Review the diff and press Enter. If an edit goes wrong, type <code>/undo</code>. OpenCode rolls back file changes and resets the conversation context to the previous turn.</p>
+
+        <p>Multi-session tabs let you run parallel agents on one project. Run one agent in tab one to write unit tests while an agent in tab two refactors database queries. Their token histories never collide.</p>
+
+        <figure class="my-8">
+          <img src="https://www.byteportal.tech/assets/images/2026/opencode/opencode-architecture.png" alt="OpenCode architecture diagram illustrating interfaces, core engine, tools and MCP protocol, and model runtimes"
+               width="1200" height="640" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Under the hood: how OpenCode connects client interfaces to local tools, MCP servers, and LLM providers. Image: byteportal.tech.</figcaption>
+        </figure>
+
+        <h2>Model freedom: 200+ providers or offline local LLMs</h2>
+        <p>Vendor lock-in is a constant headache. If an AI provider changes pricing or alters weights, your coding setup breaks.</p>
+
+        <p>OpenCode decouples the agent engine from the model provider. Through Models.dev and native integrations, you can plug in over 200 providers:</p>
+
+        <ul>
+          <li><strong>Free models:</strong> Test OpenCode without an account using free models like DeepSeek V4.1 Flash Free or Big Pickle.</li>
+          <li><strong>Local offline models:</strong> Point OpenCode to a local Ollama or vLLM instance. This keeps your code completely offline, with zero API bills.</li>
+          <li><strong>Direct API keys:</strong> Bring your own keys for Claude 3.5 Sonnet, GPT-4o, or Gemini 2.0 Flash.</li>
+          <li><strong>OpenCode Go:</strong> A $10 monthly subscription from Anomaly for developers who want flat-rate coding models without managing separate API accounts.</li>
+        </ul>
+
+        <h2>Show, don't tell: get running in two minutes</h2>
+        <p>You do not need a complex runtime setup to run OpenCode. On macOS, Linux, or WSL, install the standalone binary with one command:</p>
+
+        <pre><code class="language-bash"># Install the standalone OpenCode CLI
+curl -fsSL https://opencode.ai/v2/install | bash
+
+# Launch an interactive agent session in your current project
+opencode
+
+# Or run a one-off prompt directly from your shell
+opencode run "Audit package.json for unused dependencies"</code></pre>
+
+        <p>Homebrew users can run <code>brew install anomalyco/tap/opencode-v2</code>. Inside the terminal, press <code>Shift+Tab</code> to switch agents, <code>Ctrl+P</code> to open the command palette, and <code>/connect</code> to configure model providers.</p>
+
+        <h2>What breaks at 2 a.m.</h2>
+        <p>OpenCode is fast and flexible, but honest tools have real boundaries:</p>
+
+        <p><strong>1. Small local models lose context on big codebases.</strong> An 8B or 14B model on Ollama handles single-function fixes well. On complex multi-file refactors, small local models frequently lose track of tool parameters or repeat shell loops. Frontier models like Claude 3.5 Sonnet remain necessary for deep codebase changes.</p>
+
+        <p><strong>2. Auto-approve dangers without clean Git branches.</strong> OpenCode has an <code>--auto</code> flag that approves actions without prompting. If you run this on uncommitted files and the agent misinterprets your prompt, it can overwrite code. Never use auto-mode on a dirty working tree.</p>
+
+        <p><strong>3. Token costs on unpruned repositories.</strong> Pulling large file trees without targeted prompts burns through token windows quickly. Use a clean <code>.gitignore</code> and specific file paths to keep context lean.</p>
+
+        <h2>What it is not</h2>
+        <ul>
+          <li><strong>Not an autonomous engineer you can ignore.</strong> It drafts code. You must review diffs and run tests.</li>
+          <li><strong>Not a closed SaaS platform.</strong> No mandatory login, no telemetry wall, and no cloud lock-in.</li>
+          <li><strong>Not a shell autocomplete.</strong> It is an agent that reads, searches, writes files, and executes commands.</li>
+        </ul>
+
+        <h2>The takeaway</h2>
+        <p>If you want an AI coding agent that stays in your terminal, respects your API keys, and never locks you into a single vendor, OpenCode is the tool to use in 2026.</p>
+
+        <p>This week, install OpenCode, point it at a failing test or a messy utility on a test branch, and test the diff workflow yourself.</p>
+
+        <p>Links: <a href="https://opencode.ai/">OpenCode</a>, <a href="https://github.com/anomalyco/opencode">OpenCode GitHub</a>, <a href="https://opencode.ai/docs/">Documentation</a>, and <a href="https://opencode.ai/terminal">Terminal Guide</a>.</p>
+
+        <p><em>Hands-on tested: OpenCode CLI v2.3 on Linux x86_64 with local Ollama Qwen 2.5 Coder and Claude 3.5 Sonnet.</em></p>

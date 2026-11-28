@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom' xmlns:gd='http://schemas.google.com/g/2005'>
+  <title type='html'>Byte Portal</title>
+  <generator>Blogger</generator>
+  <updated>2026-11-26T06:59:04.000Z</updated>
+  <entry>
+    <category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/blogger/2008/kind#post'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='Dokploy'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='Self-Hosted'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='Docker'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='PaaS'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='DevOps'/>
+    <id>tag:blogger.com,1999:blog-8931891139247852068.post-dokploy</id>
+    <published>2026-11-26T06:59:04.000Z</published>
+    <updated>2026-11-26T06:59:04.000Z</updated>
+    <title type='html'>Dokploy: Self-Hosted PaaS for Docker Apps (No Kubernetes)</title>
+    <content type='html'><![CDATA[
+    <div style="padding: 12px 16px; background: #f4f4f5; border-left: 4px solid #18181b; margin-bottom: 24px; font-family: sans-serif;">
+      <strong>Note:</strong> This article was originally published on <a href="https://www.byteportal.tech/blogs/dokploy/" target="_blank" rel="noopener">BytePortal</a>.
+    </div>
+    
+
+        <p>You have a VPS, a Dockerfile, and a domain. Deploying should take one push. Instead it takes an SSH session, a manual <code>git pull</code>, a Compose file you edit by hand, and a TLS certificate you hope renews itself.</p>
+
+        <p>Dokploy puts a control panel on top of that mess. It is a free, open-source platform you install on your own Linux server. Connect a repo, press deploy, and Traefik sends the traffic to the right container.</p>
+
+        <!-- Quick Summary Box: Scannable answer block for readers and AI search extractors -->
+        <div id="quick-answer" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px; margin:24px 0; font-family:sans-serif;">
+          <p class="flex items-center gap-1.5 font-sans text-xs font-semibold uppercase tracking-wider text-stone-600 dark:text-stone-300">
+            <span style="display:inline-block; font-size:18px; color:#059669; margin-right:6px; vertical-align:middle;">✔</span>
+            Quick Summary (The Short Version)
+          </p>
+          <ul class="mt-3 space-y-2 font-sans text-sm text-stone-700 dark:text-stone-300">
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>A self-hosted PaaS:</strong> One install command puts the panel, PostgreSQL, Redis, and Traefik on your Linux server. Docker runs the apps.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>Deploys what you already have:</strong> Git repos, Dockerfiles, Docker Compose, Nixpacks, or Heroku Buildpacks, plus one-click databases and scheduled backups.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>Free software, paid in time:</strong> The software costs nothing. You pay for the VPS and become the person who patches, monitors, and restores it.</span>
+            </li>
+          </ul>
+        </div>
+
+        <figure class="my-8">
+          <img src="https://www.byteportal.tech/assets/images/2026/dokploy/dokploy-vps-providers.png" alt="Dokploy logo, an arrow labelled Servers (VPS), and the Hetzner, DigitalOcean, and AWS logos"
+               width="1270" height="540" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Dokploy on the VPS you already rent. Image: Dokploy.</figcaption>
+        </figure>
+
+        <h2>What Dokploy actually is</h2>
+        <p>It is a small platform, not a CLI. The install script sets up Docker Swarm, Traefik as the reverse proxy, a Next.js control panel, PostgreSQL, and Redis. You open port 3000 in a browser, create the admin account, and work from there.</p>
+
+        <p>The useful part is the glue. Traefik watches Docker and routes each domain to the right container. Dokploy writes those labels for you. That is the same job people hand-roll with nginx, Certbot, and a folder of shell scripts. Here it is one screen.</p>
+
+        <figure class="my-8">
+          <img src="https://www.byteportal.tech/assets/images/2026/dokploy/dokploy-architecture.png" alt="Hand-drawn Dokploy architecture diagram: internet traffic reaches the reverse proxy, which routes to the Dokploy panel with PostgreSQL and to your app containers and databases"
+               width="2305" height="1710" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Traefik fronts the panel, the app, and its database on one VPS. Image: Dokploy docs.</figcaption>
+        </figure>
+
+        <h2>What one command buys you</h2>
+        <p>The install is short:</p>
+
+        <pre><code class="language-bash">curl -sSL https://dokploy.com/install.sh | sudo sh</code></pre>
+
+        <p>The script installs Docker if missing. Your server needs 2 GB of RAM, 30 GB of disk, and free ports 80, 443, and 3000. If nginx or Caddy already owns 80 or 443, the install fails. Stop it first.</p>
+
+        <p>Connect GitHub, GitLab, Bitbucket, Gitea, or a container registry. Pick a build type: Nixpacks, Heroku Buildpacks, a Dockerfile, or a Compose file. Add environment variables and a domain. Traefik handles the certificate.</p>
+
+        <figure class="my-8">
+          <img src="https://www.byteportal.tech/assets/images/2026/dokploy/dokploy-install-https.png" alt="Dokploy setup flow: install Dokploy, open the dashboard, add a custom domain, and provision HTTPS with Traefik and Let's Encrypt"
+               width="2215" height="1141" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Install, add a domain, and Traefik handles HTTPS. Image: Vultr docs.</figcaption>
+        </figure>
+
+        <p>Databases are one click: PostgreSQL, MySQL, MariaDB, MongoDB, and Redis. Schedule backups to external storage, run cron jobs, keep preview environments, and add servers to the same panel. There is an API, a CLI, an MCP integration for AI tools, and a template library with Plausible, PocketBase, and Cal.com.</p>
+
+        <p>None of these features is unique. The pitch is one place, one UI, for free.</p>
+
+        <h2>The bill is your time</h2>
+        <p>Dokploy is free to install. The server is not, and neither is the attention it needs.</p>
+
+        <p>The panel shares the VPS with your apps: one box, one failure domain. If the disk fills or the kernel panics, your dashboard goes down with your site. Backups only count if they leave the machine and you have restored one. Updates are your job too: add <code>sh -s update</code> to the install command.</p>
+
+        <p>The installer publishes port 3000, so the panel is reachable at your server's IP. Put the panel behind HTTPS on a domain, then close the public port:</p>
+
+        <pre><code class="language-bash">docker service update --publish-rm "published=3000,target=3000,mode=host" dokploy</code></pre>
+
+        <p>Only run that after the domain works, or you lock yourself out.</p>
+
+        <p>The 2 GB minimum is real. Builds are the hungriest part; a busy Node or Rust build can push a 2 GB box into swap. Four GB is a calmer start.</p>
+
+        <p>A database container is not a managed database. You get the engine, not automatic failover. SSO, audit logs, and fine-grained roles are Enterprise features, not part of the free install. When something breaks at 2 a.m., you are the support desk.</p>
+
+        <h2>When it is the right call</h2>
+        <p>Dokploy fits a specific shape of work: you rent a VPS, deploy Docker containers, and run two to ten services. Side projects, internal tools, a small SaaS, a staging box. It is also a good answer when data has to stay on your own hardware.</p>
+
+        <p>A single static page is a bad fit. Cloudflare Pages, Netlify, or Vercel host that for free, with a CDN and no server to patch. It is also a bad fit if you need Kubernetes, a managed database with failover, or a written uptime guarantee.</p>
+
+        <p>The closest comparison is Coolify. Both are open source, put a UI on Docker, and can use Traefik. The difference you will feel is in build behaviour, backup flow, and the small edges of the UI. Test your own Compose file on both before you move a live service.</p>
+
+        <p>Dokploy also sells a managed control plane; your apps stay on your servers.</p>
+
+        <h2>What it is not</h2>
+        <ul>
+          <li><strong>Not managed.</strong> The free install has no SLA. The server, updates, and restores are yours.</li>
+          <li><strong>Not Kubernetes.</strong> Multi-node runs on Docker Swarm. If you need the Kubernetes ecosystem, use Kubernetes.</li>
+          <li><strong>Not a CDN.</strong> There is no edge network. Static assets still benefit from a CDN in front.</li>
+          <li><strong>Not a database with failover.</strong> A database container on one VPS is one copy unless you build more.</li>
+          <li><strong>Not zero-maintenance.</strong> Expect to read logs, apply updates, and test restores.</li>
+        </ul>
+
+        <h2>The takeaway</h2>
+        <p>Dokploy is worth an evening if you already pay for a VPS and deploy more than one container. It replaces hand-written nginx, Certbot, and deploy scripts with one panel you can understand. It does not replace the person who runs it.</p>
+
+        <p>This week, spin up a throwaway VPS, install it, deploy one small app, then destroy the box. Two hours will tell you more than any review.</p>
+
+        <p>Links: <a href="https://dokploy.com/">Dokploy</a>, <a href="https://docs.dokploy.com/docs/core">the documentation</a>, <a href="https://github.com/Dokploy/dokploy">the source on GitHub</a>.</p>
+
+        <p><em>Docs-first look: I read the install path and docs, but did not run a production migration.</em></p>
+      ]]></content>
+    <author>
+      <name>Byte Portal</name>
+    </author>
+  </entry>
+</feed>

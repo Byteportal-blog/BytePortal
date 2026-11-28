@@ -4,6 +4,30 @@
 
 ---
 
+# Article: Craft Anything: Reverse-Engineer & Rebuild Apps with AI
+
+- URL: https://www.byteportal.tech/blogs/craft-anything/
+- Published: 2026-11-28
+- Author: Byte Portal
+- Tags: Open Source, Rust, Craft Anything, AI Agents, Reverse Engineering, Developer Tools
+
+## Summary
+Craft Anything (https://getartcraft.com/apps/craft-anything) is an open-source, pure-Rust software exploration and clean-room reconstruction engine developed by Brandon Thomas as part of the ArtCraft ecosystem. It pairs over 320 built-in decoders, disassemblers, and layout inspectors with AI coding agents (Claude Code, Cursor, OpenCode, Codex) via the Model Context Protocol (MCP). The platform operates on a 4-stage feedback loop: Study (ingest targets and extract ground-truth design tokens and API contracts), Build (synthesize clean-room code in your chosen stack), Compare (automated computer vision pixel diffs and DOM structural checks), and Refine (autonomous iterative healing). It features a clean-room mode that observes only external evidence to ensure copyright-compliant reimplementations without copying proprietary source code.
+
+## Key Takeaways
+1. **Deterministic extraction over vibe guessing:** Instead of hallucinating from blurry screenshots, Craft Anything extracts CSS computed metrics, DOM hierarchies, color palettes, and protocol payloads to feed ground-truth specs to LLMs.
+2. **320+ built-in Rust tools:** Comprehensive reverse-engineering engine covering web apps, native desktop/mobile binaries (.NET, Java, Android APK), Electron ASAR bundles, and network APIs.
+3. **Automated visual & behavioral verification:** Conducts side-by-side pixel diffs and integration checks between original and generated applications, passing discrepancy vectors back to the agent.
+4. **Native MCP server:** Every decoder and tool is exposed as an MCP endpoint, integrating seamlessly into modern AI agent workflows and terminal CLIs (`craft-anything-cli`).
+5. **Clean-room legal safety:** Default mode operates strictly on external behavioral observations, enabling developers to build open-source alternatives without touching proprietary codebases.
+
+## Limitations
+- **Not a 1-click piracy or cracking tool:** Does not bypass paywalls, crack DRM, or copy proprietary intellectual property.
+- **Requires architectural supervision:** Deep backend database schemas, distributed state, and scaling models require human engineering oversight.
+- **Deep mode complexity:** Low-level binary disassembly and firmware analysis require reverse-engineering fluency.
+
+---
+
 # Article: PhotoCraft: Free Open-Source Photoshop Alternative in Rust
 
 - URL: https://www.byteportal.tech/blogs/photocraft/

@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom' xmlns:gd='http://schemas.google.com/g/2005'>
+  <title type='html'>Byte Portal</title>
+  <generator>Blogger</generator>
+  <updated>2026-11-28T08:20:23.000Z</updated>
+  <entry>
+    <category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/blogger/2008/kind#post'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='Open Source'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='Rust'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='Craft Anything'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='AI Agents'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='Reverse Engineering'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='Developer Tools'/>
+    <id>tag:blogger.com,1999:blog-8931891139247852068.post-craft-anything</id>
+    <published>2026-11-28T08:20:23.000Z</published>
+    <updated>2026-11-28T08:20:23.000Z</updated>
+    <title type='html'>Craft Anything: Reverse-Engineer &amp; Rebuild Apps with AI</title>
+    <content type='html'><![CDATA[
+    <div style="padding: 12px 16px; background: #f4f4f5; border-left: 4px solid #18181b; margin-bottom: 24px; font-family: sans-serif;">
+      <strong>Note:</strong> This article was originally published on <a href="https://www.byteportal.tech/blogs/craft-anything/" target="_blank" rel="noopener">BytePortal</a>.
+    </div>
+    
+
+        <p>You find an impressive web tool, SaaS dashboard, or desktop utility and wish an open-source equivalent existed. You screenshot the interface, paste it into an AI coding assistant, and ask it to clone the app. Ten minutes later, you are untangling hallucinated CSS metrics, broken API contracts, and missing component hierarchies.</p>
+
+        <p>AI coding agents do not fail because they cannot write code. They fail because you gave them vague visual impressions instead of ground-truth architectural specifications.</p>
+
+        <p>A new open-source project from Brandon Thomas and the <a href="https://www.byteportal.tech/blogs/artcraft-apps/">ArtCraft ecosystem</a> solves this disconnect. <strong>Craft Anything</strong> (<a href="https://getartcraft.com/apps/craft-anything" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/craft-anything</a>) is a pure-Rust software exploration and reconstruction engine. Equipped with over 320 built-in decoders, disassemblers, and layout inspectors, it extracts concrete behavioral evidence from existing software and pairs with AI coding agents to recreate clean-room applications with automated visual and functional verification.</p>
+
+        <div id="quick-answer" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px; margin:24px 0; font-family:sans-serif;">
+          <p class="flex items-center gap-1.5 font-sans text-xs font-semibold uppercase tracking-wider text-stone-600 dark:text-stone-300">
+            <span style="display:inline-block; font-size:18px; color:#059669; margin-right:6px; vertical-align:middle;">✔</span>
+            Quick Summary (The Short Version)
+          </p>
+          <ul class="mt-3 space-y-2 font-sans text-sm text-stone-700 dark:text-stone-300">
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>What it is:</strong> A pure-Rust desktop app and CLI (`craft-anything-cli`) packed with 320+ decoders that inspect websites, native binaries, Electron packages, and mobile APKs.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>The 4-Stage Loop:</strong> Follows a structured workflow: <em>Study</em> (extract evidence), <em>Build</em> (agent writes code in your chosen stack), <em>Compare</em> (automated pixel and DOM diffs), and <em>Refine</em> (iterative self-healing).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>MCP-First Integration:</strong> Exposes native Model Context Protocol (MCP) endpoints, allowing agents like Claude Code, Cursor, and OpenCode to query target specifications autonomously.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>Clean-Room Safety:</strong> Default clean-room mode extracts external behavioral contracts and visual tokens without copying proprietary source code, ensuring copyright-compliant rebuilds.</span>
+            </li>
+          </ul>
+        </div>
+
+        <figure class="my-8">
+          <img src="https://www.byteportal.tech/assets/images/2026/craft-anything/craft-anything-banner.jpg" alt="Craft Anything 3D editorial banner showing software reverse-engineering laboratory with holographic inspection scanlines and AI reconstruction loop"
+               width="1200" height="630" loading="lazy" decoding="async" class="rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Craft Anything: combining deterministic systems inspection with AI coding agents to reconstruct software. Image: BytePortal.</figcaption>
+        </figure>
+
+        <h2>The problem: why AI "vibe coding" falls short on complex apps</h2>
+        <p>Vibe coding works well for a two-page form or a basic calculator. But when you ask an LLM to clone a complex desktop editor like Photoshop or a multi-tab web tool like Linear, the model has to invent everything beneath the surface.</p>
+
+        <p>It guesses the bounding boxes. It guesses how padding scales across viewports. It invents arbitrary state management hooks. When you run the output, the interface looks slightly off and key edge-case behaviors fail silently.</p>
+
+        <p>Craft Anything eliminates the guesswork. Instead of feeding the model a compressed JPG, Craft Anything's Rust engine conducts deterministic extraction. It inspects CSS computed styles, measure pixel margins, records network payloads, catalogs font families, and converts UI hierarchies into structured JSON. The AI agent receives ground-truth engineering specs before it writes its first line of code.</p>
+
+        <figure class="my-8">
+          <img src="https://www.byteportal.tech/assets/images/2026/craft-anything/craft-anything-workflow.png" alt="Four-stage architectural pipeline of Craft Anything: Study and Decode, Agent Build via MCP, Compare and Diff, and Refine Loop"
+               width="1200" height="640" loading="lazy" decoding="async" class="rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">The 4-stage pipeline: how Craft Anything validates generated code against real evidence. Diagram: BytePortal.</figcaption>
+        </figure>
+
+        <h2>The 4-stage reconstruction loop</h2>
+        <p>Craft Anything structures software exploration into four autonomous phases:</p>
+
+        <ol>
+          <li><strong>Study (Evidence Ingestion):</strong> You point Craft Anything at a URL, an Electron ASAR bundle, an Android APK, or a compiled binary. Its 320+ decoders analyze layouts, extract design tokens, parse protocol payloads, and catalog UI components into an evidence database.</li>
+          <li><strong>Build (Agent Synthesis):</strong> An AI coding agent (connected via MCP) reads the evidence log. You specify your target tech stack—such as pure Rust with WGPU, Next.js with Tailwind, or Go with SQLite—and the agent scaffolds the project.</li>
+          <li><strong>Compare (Automated Verification):</strong> Craft Anything runs both the original target and your newly generated build side by side. It executes computer vision pixel diffs, checks DOM depth, and runs behavioral integration tests, highlighting exact discrepancies.</li>
+          <li><strong>Refine (Autonomous Healing):</strong> Discrepancy logs are passed back into the agent context as structured error vectors. The agent applies surgical patches until visual and functional parity is reached.</li>
+        </ol>
+
+        <h2>Clean-room mode vs Deep disassembly mode</h2>
+        <p>Reverse engineering carries legal and ethical considerations. Craft Anything addresses this directly with two distinct operational modes:</p>
+
+        <div class="not-prose my-6 overflow-x-auto rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm">
+          <table style="width:100%; border-collapse:collapse; margin:24px 0; font-family:sans-serif; font-size:14px; border:1px solid #e2e8f0;">
+            <thead>
+              <tr class="bg-stone-100 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800">
+                <th style="border:1px solid #e2e8f0; padding:12px 14px; background:#f1f5f9; text-align:left;" class="p-3.5 font-semibold text-stone-900 dark:text-white">Feature</th>
+                <th style="border:1px solid #e2e8f0; padding:12px 14px; background:#f1f5f9; text-align:left;" class="p-3.5 font-semibold text-sky-600 dark:text-sky-400">Clean-Room Mode (Default)</th>
+                <th style="border:1px solid #e2e8f0; padding:12px 14px; background:#f1f5f9; text-align:left;" class="p-3.5 font-semibold text-purple-600 dark:text-purple-400">Deep Inspection Mode</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-200 dark:divide-stone-800 bg-white dark:bg-stone-950">
+              <tr>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 font-medium text-stone-900 dark:text-white">Inspection Scope</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-700 dark:text-stone-300">External observations only (rendered DOM, colors, metrics)</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-700 dark:text-stone-300">Internal binaries, bytecode, symbols, and network traces</td>
+              </tr>
+              <tr class="bg-stone-50 dark:bg-stone-900/40">
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 font-medium text-stone-900 dark:text-white">Source Code Access</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-700 dark:text-stone-300">Zero access; proprietary source is never inspected</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-700 dark:text-stone-300">Decompiles bytecode (.NET, Java, ASAR, Ghidra bridge)</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 font-medium text-stone-900 dark:text-white">Legal Safety</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-700 dark:text-stone-300">Copyright-compliant clean-room reconstruction</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-700 dark:text-stone-300">Restricted to authorized code audits and security research</td>
+              </tr>
+              <tr class="bg-stone-50 dark:bg-stone-900/40">
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 font-medium text-stone-900 dark:text-white">Primary Use Case</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-700 dark:text-stone-300">Building open-source replacements for proprietary web tools</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3.5 text-stone-700 dark:text-stone-300">Security auditing, protocol reverse engineering, file format decoding</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>How to run Craft Anything via CLI and MCP</h2>
+        <p>Craft Anything is distributed as a cross-platform desktop application and a standalone command-line binary. You can install and initialize it using Cargo:</p>
+
+        <pre><code class="language-bash"># Install Craft Anything CLI
+cargo install --git https://github.com/storytold/craft-anything craft-anything-cli
+
+# Start an evidence collection study on a target web tool
+craft-anything study https://example.com/editor --mode clean-room
+
+# Launch the MCP server to bridge with Claude Code or Cursor
+craft-anything mcp --port 8080</code></pre>
+
+        <p>Once the MCP server is active, add it to your coding agent configuration (such as <code>claude_desktop_config.json</code> or Cursor's MCP panel). The agent gains direct access to tools like <code>get_layout_metrics</code>, <code>extract_design_tokens</code>, and <code>run_visual_diff</code>.</p>
+
+        <h2>What Craft Anything is not</h2>
+        <p>Honesty builds better engineering habits. Craft Anything is a precision instrument, not magic:</p>
+
+        <ul>
+          <li><strong>Not a 1-click piracy button:</strong> It does not crack software, bypass authentication paywalls, or copy proprietary intellectual property. Clean-room development creates new implementations inspired by functional behavior.</li>
+          <li><strong>Not a replacement for architectural thinking:</strong> While the engine automates token extraction and visual diffing, deciding how backend databases, security models, and scaling tiers operate still requires human supervision.</li>
+          <li><strong>Deep mode requires technical fluency:</strong> Analyzing raw assembly or unpacked firmware requires familiarity with disassemblers, intermediate representations, and binary formats.</li>
+        </ul>
+
+        <h2>The takeaway</h2>
+        <p>The ArtCraft ecosystem demonstrated that modern systems engineering in Rust can cleanly recreate complex creative suites like <a href="https://www.byteportal.tech/blogs/photocraft/">PhotoCraft</a> without corporate bloat. <strong>Craft Anything</strong> takes that philosophy one step further: it packages the reverse-engineering methodology into an open-source toolchain that any developer can run alongside an AI coding agent.</p>
+
+        <p>Check out the official documentation at <a href="https://getartcraft.com/apps/craft-anything" target="_blank" rel="noopener noreferrer">getartcraft.com/apps/craft-anything</a> and explore the source code on <a href="https://github.com/storytold/craft-anything" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+      ]]></content>
+    <author>
+      <name>Byte Portal</name>
+    </author>
+  </entry>
+</feed>

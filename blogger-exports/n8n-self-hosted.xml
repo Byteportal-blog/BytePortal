@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom' xmlns:gd='http://schemas.google.com/g/2005'>
+  <title type='html'>Byte Portal</title>
+  <generator>Blogger</generator>
+  <updated>2026-11-26T06:55:35.000Z</updated>
+  <entry>
+    <category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/blogger/2008/kind#post'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='n8n'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='Automation'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='Self-Hosted'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='AI Agents'/>
+    <category scheme='http://www.blogger.com/atom/ns#' term='Docker'/>
+    <id>tag:blogger.com,1999:blog-8931891139247852068.post-n8n-self-hosted</id>
+    <published>2026-11-26T06:55:35.000Z</published>
+    <updated>2026-11-26T06:55:35.000Z</updated>
+    <title type='html'>n8n Self-Hosted: AI Workflows Without the Zapier Bill</title>
+    <content type='html'><![CDATA[
+    <div style="padding: 12px 16px; background: #f4f4f5; border-left: 4px solid #18181b; margin-bottom: 24px; font-family: sans-serif;">
+      <strong>Note:</strong> This article was originally published on <a href="https://www.byteportal.tech/blogs/n8n-self-hosted/" target="_blank" rel="noopener">BytePortal</a>.
+    </div>
+    
+
+        <p>Your invoice sync breaks on a Tuesday. Nobody notices until Friday, when a customer asks where their receipt went. The script lives on a laptop that went to sleep.</p>
+
+        <p>Zapier or Make would replace that script, but both charge per task. Check a hundred invoices, pay for a hundred tasks. n8n trades that for a server you already rent and a meter that is your own hardware.</p>
+
+        <!-- Quick Summary Box: Scannable answer block for readers and AI search extractors -->
+        <div id="quick-answer" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px; margin:24px 0; font-family:sans-serif;">
+          <p class="flex items-center gap-1.5 font-sans text-xs font-semibold uppercase tracking-wider text-stone-600 dark:text-stone-300">
+            <span style="display:inline-block; font-size:18px; color:#059669; margin-right:6px; vertical-align:middle;">✔</span>
+            Quick Summary (The Short Version)
+          </p>
+          <ul class="mt-3 space-y-2 font-sans text-sm text-stone-700 dark:text-stone-300">
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>A workflow builder with code inside:</strong> Hundreds of integrations, HTTP for the rest, JavaScript and Python nodes, plus AI Agent and MCP nodes.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>One run counts once:</strong> A 12-step workflow is one execution, not twelve tasks. Self-hosted Community has no execution meter at all.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>You pay in ops:</strong> The server, backups, encryption key, and upgrades are yours. The fair-code license forbids reselling n8n as a hosted service.</span>
+            </li>
+          </ul>
+        </div>
+
+        <figure class="my-8">
+          <img src="https://www.byteportal.tech/assets/images/2026/n8n-self-hosted/n8n-self-hosted-og.png" alt="Illustration of an n8n workflow on your own server: a webhook triggers an AI agent, a human approval step checks it, then Slack and a database receive the result"
+               width="1200" height="630" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Trigger, model, human check, side effect. The whole workflow runs on your box. Image: byteportal.tech.</figcaption>
+        </figure>
+
+        <h2>What n8n actually is</h2>
+        <p>n8n is a workflow builder. A workflow is a graph of nodes, and each node does one job: catch a webhook, query Postgres, call an API, ask a model, send a Slack message.</p>
+
+        <p>Stripe fires a webhook when an invoice is paid. A model node pulls the line items out of the PDF. A filter checks the total. Under €500, the workflow writes the row and emails the receipt. Over €500, it asks you in Slack first, then writes. Six nodes, one workflow, one execution.</p>
+
+        <p>The run log is not a console dump. Click any node and see the exact JSON that entered and left.</p>
+
+        <p>The escape hatch matters too. A Code node runs JavaScript or Python, so the ugly transform takes ten lines. AI Agent, chat trigger, and MCP nodes sit on the same canvas. The homepage says 500+ native integrations; the README says 1,500+ integrations. The plain HTTP node covers the rest.</p>
+
+        <figure class="my-8">
+          <img src="https://www.byteportal.tech/assets/images/2026/n8n-self-hosted/n8n-invoice-workflow.png" alt="n8n invoice workflow: a Stripe webhook feeds an AI extraction node, then a filter checks whether the total is over €500, with one branch for auto-approval and one for Slack approval, both ending in a Postgres write and receipt email"
+               width="1200" height="640" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Two paths, one execution, and a log you can replay. Image: byteportal.tech.</figcaption>
+        </figure>
+
+        <h2>The billing trick: one run, not one step</h2>
+        <p>Run a 12-step workflow every five minutes for 30 days. That is 8,640 runs. Per-task billing sees 103,680 tasks. n8n sees 8,640 executions. The step count is free.</p>
+
+        <p>That is the pitch, and the trap. A workflow that fires every five seconds will eat any server. Cheap per run is not cheap at any volume.</p>
+
+        <p>Self-hosted Community has no execution meter. Cloud plans do: €20 per month billed annually for 2,500 executions, €50 for 10,000. A self-hosted Business license meters executions too, and pings a license server daily. Prices checked in November 2026.</p>
+
+        <figure class="my-8">
+          <img src="https://www.byteportal.tech/assets/images/2026/n8n-self-hosted/n8n-execution-billing.png" alt="Diagram comparing per-task billing, where four workflow steps count as four billed tasks, with n8n execution billing, where the same four steps count as one execution"
+               width="1200" height="640" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Same workflow, two meters. Steps stop multiplying the bill. Image: byteportal.tech.</figcaption>
+        </figure>
+
+        <h2>The install is two commands</h2>
+        <p>You need Docker. That is the whole prerequisite for a local test.</p>
+
+        <pre><code class="language-bash">docker volume create n8n_data
+docker run -it --rm --name n8n -p 5678:5678 \
+  -v n8n_data:/home/node/.n8n \
+  docker.n8n.io/n8nio/n8n</code></pre>
+
+        <p>Open <code>http://localhost:5678</code> and create the owner account. No cloud signup, no license key, no card. Build the invoice flow, run it once, open the execution log. You will know in ten minutes whether the editor fits your brain.</p>
+
+        <p>For a real server, change three things: PostgreSQL instead of the default SQLite, <code>N8N_ENCRYPTION_KEY</code> stored somewhere else, and <code>WEBHOOK_URL</code> set to the public address behind HTTPS.</p>
+
+        <figure class="my-8">
+          <img src="https://www.byteportal.tech/assets/images/2026/n8n-self-hosted/n8n-deployment-options.png" alt="Three n8n deployment options: Docker on a laptop at localhost:5678, n8n behind Caddy or nginx with PostgreSQL on a VPS, and n8n Cloud with a managed editor and database"
+               width="1200" height="620" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Same workflow, three homes. Only one of them pages you at night. Image: byteportal.tech.</figcaption>
+        </figure>
+
+        <h2>What breaks at 2 a.m.</h2>
+        <p>Self-hosting does not remove operations. It moves them to your name.</p>
+
+        <p>First, the half-finished run: node four writes to Postgres, node five calls Slack, Slack times out. A naive retry writes the row twice. Key the write on the invoice ID, or catch the error in a separate workflow.</p>
+
+        <p>Second, the key. Credentials are encrypted with a key in the data directory. Lose it and every stored token is noise. Back up the key separately, then restore one workflow to prove it works.</p>
+
+        <p>Third, the blast radius. One instance holds tokens for Slack, GitHub, Stripe, and your database. Port 5678 open to the internet is a bad week waiting to happen. Put a reverse proxy with HTTPS in front, and pull a new image most months; n8n ships a minor version most weeks.</p>
+
+                <h2>Where free stops, and who should pay</h2>
+        <p>n8n is source-available, not open source. The Sustainable Use License allows internal business use, and personal or non-commercial use. You cannot host it and sell workflow access to customers. Consulting on it is fine.</p>
+
+        <p>The Community edition lacks SSO and LDAP, Git-based version control, separate environments, external secret stores, and queue mode for scaling. Those need a paid license, and the self-hosted Business license meters executions too.</p>
+
+        <p>Fit check: you already run Docker, your automations touch internal systems, and your bill punishes step-heavy workflows. It also fits when a non-developer needs to read the flow; the canvas is documentation people actually open.</p>
+
+        <p>Skip it for a single two-step Zap. The honest alternative there is a cron job and a small script. n8n wins when the branches multiply, or when a human approval has to sit in the middle.</p>
+
+        <h2>What it is not</h2>
+        <ul>
+          <li><strong>Not open source.</strong> Source-available under a fair-code license with commercial limits.</li>
+          <li><strong>Not managed.</strong> You patch it, back it up, and answer the 2 a.m. page.</li>
+          <li><strong>Not a coding agent.</strong> It orchestrates models and tools inside a workflow you designed.</li>
+          <li><strong>Not a queue at scale on one container.</strong> Real throughput needs queue mode, a paid feature.</li>
+          <li><strong>Not free for a team</strong> that needs SSO, Git sync, or separate environments.</li>
+        </ul>
+
+        <h2>The takeaway</h2>
+        <p>n8n is worth an afternoon if you already pay per step and already have a server. It is not worth a migration weekend if one cron job does the job.</p>
+
+        <p>This week, run the two commands and rebuild one workflow by hand. Watch the execution log. Decide with evidence, not a demo video.</p>
+
+        <p>Links: <a href="https://n8n.io/">n8n</a>, <a href="https://docs.n8n.io/">the documentation</a>, <a href="https://github.com/n8n-io/n8n">the source on GitHub</a>, <a href="https://n8n.io/pricing/">pricing</a>.</p>
+
+        <p><em>Docs-first look: I read the install docs, license, and pricing but did not run a production migration.</em></p>
+      ]]></content>
+    <author>
+      <name>Byte Portal</name>
+    </author>
+  </entry>
+</feed>

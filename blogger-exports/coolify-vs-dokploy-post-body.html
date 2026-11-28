@@ -1,0 +1,166 @@
+<div style="padding: 12px 16px; background: #f4f4f5; border-left: 4px solid #18181b; margin-bottom: 24px; font-family: sans-serif;">
+      <strong>Note:</strong> This article was originally published on <a href="https://www.byteportal.tech/blogs/coolify-vs-dokploy/" target="_blank" rel="noopener">BytePortal</a>.
+    </div>
+    
+
+        <p>A simple side project should not cost $20 per seat every month on Vercel. Nor should it require writing raw Nginx configs and renewal cron jobs via SSH at midnight.</p>
+
+        <p>This frustration made self-hosted Platform as a Service (PaaS) tools explode. You rent a $5 virtual private server (VPS), run a single install script, and get automated Git pushes, SSL certificates, and database backups. Two tools dominate this space: <strong>Coolify</strong> and <strong>Dokploy</strong>.</p>
+
+        <!-- Quick Summary Box: Scannable answer block for readers and AI search extractors -->
+        <div id="quick-answer" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px; margin:24px 0; font-family:sans-serif;">
+          <p class="flex items-center gap-1.5 font-sans text-xs font-semibold uppercase tracking-wider text-stone-600 dark:text-stone-300">
+            <span style="display:inline-block; font-size:18px; color:#059669; margin-right:6px; vertical-align:middle;">✔</span>
+            Quick Summary (The Short Version)
+          </p>
+          <ul class="mt-3 space-y-2 font-sans text-sm text-stone-700 dark:text-stone-300">
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>Dokploy wins on small hardware:</strong> Its Node.js control plane idles at just 150MB to 350MB of RAM. It runs reliably on entry-level $4 to $5 VPS boxes with 1GB RAM.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>Coolify wins on ecosystem and multi-server:</strong> It offers 300+ one-click application templates, seamless SSH clustering across multiple servers, and flexible reverse proxies (Traefik or Caddy).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-stone-400 dark:text-stone-500">•</span>
+              <span><strong>The deciding boundary:</strong> Choose Dokploy if you host side projects or Docker containers on a single budget node. Choose Coolify if you manage multiple servers or rely on turn-key self-hosted software templates.</span>
+            </li>
+          </ul>
+        </div>
+
+        <figure class="my-8">
+          <img src="https://www.byteportal.tech/assets/images/2026/coolify-vs-dokploy/coolify-vs-dokploy-og.jpg" alt="Coolify vs Dokploy head-to-head comparison banner showing purple Coolify cloud server nodes and cyan Dokploy container nodes with a central VS emblem"
+               width="1200" height="630" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Coolify v4 vs Dokploy: two paths to self-hosted PaaS. Image: byteportal.tech.</figcaption>
+        </figure>
+
+        <h2>What both tools actually do</h2>
+        <p>Both Coolify and Dokploy turn a raw Ubuntu Debian server into a personal cloud. You connect your GitHub or GitLab repository, select a branch, and push code. The server builds your Docker image, provisions an HTTPS domain through Let's Encrypt, and monitors container health.</p>
+
+        <p>Both tools support Dockerfiles, Docker Compose files, and automated buildpacks like Nixpacks. Both provide web dashboards with live build logs, environment variable editors, and one-click database management for PostgreSQL, MySQL, and Redis.</p>
+
+        <p>If you read <a href="https://www.byteportal.tech/blogs/dokploy/">our deep dive on Dokploy</a>, you know how liberating this workflow feels. The real difference is not what they promise. It is how much server hardware they consume to keep those promises.</p>
+
+        <figure class="my-8">
+          <img src="https://www.byteportal.tech/assets/images/2026/coolify-vs-dokploy/paas-architecture-comparison.png" alt="Architectural diagram comparing Coolify's Laravel control plane with Dokploy's Node.js control plane on a VPS"
+               width="1200" height="640" loading="lazy" decoding="async" class="w-full rounded-xl border border-stone-200 dark:border-stone-800">
+          <figcaption class="mt-2 text-center font-sans text-xs text-stone-500">Under the hood: how each control plane runs alongside your applications. Image: byteportal.tech.</figcaption>
+        </figure>
+
+        <h2>The $5 VPS test: memory and idle footprint</h2>
+        <p>Memory efficiency is where the two tools split immediately. Most budget VPS plans from Hetzner, DigitalOcean, or Linode come with 1GB or 2GB of RAM.</p>
+
+        <p>Coolify v4 is built on PHP and Laravel. Its control plane runs Laravel Octane, Horizon background queue workers, a dedicated PostgreSQL database, Redis, a helper daemon, and Traefik. At idle, Coolify consumes between <strong>800MB and 1.4GB of RAM</strong>.</p>
+
+        <p>On a 1GB VPS, running Coolify without configured swap memory will cause the Linux Out-Of-Memory (OOM) killer to terminate your processes during the first Docker build. To run Coolify smoothly, you need at least a 2GB RAM server, or you must add 2GB to 4GB of disk swap.</p>
+
+        <p>Dokploy is built on Node.js, Next.js, and tRPC. Its web interface, background tasks, and API run inside a unified lightweight process. Dokploy idles at <strong>150MB to 350MB of RAM</strong>.</p>
+
+        <p>That means Dokploy leaves 70% of a 1GB VPS free for your actual applications, Postgres instances, and API containers.</p>
+
+        <h2>Feature comparison matrix</h2>
+        <p>Beyond memory, their operational workflows differ in several key areas:</p>
+
+        <div class="not-prose my-6 overflow-x-auto rounded-xl border border-stone-200 dark:border-stone-800">
+          <table style="width:100%; border-collapse:collapse; margin:24px 0; font-family:sans-serif; font-size:14px; border:1px solid #e2e8f0;">
+            <thead>
+              <tr class="bg-stone-100 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800">
+                <th style="border:1px solid #e2e8f0; padding:12px 14px; background:#f1f5f9; text-align:left;" class="p-3 font-semibold text-stone-900 dark:text-white">Feature</th>
+                <th style="border:1px solid #e2e8f0; padding:12px 14px; background:#f1f5f9; text-align:left;" class="p-3 font-semibold text-stone-900 dark:text-white">Coolify v4</th>
+                <th style="border:1px solid #e2e8f0; padding:12px 14px; background:#f1f5f9; text-align:left;" class="p-3 font-semibold text-stone-900 dark:text-white">Dokploy</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-200 dark:divide-stone-800 bg-white dark:bg-stone-950">
+              <tr>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 font-medium text-stone-900 dark:text-white">Idle RAM Usage</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 text-stone-600 dark:text-stone-300">800MB – 1.4GB</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 text-stone-600 dark:text-stone-300">150MB – 350MB</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 font-medium text-stone-900 dark:text-white">Multi-Server Support</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 text-stone-600 dark:text-stone-300">Native SSH agent clustering</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 text-stone-600 dark:text-stone-300">Docker Swarm mode</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 font-medium text-stone-900 dark:text-white">One-Click Catalog</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 text-stone-600 dark:text-stone-300">300+ templates</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 text-stone-600 dark:text-stone-300">Essential services &amp; DBs</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 font-medium text-stone-900 dark:text-white">Reverse Proxy Choice</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 text-stone-600 dark:text-stone-300">Traefik or Caddy</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 text-stone-600 dark:text-stone-300">Traefik (integrated)</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 font-medium text-stone-900 dark:text-white">Git Integrations</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 text-stone-600 dark:text-stone-300">GitHub, GitLab, Bitbucket, Custom Git</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 text-stone-600 dark:text-stone-300">GitHub, GitLab, Custom Git</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 font-medium text-stone-900 dark:text-white">License</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 text-stone-600 dark:text-stone-300">Apache 2.0 (Open Source)</td>
+                <td style="border:1px solid #e2e8f0; padding:12px 14px; text-align:left;" class="p-3 text-stone-600 dark:text-stone-300">Apache 2.0 (Open Source)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Multi-server management and clustering</h2>
+        <p>If you outgrow a single server, Coolify has a clear advantage. Its control plane lets you register external servers via standard SSH keys. Coolify dials into the remote host, installs Docker, deploys containers, and routes traffic without complex network overlays.</p>
+
+        <p>Dokploy approaches scaling using Docker Swarm. You can join worker nodes to a Swarm cluster and distribute services across machines. While functional, Swarm introduces overlay networking rules and firewall considerations that single-node developers often prefer to avoid.</p>
+
+        <h2>The install command for both</h2>
+        <p>Both platforms install via an automated shell script. On a clean Ubuntu 22.04 or 24.04 LTS instance, you run one command:</p>
+
+        <p>For Coolify:</p>
+        <pre><code class="language-bash">curl -fsSL https://cdn.coollabs.io/coolify/install.sh | bash</code></pre>
+
+        <p>For Dokploy:</p>
+        <pre><code class="language-bash">curl -sSL https://dokploy.com/install.sh | sh</code></pre>
+
+        <p>Once completed, Coolify opens at port <code>8000</code> and Dokploy opens at port <code>3000</code>. Both scripts automatically install Docker engine and bootstrap their reverse proxies.</p>
+
+        <h2>What breaks at 2 a.m.</h2>
+        <p>Neither tool eliminates operations. When things fail, the failure modes look different:</p>
+
+        <p><strong>1. Build memory exhaustion on Coolify:</strong> Building a modern Next.js or Rust application consumes massive memory during Webpack or rustc compilation. If Coolify is already using 1GB of RAM, an unconstrained build will freeze your entire server. Always configure swap before your first deployment.</p>
+
+        <p><strong>2. Traefik label desynchronization on Dokploy:</strong> If you manually edit Docker container ports or labels outside Dokploy, Traefik can lose routing rules, resulting in 404 or 502 Bad Gateway errors. Stick to Dokploy's web dashboard or Compose editor for route changes.</p>
+
+        <p><strong>3. Database volume persistence:</strong> Both platforms store databases in Docker named volumes or host directory mounts. If you recreate containers without backup targets, you risk losing production data. Configure automated S3 database backups immediately after setting up your first project.</p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-base font-semibold text-stone-900 dark:text-white">Can I migrate projects between Coolify and Dokploy?</h3>
+            <p class="mt-1 text-stone-600 dark:text-stone-400">Yes. Because both platforms run standard Dockerfiles and Docker Compose files, your application code remains vendor-independent. You only need to export your environment variables and database dumps.</p>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold text-stone-900 dark:text-white">Do either of these tools take a percentage of my server traffic?</h3>
+            <p class="mt-1 text-stone-600 dark:text-stone-400">No. Both platforms are 100% self-hosted on your own infrastructure. All web traffic flows directly from your reverse proxy to your containers without passing through any external cloud gateway.</p>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold text-stone-900 dark:text-white">Can I run WordPress, Plausible, or n8n with one click?</h3>
+            <p class="mt-1 text-stone-600 dark:text-stone-400">Coolify includes more than 300 pre-configured templates for popular self-hosted software. Dokploy includes the most common databases and open-source applications, but requires manual Docker Compose files for niche tools.</p>
+          </div>
+        </div>
+
+        <h2>What they are not</h2>
+        <ul>
+          <li><strong>Not managed cloud hosting.</strong> You are responsible for OS security patches, firewall rules, and uptime monitoring.</li>
+          <li><strong>Not Kubernetes.</strong> Neither tool is designed for massive auto-scaling clusters spanning hundreds of nodes.</li>
+          <li><strong>Not a zero-maintenance setup.</strong> Backups, disk volume cleanup, and Docker image pruning remain your responsibility.</li>
+        </ul>
+
+        <h2>The takeaway</h2>
+        <p>If you want to host personal apps, client websites, or APIs on a single $4 or $5 VPS with 1GB of RAM, <strong>choose Dokploy</strong>. It is fast, lightweight, and preserves your precious memory for actual workloads.</p>
+
+        <p>If you run a 2GB+ server, want to deploy from a library of 300+ open-source templates, or manage multiple separate VPS boxes from one dashboard, <strong>choose Coolify</strong>.</p>
+
+        <p>This weekend, spin up an inexpensive test instance, run either install script, and deploy one Git repository. You will never look at a $20 per-seat SaaS hosting invoice the same way again.</p>
+
+        <p>Links: <a href="https://coolify.io/">Coolify</a>, <a href="https://github.com/coollabsio/coolify">Coolify GitHub</a>, <a href="https://dokploy.com/">Dokploy</a>, <a href="https://github.com/Dokploy/dokploy">Dokploy GitHub</a>, and <a href="https://www.byteportal.tech/blogs/dokploy/">our Dokploy setup guide</a>.</p>
+
+        <p><em>Hands-on comparison: both control planes tested on identical Hetzner Cloud VPS instances (CPX11, 2 vCPU, 2GB RAM and CX22, 2 vCPU, 4GB RAM) with Docker 27.</em></p>
